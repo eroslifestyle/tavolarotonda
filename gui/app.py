@@ -23,6 +23,7 @@ import time
 import uuid
 import logging
 import os
+import subprocess
 import urllib.request
 import urllib.error
 from pathlib import Path
@@ -371,12 +372,41 @@ app = Flask(__name__, static_folder="static", template_folder="templates")
 
 @app.route("/")
 def index():
-    return send_from_directory("templates", "index.html")
+    # Cache-busting: passa il commit SHA breve come build_id al template
+    build_id = _get_build_id()
+    html = (ROOT / "gui" / "templates" / "index.html").read_text()
+    html = html.replace("{{ build_id }}", build_id)
+    return Response(html, mimetype="text/html",
+                    headers={"Cache-Control": "no-store, must-revalidate"})
 
 
 @app.route("/static/<path:p>")
 def static_files(p):
-    return send_from_directory("static", p)
+    # Cache breve (1h) per static assets ma con ETag forte = build_id
+    # → Chrome ri-valida ad ogni reload ma non re-downloada se non cambiato
+    resp = send_from_directory(str(ROOT / "gui" / "static"), p)
+    resp.headers["Cache-Control"] = "public, max-age=3600, must-revalidate"
+    resp.headers["ETag"] = _get_build_id()
+    return resp
+
+
+def _get_build_id() -> str:
+    """Ritorna git SHA breve (8 char) o fallback timestamp se non git repo."""
+    try:
+        out = subprocess.check_output(
+            ["git", "-C", str(ROOT), "rev-parse", "--short", "HEAD"],
+            stderr=subprocess.DEVNULL, timeout=2,
+        ).decode().strip()
+        if out and len(out) >= 7:
+            return out
+    except Exception:
+        pass
+    # Fallback: mtime del file index.html (cambia ad ogni commit)
+    try:
+        idx = ROOT / "gui" / "templates" / "index.html"
+        return f"m{int(idx.stat().st_mtime)}"
+    except Exception:
+        return "dev"
 
 
 # === API ===

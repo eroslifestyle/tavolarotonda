@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>🥽 TavolaRotonda — Council of High Intelligence</title>
-<link rel="stylesheet" href="/static/style.css">
+<!-- Cache-busting: ?v=<git SHA breve> forza Chrome a scaricare il CSS nuovo -->
+<link rel="stylesheet" href="/static/style.css?v={{ build_id }}">
 </head>
 <body>
 <div id="app">
@@ -146,6 +147,6 @@ Quali sono i prossimi passi?"></textarea>
 
 </div>
 
-<script src="/static/app.js"></script>
+<script src="/static/app.js?v={{ build_id }}"></script>
 </body>
 </html>
