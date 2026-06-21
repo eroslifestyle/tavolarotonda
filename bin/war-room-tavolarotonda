@@ -54,3 +54,28 @@ done
 # Esegui dal repo root per consentire import corretti
 cd "$REPO_ROOT"
 exec python -m tavolarotonda "${ARGS[@]}" "$@"
+# === ANTI-REGRESSIONE: rileva se c'è ancora una copia vecchia attiva ===
+# Se /tmp/tavolarotonda esiste E non è symlink al repo canonico, warn l'utente
+if [[ -d /tmp/tavolarotonda ]] && [[ ! -L /tmp/tavolarotonda ]]; then
+    # Confronta il path canonico
+    CANONICAL="$(readlink -f "$REPO_ROOT")"
+    TMP_PATH="$(readlink -f /tmp/tavolarotonda 2>/dev/null || echo /tmp/tavolarotonda)"
+    if [[ "$TMP_PATH" != "$CANONICAL" ]]; then
+        echo "⚠️  ATTENZIONE: copia vecchia in $TMP_PATH (path canonico: $CANONICAL)" >&2
+        echo "   Se hai server Flask attivo da lì, killa con:  pkill -f 'cd /tmp/tavolarotonda.*gui/app.py'" >&2
+    fi
+fi
+
+# === ANTI-REGRESSIONE: rileva se c'è già un server Flask su porta nota ===
+for port in 8912 8913 8914; do
+    if ss -tln 2>/dev/null | grep -q ":$port " && [[ "$port" != "${TAVOLAROTONDA_PORT:-8912}" ]]; then
+        EXISTING_PID=$(ss -tlnp 2>/dev/null | grep ":$port " | grep -oP 'pid=\K[0-9]+' | head -1)
+        if [[ -n "$EXISTING_PID" ]]; then
+            EXISTING_CWD=$(readlink /proc/$EXISTING_PID/cwd 2>/dev/null)
+            if [[ "$EXISTING_CWD" != "$REPO_ROOT" ]]; then
+                echo "⚠️  Server Flask su porta $port gira da $EXISTING_CWD (PID=$EXISTING_PID)" >&2
+                echo "   Per sostituirlo:  kill $EXISTING_PID && $0 --port $port" >&2
+            fi
+        fi
+    fi
+done
