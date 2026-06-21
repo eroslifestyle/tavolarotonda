@@ -409,6 +409,173 @@ def _get_build_id() -> str:
         return "dev"
 
 
+# === AUDIT HELPERS (raccolta ricorsiva progetto) ===
+
+# Estensioni ammesse per audit di progetto (codice + documentazione + config)
+AUDIT_INCLUDE_EXTS = {
+    # Codice
+    ".py", ".js", ".ts", ".tsx", ".jsx", ".mjs", ".cjs",
+    ".go", ".rs", ".rb", ".php", ".java", ".kt", ".swift", ".c", ".cpp", ".h", ".hpp",
+    ".sh", ".bash", ".zsh", ".fish", ".ps1",
+    ".sql", ".r", ".scala", ".lua", ".pl", ".pm",
+    # Documentazione
+    ".md", ".markdown", ".rst", ".txt", ".adoc",
+    # Config / dati
+    ".json", ".yaml", ".yml", ".toml", ".ini", ".cfg", ".conf",
+    ".env", ".properties", ".xml",
+    # Web / template
+    ".html", ".htm", ".css", ".scss", ".less",
+    ".vue", ".svelte", ".astro",
+}
+
+# Pattern di esclusione (directory + file) — case-insensitive
+AUDIT_EXCLUDE_DIRS = {
+    ".git", ".hg", ".svn", "node_modules", "__pycache__", ".pytest_cache",
+    ".mypy_cache", ".ruff_cache", ".tox", "venv", ".venv", "env", ".env",
+    "dist", "build", "out", "output", "target", ".next", ".nuxt", ".cache",
+    "vendor", "third_party", "node_modules", "bower_components",
+    "graphify-out", ".graphify-out",
+    ".idea", ".vscode", ".claude", ".playwright-mcp",
+    "coverage", ".coverage", "htmlcov", ".mypy_cache",
+    "*.egg-info", ".eggs",
+}
+
+# Limiti default audit di progetto
+AUDIT_MAX_FILES = 50
+AUDIT_MAX_CHARS_PER_FILE = 4000
+AUDIT_MAX_TOTAL_CHARS = 200_000  # ~200KB prima di troncare
+
+
+def _is_auditable(path: Path) -> bool:
+    """True se path è un file leggibile e la sua estensione è ammessa."""
+    if not path.is_file() or not path.name:
+        return False
+    # Escludi dotfile (eccetto README, LICENSE, etc.)
+    if path.name.startswith("."):
+        if path.name.lower() in {".env", ".gitignore", ".dockerignore", ".editorconfig"}:
+            return True
+        return False
+    return path.suffix.lower() in AUDIT_INCLUDE_EXTS
+
+
+def _should_skip_dir(dirname: str) -> bool:
+    """True se la directory deve essere saltata completamente."""
+    return dirname.lower() in AUDIT_EXCLUDE_DIRS or dirname.startswith(".") and dirname not in {".github"}
+
+
+def audit_collect_targets(
+    root: Path,
+    max_files: int = AUDIT_MAX_FILES,
+    max_chars_per_file: int = AUDIT_MAX_CHARS_PER_FILE,
+    max_total_chars: int = AUDIT_MAX_TOTAL_CHARS,
+) -> list[tuple[str, str, int]]:
+    """Raccoglie file da un progetto per audit.
+
+    Ritorna lista di tuple (relpath, content_truncated, size_bytes).
+    Applica filtri per estensione, esclude directory comuni (node_modules, .git, ecc.),
+    rispetta limiti di sicurezza (max N file, max K chars/file, max M totali).
+    """
+    results = []
+    total_chars = 0
+
+    # Ordine deterministico: prima directory, poi file alfabeticamente
+    try:
+        all_paths = sorted(root.rglob("*"), key=lambda p: (str(p.parent), p.name))
+    except (PermissionError, OSError) as e:
+        print(f"[audit] rglob failed: {e}")
+        return results
+
+    for p in all_paths:
+        if len(results) >= max_files:
+            break
+        # Salta parti di path che sono directory escluse
+        if any(part.lower() in AUDIT_EXCLUDE_DIRS for part in p.relative_to(root).parts[:-1]):
+            continue
+        if not _is_auditable(p):
+            continue
+        try:
+            content = p.read_text(errors="replace")
+        except (UnicodeDecodeError, PermissionError, OSError):
+            continue
+        # Tronca per file se troppo lungo
+        truncated = False
+        if len(content) > max_chars_per_file:
+            content = content[:max_chars_per_file] + f"\n\n... [truncated at {max_chars_per_file} chars, file totale più lungo]"
+            truncated = True
+        # Tronca totale se sforato
+        if total_chars + len(content) > max_total_chars:
+            remaining = max_total_chars - total_chars
+            if remaining < 200:
+                break
+            content = content[:remaining] + f"\n\n... [truncated, audit budget esaurito]"
+        total_chars += len(content)
+        rel = str(p.relative_to(root))
+        size = p.stat().st_size
+        results.append((rel, content, size))
+
+    return results
+
+
+def audit_project_stats(files: list[tuple[str, str, int]]) -> dict:
+    """Calcola statistiche di sintesi del progetto raccolto."""
+    from collections import Counter
+    exts = Counter()
+    total_lines = 0
+    total_chars = 0
+    for rel, content, _size in files:
+        ext = Path(rel).suffix.lower() or "(no ext)"
+        exts[ext] += 1
+        total_lines += content.count("\n") + 1
+        total_chars += len(content)
+    return {
+        "n_files": len(files),
+        "total_lines": total_lines,
+        "total_chars": total_chars,
+        "top_exts": exts.most_common(8),
+    }
+
+
+def audit_render_tree(root: Path, files: list[tuple[str, str, int]]) -> str:
+    """Genera albero ASCII della struttura del progetto (solo file inclusi)."""
+    paths = sorted(rel for rel, _, _ in files)
+    # Costruisci dict nidificato
+    tree = {}
+    for rel in paths:
+        parts = rel.split("/")
+        cur = tree
+        for part in parts[:-1]:
+            cur = cur.setdefault(part, {})
+        cur[parts[-1]] = None  # None = file foglia
+    # Render ASCII
+    lines = [f"{root.name}/"]
+
+    def render(node, prefix=""):
+        items = sorted(node.items(), key=lambda x: (x[1] is None, x[0]))  # dir prima, file dopo
+        for i, (name, sub) in enumerate(items):
+            is_last = (i == len(items) - 1)
+            connector = "└── " if is_last else "├── "
+            if sub is None:
+                lines.append(f"{prefix}{connector}{name}")
+            else:
+                lines.append(f"{prefix}{connector}{name}/")
+                extension = "    " if is_last else "│   "
+                render(sub, prefix + extension)
+
+    render(tree)
+    return "\n".join(lines[:80])  # cap a 80 righe
+
+
+def _ext_hint(rel: str) -> str:
+    """Hint di linguaggio per code fence (per syntax highlight in output)."""
+    ext = Path(rel).suffix.lower()
+    return {
+        ".py": "python", ".js": "javascript", ".ts": "typescript",
+        ".md": "markdown", ".json": "json", ".yaml": "yaml", ".yml": "yaml",
+        ".html": "html", ".css": "css", ".sh": "bash", ".sql": "sql",
+        ".go": "go", ".rs": "rust", ".rb": "ruby",
+    }.get(ext, "")
+
+
 # === API ===
 
 @app.route("/api/agents", methods=["GET"])
@@ -627,22 +794,50 @@ async def _run_session(sid, mode, topic, audit_target, qa_questions,
 
     # Topic effettivo per audit/qa
     if mode == "audit":
-        target_file = Path(audit_target)
-        if not target_file.exists():
+        target_path = Path(audit_target)
+        if not target_path.exists():
             alt = ROOT / audit_target
             if alt.exists():
-                target_file = alt
+                target_path = alt
             else:
-                raise FileNotFoundError(f"file non trovato: {audit_target}")
-        code = target_file.read_text(errors="replace")[:8000]
-        topic_actual = (
-            f"AUDIT del file {target_file.name}.\n\n"
-            f"Devi produrre un audit dettagliato con sezioni: Pro/Contro, Criticità, "
-            f"Punti di forza, Consigli, Open Questions, Minority Report.\n\n"
-            f"```\n{code}\n```"
-        )
-        target_name = target_file.name
-        target_description = f"Audit del file {target_file} ({len(code)} chars)"
+                raise FileNotFoundError(f"path non trovato: {audit_target}")
+
+        # Modalità progetto: path è una directory → raccolta ricorsiva
+        if target_path.is_dir():
+            project_files = audit_collect_targets(target_path, max_files=50, max_chars_per_file=4000)
+            if not project_files:
+                raise ValueError(f"nessun file leggibile trovato in {target_path}")
+            stats = audit_project_stats(project_files)
+            tree = audit_render_tree(target_path, project_files)
+            file_blocks = "\n\n".join(
+                f"### {rel}\n```{_ext_hint(rel)}\n{content}\n```"
+                for rel, content, _size in project_files
+            )
+            topic_actual = (
+                f"AUDIT del PROGETTO {target_path.name} "
+                f"({len(project_files)} file, {stats['total_lines']} righe totali, "
+                f"{stats['total_chars']:,} chars).\n\n"
+                f"Estensioni top: {', '.join(f'{e}({n})' for e, n in stats['top_exts'])}.\n\n"
+                f"## Struttura ad albero\n```\n{tree}\n```\n\n"
+                f"## File inclusi nel contesto\n{file_blocks}\n\n"
+                f"Devi produrre un audit dettagliato con sezioni: Pro/Contro, Criticità, "
+                f"Punti di forza, Consigli, Open Questions, Minority Report. "
+                f"Considera l'architettura, le dipendenze, la qualità del codice, "
+                f"la sicurezza, le performance, la manutenibilità."
+            )
+            target_name = f"📁 {target_path.name} ({len(project_files)} file)"
+            target_description = f"Audit progetto {target_path} ({stats['total_lines']} righe, {len(project_files)} file)"
+        else:
+            # Singolo file (legacy)
+            code = target_path.read_text(errors="replace")[:8000]
+            topic_actual = (
+                f"AUDIT del file {target_path.name}.\n\n"
+                f"Devi produrre un audit dettagliato con sezioni: Pro/Contro, Criticità, "
+                f"Punti di forza, Consigli, Open Questions, Minority Report.\n\n"
+                f"```\n{code}\n```"
+            )
+            target_name = target_path.name
+            target_description = f"Audit del file {target_path} ({len(code)} chars)"
     elif mode == "qa":
         topic_actual = "Q&A multi-domanda:\n" + "\n".join(f"- {qq}" for qq in qa_questions)
         target_name = f"Q&A {len(qa_questions)} domande"

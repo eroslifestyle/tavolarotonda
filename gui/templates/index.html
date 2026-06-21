@@ -67,10 +67,23 @@
       </div>
 
       <div class="field" id="field-audit" style="display:none">
-        <label>File da auditare</label>
+        <label>🎯 Target audit (file o cartella progetto)</label>
         <input type="text" id="audit-input"
-          placeholder="/path/al/file.py" value="">
-        <small>Path assoluto sul server</small>
+          placeholder="/path/al/file.py oppure /path/al/progetto/" value="">
+        <div class="audit-mode-row">
+          <label class="toggle-label">
+            <input type="checkbox" id="audit-project-mode" checked>
+            <span>📁 Modalità progetto (ricorsiva)</span>
+          </label>
+          <span class="audit-hint" id="audit-hint">Se il path è una directory, analizza tutti i file del progetto</span>
+        </div>
+        <details class="audit-extras">
+          <summary>⚙️ Opzioni avanzate</summary>
+          <label>Pattern esclusione extra (separati da virgola)</label>
+          <input type="text" id="audit-exclude"
+            placeholder="es: tests,docs,migrations" value="">
+          <span class="audit-hint">Default esclude: .git, node_modules, __pycache__, venv, dist, build, output, ecc.</span>
+        </details>
       </div>
 
       <div class="field" id="field-qa" style="display:none">

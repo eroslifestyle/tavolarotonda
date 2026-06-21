@@ -322,6 +322,8 @@ async function startRun() {
   clearStream();
   const topic = document.getElementById("topic-input").value.trim();
   const audit = document.getElementById("audit-input").value.trim();
+  const auditMode = document.getElementById("audit-project-mode")?.checked ?? false;
+  const auditExclude = document.getElementById("audit-exclude")?.value.trim() || "";
   const qa = document.getElementById("qa-input").value.trim();
   const rounds = parseInt(document.getElementById("rounds-slider").value);
   const privacy = document.getElementById("privacy-select").value;
@@ -330,7 +332,7 @@ async function startRun() {
   const councilMode = state.councilMode || "monolithic";
 
   if (state.mode === "topic" && !topic) { alert("Inserisci un topic"); return; }
-  if (state.mode === "audit" && !audit) { alert("Inserisci il path di un file"); return; }
+  if (state.mode === "audit" && !audit) { alert("Inserisci il path di un file o cartella progetto"); return; }
   if (state.mode === "qa" && !qa) { alert("Inserisci almeno una domanda"); return; }
 
   const payload = {
@@ -342,7 +344,11 @@ async function startRun() {
     research,
   };
   if (state.mode === "topic") payload.topic = topic;
-  if (state.mode === "audit") payload.audit_target = audit;
+  if (state.mode === "audit") {
+    payload.audit_target = audit;
+    payload.audit_project_mode = auditMode;
+    if (auditExclude) payload.audit_exclude = auditExclude;
+  }
   if (state.mode === "qa") {
     payload.qa_questions = qa.split("\n").map(s => s.trim()).filter(Boolean);
   }
