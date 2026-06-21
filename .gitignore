@@ -1,0 +1,81 @@
+# ============================================================
+# tavolarotonda — .gitignore
+# Generato 2026-06-21 al bootstrap git
+# ============================================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# --- Virtual env ---
+venv/
+.venv/
+env/
+ENV/
+
+# --- Runtime logs (rigenerabili) ---
+*.log
+gui.log
+server.log
+logs/
+
+# --- Secrets / config locale ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets/
+
+# --- IDE / editor ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# --- Artefatti transienti (rigenerabili con --qa/--audit/--mock) ---
+output/palace_*.json
+output/*.tmp
+output/*.bak
+
+# --- Build / dist ---
+build/
+dist/
+*.spec
+
+# --- Cache graphify / codemap (rigenerabile con codemap.sh --ast-only) ---
+# AST cache interna (alta cardinalità, rigenerabile)
+graphify-out/cache/
+**/graphify-out/cache/
+**/.graphify_cache/
+
+# Config locale codemap (machine-specific)
+.claude/codemap.json
+.claude/settings.json
+.claude/cache/
+
+# --- Note: cosa è INCLUSO intenzionalmente ---
+# .claude/checkpoints/CP_*.md → history sessioni, utile per handoff agenti
+# .graphifyignore              → config graphify (cosa NON parsare)
+# CLAUDE.md                    → Claude Code integration del codemap (opzionale ma utile)
+# output/*.html                → demo + template HTML (visibili su GitHub)
+# output/palace.json           → esempio Memory Palace persistente
+# bin/war-room-tavolarotonda   → adapter per skill Pi /skill:war-room
+# Symlink root graphify-out (ridondante, vera cache è in tavolarotonda/graphify-out/)
+graphify-out
+
+/graphify-out
+

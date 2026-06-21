@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+# ============================================================
+# war-room-tavolarotonda — Adapter per skill Pi /skill:war-room
+# Generato 2026-06-21 — wiring operativo (decisione utente)
+# ============================================================
+#
+# Delega una discussione council multi-agente al backend Python
+# `tavolarotonda` (9 moduli, 18 personas, 6 fasi).
+#
+# USO:
+#   war-room-tavolarotonda "topic della discussione"
+#   war-room-tavolarotonda --privacy local_only "topic..."
+#   war-room-tavolarotonda --audit path/al/file.py
+#   war-room-tavolarotonda --qa "Q1?" "Q2?" "Q3?"
+#
+# SKILL PI COMPATIBILI:
+#   /skill:war-room       — council multi-agente
+#   /skill:opus-m3-confer — dialogo strutturato Opus↔MiniMax-M3
+#   /skill:swarm          — bruteforce parallelo (può usare tavolarotonda come backend)
+#
+# INSTALLAZIONE (opzionale, per PATH globale):
+#   sudo ln -sf "$(pwd)/bin/war-room-tavolarotonda" /usr/local/bin/
+# ============================================================
+
+set -euo pipefail
+
+# Resolve script dir + repo root (bin/ è 1 livello sotto root)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+
+# Verifica presenza modulo Python
+if [[ ! -d "$REPO_ROOT/tavolarotonda" ]]; then
+    echo "❌ ERRORE: modulo '$REPO_ROOT/tavolarotonda' non trovato." >&2
+    echo "   Esegui da repo root o aggiorna il symlink in /usr/local/bin/." >&2
+    exit 1
+fi
+
+# Default privacy tier: local_only (nessun cloud, nessun free-API)
+PRIVACY="${PRIVACY:-local_only}"
+
+# Pass-through argomenti a `python -m tavolarotonda`
+# Aggiungi --privacy solo se non già specificato dall'utente
+ARGS=()
+HAS_PRIVACY=0
+for arg in "$@"; do
+    [[ "$arg" == "--privacy" ]] && HAS_PRIVACY=1
+done
+[[ $HAS_PRIVACY -eq 0 ]] && ARGS+=("--privacy" "$PRIVACY")
+
+# Esegui dal repo root per consentire import corretti
+cd "$REPO_ROOT"
+exec python -m tavolarotonda "${ARGS[@]}" "$@"

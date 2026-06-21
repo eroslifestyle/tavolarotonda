@@ -1,0 +1,438 @@
+{
+  "session_id": "tr-9692d889",
+  "created_at": "2026-06-21T17:50:24",
+  "updated_at": "2026-06-21T17:50:24",
+  "topic": "Dovrei aprire-sorgere il mio agent framework?",
+  "problem_restated": {
+    "restatements": [
+      {
+        "agent": "aristotle",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "socrates",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "sun_tzu",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "ada",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "feynman",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "torvalds",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "karpathy",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "kahneman",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "meadows",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "munger",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "taleb",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      },
+      {
+        "agent": "rams",
+        "text": "[MOCK mock] Risposta stub per prompt di 261 caratteri."
+      }
+    ]
+  },
+  "web_research": {
+    "supporting": [
+      "GitHub - Detrol/quorum-cli: Multi-agent AI discussion — https://github.com/Detrol/quorum-cli",
+      "Council of High Intelligence — https://github.com/0xNyk/council-of-high-intelligence",
+      "Multi-Agent Debate migliora factuality (Du et al. 2023) — https://arxiv.org/abs/2305.14325"
+    ],
+    "counter": [
+      "GitHub - Detrol/quorum-cli: Multi-agent AI discussion — https://github.com/Detrol/quorum-cli",
+      "Council of High Intelligence — https://github.com/0xNyk/council-of-high-intelligence",
+      "Multi-Agent Debate migliora factuality (Du et al. 2023) — https://arxiv.org/abs/2305.14325"
+    ]
+  },
+  "brainstorm": [
+    {
+      "agent": "aristotle",
+      "text": "[MOCK mock] Risposta stub per prompt di 2114 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "socrates",
+      "text": "[MOCK mock] Risposta stub per prompt di 2186 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "sun_tzu",
+      "text": "[MOCK mock] Risposta stub per prompt di 2252 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "ada",
+      "text": "[MOCK mock] Risposta stub per prompt di 2336 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "feynman",
+      "text": "[MOCK mock] Risposta stub per prompt di 2388 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "torvalds",
+      "text": "[MOCK mock] Risposta stub per prompt di 2434 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "karpathy",
+      "text": "[MOCK mock] Risposta stub per prompt di 2455 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "kahneman",
+      "text": "[MOCK mock] Risposta stub per prompt di 2455 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "meadows",
+      "text": "[MOCK mock] Risposta stub per prompt di 2465 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "munger",
+      "text": "[MOCK mock] Risposta stub per prompt di 2463 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "taleb",
+      "text": "[MOCK mock] Risposta stub per prompt di 2457 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "rams",
+      "text": "[MOCK mock] Risposta stub per prompt di 2449 caratteri.",
+      "round": 1,
+      "model": "auto"
+    },
+    {
+      "agent": "aristotle",
+      "text": "[MOCK mock] Risposta stub per prompt di 2433 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "socrates",
+      "text": "[MOCK mock] Risposta stub per prompt di 2440 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "sun_tzu",
+      "text": "[MOCK mock] Risposta stub per prompt di 2441 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "ada",
+      "text": "[MOCK mock] Risposta stub per prompt di 2461 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "feynman",
+      "text": "[MOCK mock] Risposta stub per prompt di 2450 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "torvalds",
+      "text": "[MOCK mock] Risposta stub per prompt di 2434 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "karpathy",
+      "text": "[MOCK mock] Risposta stub per prompt di 2455 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "kahneman",
+      "text": "[MOCK mock] Risposta stub per prompt di 2455 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "meadows",
+      "text": "[MOCK mock] Risposta stub per prompt di 2465 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "munger",
+      "text": "[MOCK mock] Risposta stub per prompt di 2463 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "taleb",
+      "text": "[MOCK mock] Risposta stub per prompt di 2457 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "rams",
+      "text": "[MOCK mock] Risposta stub per prompt di 2449 caratteri.",
+      "round": 2,
+      "model": "auto"
+    },
+    {
+      "agent": "aristotle",
+      "text": "[MOCK mock] Risposta stub per prompt di 2433 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "socrates",
+      "text": "[MOCK mock] Risposta stub per prompt di 2440 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "sun_tzu",
+      "text": "[MOCK mock] Risposta stub per prompt di 2441 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "ada",
+      "text": "[MOCK mock] Risposta stub per prompt di 2461 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "feynman",
+      "text": "[MOCK mock] Risposta stub per prompt di 2450 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "torvalds",
+      "text": "[MOCK mock] Risposta stub per prompt di 2434 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "karpathy",
+      "text": "[MOCK mock] Risposta stub per prompt di 2455 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "kahneman",
+      "text": "[MOCK mock] Risposta stub per prompt di 2455 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "meadows",
+      "text": "[MOCK mock] Risposta stub per prompt di 2465 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "munger",
+      "text": "[MOCK mock] Risposta stub per prompt di 2463 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "taleb",
+      "text": "[MOCK mock] Risposta stub per prompt di 2457 caratteri.",
+      "round": 3,
+      "model": "auto"
+    },
+    {
+      "agent": "rams",
+      "text": "[MOCK mock] Risposta stub per prompt di 2449 caratteri.",
+      "round": 3,
+      "model": "auto"
+    }
+  ],
+  "critique": [
+    {
+      "agent": "aristotle",
+      "target_agent": "socrates",
+      "text": "[MOCK mock] Risposta stub per prompt di 433 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "socrates",
+      "target_agent": "sun_tzu",
+      "text": "[MOCK mock] Risposta stub per prompt di 430 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "sun_tzu",
+      "target_agent": "ada",
+      "text": "[MOCK mock] Risposta stub per prompt di 440 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "ada",
+      "target_agent": "feynman",
+      "text": "[MOCK mock] Risposta stub per prompt di 435 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "feynman",
+      "target_agent": "torvalds",
+      "text": "[MOCK mock] Risposta stub per prompt di 432 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "torvalds",
+      "target_agent": "karpathy",
+      "text": "[MOCK mock] Risposta stub per prompt di 433 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "karpathy",
+      "target_agent": "kahneman",
+      "text": "[MOCK mock] Risposta stub per prompt di 433 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "kahneman",
+      "target_agent": "meadows",
+      "text": "[MOCK mock] Risposta stub per prompt di 431 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "meadows",
+      "target_agent": "munger",
+      "text": "[MOCK mock] Risposta stub per prompt di 428 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "munger",
+      "target_agent": "taleb",
+      "text": "[MOCK mock] Risposta stub per prompt di 425 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "taleb",
+      "target_agent": "rams",
+      "text": "[MOCK mock] Risposta stub per prompt di 422 caratteri.",
+      "round": 3
+    },
+    {
+      "agent": "rams",
+      "target_agent": "aristotle",
+      "text": "[MOCK mock] Risposta stub per prompt di 433 caratteri.",
+      "round": 3
+    }
+  ],
+  "synthesis": {
+    "text": "[MOCK mock] Risposta stub per prompt di 2734 caratteri.",
+    "round": 3
+  },
+  "votes": [
+    {
+      "agent": "aristotle",
+      "verdict": "approve",
+      "score": 0.7
+    },
+    {
+      "agent": "socrates",
+      "verdict": "approve",
+      "score": 0.7999999999999999
+    },
+    {
+      "agent": "sun_tzu",
+      "verdict": "approve",
+      "score": 0.8999999999999999
+    },
+    {
+      "agent": "ada",
+      "verdict": "approve",
+      "score": 0.7
+    },
+    {
+      "agent": "feynman",
+      "verdict": "approve",
+      "score": 0.7999999999999999
+    },
+    {
+      "agent": "torvalds",
+      "verdict": "approve",
+      "score": 0.8999999999999999
+    },
+    {
+      "agent": "karpathy",
+      "verdict": "approve",
+      "score": 0.7
+    },
+    {
+      "agent": "kahneman",
+      "verdict": "approve",
+      "score": 0.7999999999999999
+    },
+    {
+      "agent": "meadows",
+      "verdict": "approve",
+      "score": 0.8999999999999999
+    },
+    {
+      "agent": "munger",
+      "verdict": "approve",
+      "score": 0.7
+    },
+    {
+      "agent": "taleb",
+      "verdict": "approve",
+      "score": 0.7999999999999999
+    },
+    {
+      "agent": "rams",
+      "verdict": "approve",
+      "score": 0.8999999999999999
+    }
+  ],
+  "minority_report": "",
+  "convergence_score": 0.0,
+  "decision": null,
+  "open_questions": [],
+  "next_steps": [],
+  "metrics": {
+    "tokens_in": 0,
+    "tokens_out": 27,
+    "models_used": []
+  }
+}

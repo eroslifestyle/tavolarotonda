@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audit Report — audit_target.py</title>
+<style>
+:root {
+  --bg: #0e1117; --fg: #e6edf3; --muted: #8b949e;
+  --accent: #58a6ff; --success: #3fb950; --danger: #f85149; --warn: #d29922;
+  --card: #161b22; --border: #30363d;
+}
+* { box-sizing: border-box; }
+body { font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+       background: var(--bg); color: var(--fg); margin: 0; padding: 24px; line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; }
+h1 { font-size: 2.2em; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+h2 { color: var(--accent); margin-top: 32px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+h3 { color: var(--fg); margin-top: 20px; }
+.meta { color: var(--muted); font-size: 0.9em; margin-bottom: 24px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+         padding: 18px; margin: 14px 0; }
+.pro { border-left: 4px solid var(--success); }
+.contro { border-left: 4px solid var(--danger); }
+.neutral { border-left: 4px solid var(--muted); }
+.crit { border-left: 4px solid var(--warn); }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.75em;
+        background: var(--border); color: var(--muted); margin-right: 6px; }
+.tag.success { background: rgba(63,185,80,.15); color: var(--success); }
+.tag.danger { background: rgba(248,81,73,.15); color: var(--danger); }
+.tag.warn { background: rgba(210,153,34,.15); color: var(--warn); }
+table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+th, td { padding: 10px; border: 1px solid var(--border); text-align: left; }
+th { background: var(--card); }
+.qa-question { background: rgba(88,166,255,.05); border: 1px solid var(--accent);
+                border-radius: 8px; padding: 14px; margin: 18px 0; }
+.qa-answers { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; margin-top: 10px; }
+.qa-answer { background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+              padding: 12px; font-size: 0.92em; }
+.qa-answer h4 { margin: 0 0 6px 0; font-size: 1em; color: var(--accent); }
+.q-form { display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
+.q-form input, .q-form textarea {
+  background: var(--bg); color: var(--fg); border: 1px solid var(--border);
+  border-radius: 4px; padding: 8px; font-family: inherit; font-size: 0.95em;
+}
+.q-form button { background: var(--accent); color: var(--bg); border: none;
+                 padding: 10px; border-radius: 4px; cursor: pointer; font-weight: 600; }
+.q-form button:hover { opacity: 0.85; }
+.q-item { padding: 8px; border: 1px solid var(--border); border-radius: 4px;
+           margin: 6px 0; background: var(--bg); display: flex; gap: 8px; align-items: center; }
+.q-item input[type="checkbox"] { transform: scale(1.2); }
+hr { border: none; border-top: 1px dashed var(--border); margin: 24px 0; }
+small { color: var(--muted); }
+footer { margin-top: 40px; color: var(--muted); text-size: 0.85em; text-align: center; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📋 Audit Report — audit_target.py</h1>
+<div class="meta">Target: <b>audit_target.py</b> &middot; 
+Generato: 2026-06-21 17:53 &middot; 
+Confidenza: <b>0%</b></div>
+<div class="card">Audit del codice in examples/audit_target.py. Analisi multi-agente con 12 agenti.</div>
+
+    <h2>🎯 Verdetto del Council</h2>
+    <div class="card"><b>(verdetto non ancora prodotto)</b></div>
+    
+<h2>⚠️ Criticità</h2>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **aristotle → socrates**: [MOCK mock] Risposta stub per prompt di 433 caratteri.</div>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **socrates → sun_tzu**: [MOCK mock] Risposta stub per prompt di 430 caratteri.</div>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **sun_tzu → ada**: [MOCK mock] Risposta stub per prompt di 440 caratteri.</div>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **ada → feynman**: [MOCK mock] Risposta stub per prompt di 435 caratteri.</div>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **feynman → torvalds**: [MOCK mock] Risposta stub per prompt di 432 caratteri.</div>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **torvalds → karpathy**: [MOCK mock] Risposta stub per prompt di 433 caratteri.</div>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **karpathy → kahneman**: [MOCK mock] Risposta stub per prompt di 433 caratteri.</div>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **kahneman → meadows**: [MOCK mock] Risposta stub per prompt di 431 caratteri.</div>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **meadows → munger**: [MOCK mock] Risposta stub per prompt di 428 caratteri.</div>
+<div class="card crit"><span class="tag warn">CRITICITÀ</span> **munger → taleb**: [MOCK mock] Risposta stub per prompt di 425 caratteri.</div>
+<h2>👥 Per Agente</h2>
+
+            <div class="card">
+              <h3>karpathy</h3>
+              <div>[MOCK mock] Risposta stub per prompt di 1931 caratteri.</div>
+            </div>
+            
+
+            <div class="card">
+              <h3>kahneman</h3>
+              <div>[MOCK mock] Risposta stub per prompt di 1931 caratteri.</div>
+            </div>
+            
+
+            <div class="card">
+              <h3>meadows</h3>
+              <div>[MOCK mock] Risposta stub per prompt di 1941 caratteri.</div>
+            </div>
+            
+
+            <div class="card">
+              <h3>munger</h3>
+              <div>[MOCK mock] Risposta stub per prompt di 1939 caratteri.</div>
+            </div>
+            
+
+            <div class="card">
+              <h3>taleb</h3>
+              <div>[MOCK mock] Risposta stub per prompt di 1933 caratteri.</div>
+            </div>
+            
+
+            <div class="card">
+              <h3>rams</h3>
+              <div>[MOCK mock] Risposta stub per prompt di 1925 caratteri.</div>
+            </div>
+            
+
+    <footer>Generato da tavolarotonda v0.1.0 — Council of High Intelligence pattern
+    (18 personas, polarity pairs, adversarial evidence, anti-groupthink).</footer>
+    
+</div>
+</body>
+</html>
