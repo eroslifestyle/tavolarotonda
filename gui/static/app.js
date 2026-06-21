@@ -240,7 +240,7 @@ function updateRoutingPreview() {
 
   if (!preset.routing) {
     const mLabel = state.models.find(x => x.key === state.selectedModel)?.label || state.selectedModel;
-    preview.innerHTML = `<span class="routing-preview-label">📍 Distribuzione agenti</span>
+    preview.innerHTML = `<div class="routing-preview-label">📍 Distribuzione agenti</div>
       <div class="routing-empty">Modalità <b>monolitica</b>: tutti i <b>18 agenti</b> → <b>${escapeHtml(mLabel)}</b></div>`;
     return;
   }
@@ -259,15 +259,16 @@ function updateRoutingPreview() {
     "mock": "var(--muted)",
   };
 
-  let html = `<span class="routing-preview-label">📍 Distribuzione agenti</span>`;
+  let html = `<div class="routing-preview-label">📍 Distribuzione agenti</div><div class="routing-grid">`;
   for (const [prov, agents] of Object.entries(byProvider)) {
     const color = providerColor[prov] || "var(--muted)";
     const provLabel = state.models.find(x => x.key === prov)?.label || prov;
     html += `<div class="routing-group">
-      <div class="routing-prov" style="color:${color}">● ${escapeHtml(provLabel)} <span class="routing-count">(${agents.length} agenti)</span></div>
+      <div class="routing-prov" style="color:${color}">● ${escapeHtml(provLabel)} <span class="routing-count">${agents.length} agenti</span></div>
       <div class="routing-agents">${agents.map(a => `<span class="routing-agent" title="${escapeHtml(a)}">${escapeHtml(a)}</span>`).join(" ")}</div>
     </div>`;
   }
+  html += `</div>`;
   preview.innerHTML = html;
 }
 
