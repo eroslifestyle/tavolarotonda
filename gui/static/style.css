@@ -483,24 +483,74 @@ button:disabled {
   transform: translate(-50%, -50%);
   text-align: center;
   color: var(--muted);
-  max-width: 380px;
+  max-width: 480px;
+  padding: 28px 32px;
+  /* Bordo tratteggiato = "area placeholder che si popolerà" */
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  background: var(--bg-elev);
 }
 
 .empty-icon {
-  font-size: 48px;
-  margin-bottom: 12px;
-  opacity: 0.4;
+  font-size: 56px;
+  margin-bottom: 14px;
+  opacity: 0.6;
+  display: block;
 }
 
 .empty-state h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
+  font-size: 17px;
+  margin-bottom: 8px;
   color: var(--fg);
+  font-weight: 600;
 }
 
 .empty-state p {
   font-size: 13px;
   line-height: 1.6;
+}
+
+.empty-state .cta {
+  margin-top: 18px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.empty-state .cta-arrow {
+  margin-left: 6px;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.empty-mockup {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  text-align: left;
+  font-size: 11px;
+  opacity: 0.55;
+}
+
+.empty-mockup .mock-event {
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: ui-monospace, monospace;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: translateX(0); }
+  50% { opacity: 0.5; transform: translateX(3px); }
 }
 
 /* === STREAM EVENTS === */
