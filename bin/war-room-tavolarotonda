@@ -25,7 +25,9 @@
 set -euo pipefail
 
 # Resolve script dir + repo root (bin/ è 1 livello sotto root)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# readlink -f risolve eventuali symlink (es. /usr/local/bin/war-room-tavolarotonda -> /mnt/backup/.../bin/...)
+SCRIPT_PATH="$(readlink -f "${BASH_SOURCE[0]}")"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 
 # Verifica presenza modulo Python
@@ -34,6 +36,8 @@ if [[ ! -d "$REPO_ROOT/tavolarotonda" ]]; then
     echo "   Esegui da repo root o aggiorna il symlink in /usr/local/bin/." >&2
     exit 1
 fi
+
+echo "🔗 war-room-tavolarotonda → $REPO_ROOT" >&2
 
 # Default privacy tier: local_only (nessun cloud, nessun free-API)
 PRIVACY="${PRIVACY:-local_only}"
