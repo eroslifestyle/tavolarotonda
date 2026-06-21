@@ -73,8 +73,10 @@ async function loadModels() {
     data.models.forEach(m => {
       const opt = document.createElement("option");
       opt.value = m.key;
-      opt.textContent = `${m.icon} ${m.label}`;
-      opt.title = m.description;
+      // Tronca SOLO nel select (full label nel info panel sotto)
+      const label = `${m.icon} ${m.label}`;
+      opt.textContent = label.length > 35 ? label.slice(0, 33) + "…" : label;
+      opt.title = `${m.label}\n${m.description}`;
       opt.dataset.status = m.state;
       select.appendChild(opt);
     });
@@ -89,10 +91,14 @@ async function loadModels() {
       state.selectedModel = "mock";
     }
 
-    updateModelStatus(state.selectedModel);
+    renderModelInfo(state.selectedModel);
     select.addEventListener("change", () => {
       state.selectedModel = select.value;
-      updateModelStatus(state.selectedModel);
+      renderModelInfo(state.selectedModel);
+      // Aggiorna anche routing preview se council mode è attivo
+      if (state.councilMode && state.councilMode !== "monolithic") {
+        updateRoutingPreview();
+      }
     });
   } catch (e) {
     console.error("loadModels failed:", e);
@@ -100,47 +106,145 @@ async function loadModels() {
   }
 }
 
-// === COUNCIL PRESETS ===
+// Render info panel dettagliato del modello selezionato (descrizione + env + sub-provider)
+function renderModelInfo(key) {
+  const m = state.models.find(x => x.key === key);
+  if (!m) return;
+
+  // Status badge (inline)
+  const status = document.getElementById("model-status");
+  const reason = document.getElementById("model-reason");
+  let badge = "";
+  switch (m.state) {
+    case "ok":
+      badge = `<span class="model-status-badge model-ok">✅ ${escapeHtml(m.model || "ok")}</span>`;
+      reason.textContent = m.reason || "";
+      reason.style.color = "var(--muted)";
+      break;
+    case "missing_env":
+      badge = `<span class="model-status-badge model-warn">⚠️ Config mancante</span>`;
+      reason.textContent = m.reason || "";
+      reason.style.color = "var(--warn)";
+      break;
+    case "unreachable":
+    case "unavailable":
+      badge = `<span class="model-status-badge model-error">❌ ${escapeHtml(m.state)}</span>`;
+      reason.textContent = m.reason || "";
+      reason.style.color = "var(--danger)";
+      break;
+    case "fallback_mock":
+      badge = `<span class="model-status-badge model-warn">⚠️ Fallback mock</span>`;
+      reason.textContent = m.reason || "";
+      reason.style.color = "var(--warn)";
+      break;
+    default:
+      badge = `<span class="model-status-badge model-loading">?</span>`;
+      reason.textContent = m.reason || "";
+  }
+  status.innerHTML = badge;
+
+  // Info panel dettagliato (sempre visibile, full text)
+  const info = document.getElementById("model-info");
+  let envHtml = "";
+  if (m.env_required && m.env_required.length > 0) {
+    const cmds = m.env_required.map(k =>
+      `<code class="model-info-env-cmd" title="Clicca per selezionare, poi copia">export ${escapeHtml(k)}=&lt;your-key&gt;</code>`
+    ).join("");
+    envHtml = `<div class="model-info-env">
+      <div class="model-info-env-label">🔑 Env richieste</div>
+      ${cmds}
+    </div>`;
+  }
+
+  let providersHtml = "";
+  if (m.providers && Object.keys(m.providers).length > 0) {
+    const rows = Object.entries(m.providers).map(([pname, pst]) => {
+      const icon = pst.state === "ok" ? "✅" : "⚠️";
+      const modelInfo = state.models.find(x => x.key === pname);
+      const pIcon = modelInfo ? modelInfo.icon : "🤖";
+      return `<div class="model-info-provider">
+        <span class="model-info-provider-icon">${pIcon}</span>
+        <div class="model-info-provider-info">
+          <div class="model-info-provider-name">${escapeHtml(pname)} <span style="color:var(--muted);font-weight:400">→ ${escapeHtml(pst.model || "?")}</span></div>
+          <div class="model-info-provider-reason">${icon} ${escapeHtml(pst.state)} · ${escapeHtml((pst.reason || "").slice(0, 100))}</div>
+        </div>
+      </div>`;
+    }).join("");
+    providersHtml = `<div class="model-info-providers">
+      <div class="model-info-providers-title">🎭 Sub-provider attivi</div>
+      ${rows}
+    </div>`;
+  }
+
+  info.innerHTML = `
+    <div class="model-info-header">
+      <span class="model-info-icon">${escapeHtml(m.icon || "🤖")}</span>
+      <span class="model-info-label">${escapeHtml(m.label)}</span>
+    </div>
+    <div class="model-info-desc">${escapeHtml(m.description)}</div>
+    ${m.model && m.model !== "mock" ? `<div class="model-info-model">model: ${escapeHtml(m.model)}</div>` : ""}
+    ${envHtml}
+    ${providersHtml}
+  `;
+  info.style.display = "";
+}
+
+// === COUNCIL PRESETS (radio cards) ===
 async function loadCouncilPresets() {
   try {
     const r = await fetch("/api/council-presets");
     const data = await r.json();
     state.councilPresets = data.presets;
-    const select = document.getElementById("council-mode-select");
-    select.innerHTML = "";
-    data.presets.forEach(p => {
-      const opt = document.createElement("option");
-      opt.value = p.key;
-      opt.textContent = `${p.icon} ${p.label}`;
-      opt.title = p.description;
-      select.appendChild(opt);
-    });
+    renderCouncilCards();
     state.councilMode = "monolithic";
-    updateCouncilPresetUI("monolithic");
-    select.addEventListener("change", () => {
-      state.councilMode = select.value;
-      updateCouncilPresetUI(state.councilMode);
-    });
+    updateRoutingPreview();
   } catch (e) {
     console.error("loadCouncilPresets failed:", e);
+    document.getElementById("council-cards").innerHTML =
+      '<div class="routing-empty">⚠️ Errore caricamento preset</div>';
   }
 }
 
-function updateCouncilPresetUI(key) {
-  const preset = state.councilPresets?.find(p => p.key === key);
-  const desc = document.getElementById("council-mode-desc");
-  const preview = document.getElementById("routing-preview");
-  if (!preset) return;
+function renderCouncilCards() {
+  const container = document.getElementById("council-cards");
+  if (!container || !state.councilPresets) return;
+  container.innerHTML = "";
+  state.councilPresets.forEach(p => {
+    const card = document.createElement("label");
+    card.className = "council-card" + (state.councilMode === p.key ? " active" : "");
+    card.dataset.key = p.key;
+    card.innerHTML = `
+      <input type="radio" name="council-mode" value="${escapeHtml(p.key)}" ${state.councilMode === p.key ? "checked" : ""}>
+      <div class="council-card-header">
+        <span class="council-card-icon">${escapeHtml(p.icon || "🎭")}</span>
+        <span class="council-card-label">${escapeHtml(p.label)}</span>
+      </div>
+      <div class="council-card-desc">${escapeHtml(p.description)}</div>
+    `;
+    card.addEventListener("click", () => {
+      state.councilMode = p.key;
+      document.querySelectorAll(".council-card").forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+      const radio = card.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+      updateRoutingPreview();
+    });
+    container.appendChild(card);
+  });
+}
 
-  desc.textContent = preset.description;
+function updateRoutingPreview() {
+  const preset = state.councilPresets?.find(p => p.key === state.councilMode);
+  const preview = document.getElementById("routing-preview");
+  if (!preset || !preview) return;
 
   if (!preset.routing) {
-    preview.innerHTML = `<div class="routing-empty">Modalità monolitica: tutti i 18 agenti → <b>${state.selectedModel}</b></div>`;
+    const mLabel = state.models.find(x => x.key === state.selectedModel)?.label || state.selectedModel;
+    preview.innerHTML = `<div class="routing-empty">Modalità monolitica: tutti i 18 agenti → <b>${escapeHtml(mLabel)}</b></div>`;
     return;
   }
 
-  // Costruisci tabella compatta: agente → provider
-  // Raggruppa per provider per compattezza
+  // Raggruppa per provider
   const byProvider = {};
   for (const [agentKey, provKey] of Object.entries(preset.routing)) {
     if (!byProvider[provKey]) byProvider[provKey] = [];
@@ -157,48 +261,25 @@ function updateCouncilPresetUI(key) {
   let html = "";
   for (const [prov, agents] of Object.entries(byProvider)) {
     const color = providerColor[prov] || "var(--muted)";
+    const provLabel = state.models.find(x => x.key === prov)?.label || prov;
     html += `<div class="routing-group">
-      <div class="routing-prov" style="color:${color}">● ${prov} <span class="routing-count">(${agents.length})</span></div>
-      <div class="routing-agents">${agents.map(a => `<span class="routing-agent">${a}</span>`).join(" ")}</div>
+      <div class="routing-prov" style="color:${color}">● ${escapeHtml(provLabel)} <span class="routing-count">(${agents.length})</span></div>
+      <div class="routing-agents">${agents.map(a => `<span class="routing-agent" title="${escapeHtml(a)}">${escapeHtml(a)}</span>`).join(" ")}</div>
     </div>`;
   }
   preview.innerHTML = html;
 }
 
-function updateModelStatus(key) {
-  const m = state.models.find(x => x.key === key);
-  if (!m) return;
-  const status = document.getElementById("model-status");
-  const reason = document.getElementById("model-reason");
+// Backward-compat alias (era la firma precedente)
+function updateCouncilPresetUI(key) {
+  state.councilMode = key;
+  renderCouncilCards();
+  updateRoutingPreview();
+}
 
-  let badge = "";
-  switch (m.state) {
-    case "ok":
-      badge = `<span class="model-status-badge model-ok">✅ ${m.model}</span>`;
-      reason.textContent = m.reason;
-      reason.style.color = "var(--muted)";
-      break;
-    case "missing_env":
-      badge = `<span class="model-status-badge model-warn">⚠️ Config mancante</span>`;
-      reason.textContent = m.reason;
-      reason.style.color = "var(--warn)";
-      break;
-    case "unreachable":
-    case "unavailable":
-      badge = `<span class="model-status-badge model-error">❌ ${m.state}</span>`;
-      reason.textContent = m.reason;
-      reason.style.color = "var(--danger)";
-      break;
-    case "fallback_mock":
-      badge = `<span class="model-status-badge model-warn">⚠️ Fallback mock</span>`;
-      reason.textContent = m.reason;
-      reason.style.color = "var(--warn)";
-      break;
-    default:
-      badge = `<span class="model-status-badge model-loading">?</span>`;
-      reason.textContent = m.reason || "";
-  }
-  status.innerHTML = badge;
+function updateModelStatus(key) {
+  // Retrocompat: delega a renderModelInfo
+  renderModelInfo(key);
 }
 
 // === AGENTS ===

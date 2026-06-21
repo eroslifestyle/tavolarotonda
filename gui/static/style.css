@@ -78,6 +78,8 @@ body {
   color: var(--muted);
   font-size: 11px;
   letter-spacing: 0.2px;
+  overflow-wrap: anywhere;
+  max-width: 220px;
 }
 
 .status {
@@ -270,6 +272,18 @@ body {
   color: var(--muted);
   line-height: 1.4;
   word-wrap: break-word;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+
+#council-mode-desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  max-width: 100%;
 }
 
 /* === ROUTING PREVIEW === */
@@ -397,8 +411,19 @@ button:disabled {
 .agent .emoji { font-size: 18px; }
 
 .agent .info { flex: 1; min-width: 0; }
-.agent .name { font-weight: 600; font-size: 12px; }
-.agent .meta { font-size: 10px; color: var(--muted); }
+.agent .name {
+  font-weight: 600;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+.agent .meta {
+  font-size: 10px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  line-height: 1.3;
+}
 
 /* === MAIN === */
 .main {
@@ -589,6 +614,239 @@ button:disabled {
 @keyframes indeterminate {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(400%); }
+}
+
+/* === TEXT UTILITIES (anti-troncamento) === */
+.text-wrap-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.text-truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.text-truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* === MODEL INFO PANEL (sotto la select, mostra descrizione completa + env_required) === */
+.model-info {
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.model-info-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.model-info-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.model-info-label {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--fg);
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.model-info-status {
+  flex-shrink: 0;
+}
+
+.model-info-desc {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  margin-bottom: 6px;
+}
+
+.model-info-model {
+  font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  color: var(--accent);
+  background: rgba(88, 166, 255, 0.08);
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  word-break: break-all;
+}
+
+.model-info-env {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border);
+}
+
+.model-info-env-label {
+  font-size: 10px;
+  color: var(--warn);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 4px;
+}
+
+.model-info-env-cmd {
+  font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  color: var(--fg);
+  background: var(--bg-elev2);
+  padding: 4px 6px;
+  border-radius: 3px;
+  display: block;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+  user-select: all;
+  cursor: text;
+}
+
+.model-info-providers {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+}
+
+.model-info-providers-title {
+  font-size: 10px;
+  color: var(--purple);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+}
+
+.model-info-provider {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  font-size: 11px;
+}
+
+.model-info-provider-icon {
+  flex-shrink: 0;
+  font-size: 12px;
+}
+
+.model-info-provider-info {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.model-info-provider-name {
+  font-weight: 600;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.model-info-provider-reason {
+  font-size: 10px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  margin-top: 1px;
+}
+
+/* === COUNCIL RADIO CARDS (sostituiscono select con descrizione sempre visibile) === */
+.council-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.council-card {
+  display: block;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.council-card:hover {
+  background: var(--bg-elev2);
+  border-color: var(--muted);
+}
+
+.council-card.active {
+  background: var(--bg-elev2);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.council-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.council-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 3px;
+}
+
+.council-card-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.council-card-label {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--fg);
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.council-card-desc {
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  margin-top: 2px;
 }
 
 /* === SCROLLBAR === */
