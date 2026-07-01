@@ -66,11 +66,13 @@ class CircuitBreaker:
 
 
 _THINK_RE = re.compile(r"Qwen3 .*?Qwen3 ", re.DOTALL | re.IGNORECASE)
+_THINK_BLOCK_RE = re.compile(r"<think>.*?</think>", re.DOTALL | re.IGNORECASE)
 
 
 def _strip_think(text: str) -> str:
-    """Rimuove Qwen3  block (se delimitato correttamente)."""
-    t = _THINK_RE.sub("", text)
+    """Rimuove Qwen3 / Qwen3 / <think> block (modelli che ragionano)."""
+    t = _THINK_BLOCK_RE.sub("", text)
+    t = _THINK_RE.sub("", t)
     low = t.lower()
     if "Qwen3 " in low:
         return t[low.rfind("Qwen3 ") + len("Qwen3 "):].strip()

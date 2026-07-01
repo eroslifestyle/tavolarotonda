@@ -97,6 +97,15 @@ MODELS: dict[str, dict] = {
         "default_base_url": None,
         "icon": "🏛️",
     },
+    "ornith-35b": {
+        "label": "Ornith 35B (qwen3.6 MoE, ctx 256k)",
+        "description": "ornith-35b:latest via Ollama. MoE 34.7B Q4_K_M, context 262k. Nessuna chiave richiesta.",
+        "provider_kind": "ollama",
+        "env_required": [],
+        "default_model": "ornith-35b:latest",
+        "default_base_url": None,
+        "icon": "🐦",
+    },
     "opus-4.8": {
         "label": "Opus 4.8 (Anthropic)",
         "description": "Claude Opus 4.8 via Anthropic Messages API. Richiede ANTHROPIC_API_KEY.",
@@ -145,7 +154,7 @@ COUNCIL_PRESETS: dict[str, dict] = {
     },
     "triade": {
         "label": "Triade bilanciata (3 LLM)",
-        "description": "Razionali/analitici → Opus · Creativi/dialogo → MiniMax · Pratici/tecnici → Ollama locale",
+        "description": "Razionali/analitici → Opus · Creativi/dialogo → MiniMax · Pratici/tecnici → Ornith 35B",
         "icon": "🔱",
         "routing": {
             # Gruppo A → Opus 4.8 (ragionamento forte)
@@ -162,19 +171,19 @@ COUNCIL_PRESETS: dict[str, dict] = {
             "machiavelli": "MiniMax-M3",
             "lao_tzu": "MiniMax-M3",
             "watts": "MiniMax-M3",
-            # Gruppo C → Ollama locale (pratico + veloce)
-            "torvalds": "ollama-auto",
-            "musashi": "ollama-auto",
-            "meadows": "ollama-auto",
-            "munger": "ollama-auto",
-            "taleb": "ollama-auto",
-            "rams": "ollama-auto",
+            # Gruppo C → Ornith 35B (pratico + veloce, ctx 256k)
+            "torvalds": "ornith-35b",
+            "musashi": "ornith-35b",
+            "meadows": "ornith-35b",
+            "munger": "ornith-35b",
+            "taleb": "ornith-35b",
+            "rams": "ornith-35b",
         },
     },
 }
 # Round-robin alternato: cicla A,B,C,A,B,C,...
 _keys_all = list(AGENTS.keys())
-_choices_alt = ["opus-4.8", "MiniMax-M3", "ollama-auto"]
+_choices_alt = ["opus-4.8", "MiniMax-M3", "ornith-35b"]
 COUNCIL_PRESETS["alternating"] = {
     "label": "Round-robin alternato",
     "description": "Cicla Opus → MiniMax → Ollama → Opus → ... sugli agenti in ordine",
@@ -190,6 +199,7 @@ _MODEL_FOR_PROVIDER = {
     "MiniMax-M3": "MiniMax/MiniMax-M3",
     "ollama-auto": "auto",
     "opus-local": "qwen3.6-opus-abliterated:35b",
+    "ornith-35b": "ornith-35b:latest",
 }
 
 
