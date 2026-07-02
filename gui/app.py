@@ -106,6 +106,15 @@ MODELS: dict[str, dict] = {
         "default_base_url": None,
         "icon": "🐦",
     },
+    "ornith-9b": {
+        "label": "Ornith 9B (qwen3.6 Small, ctx 128k)",
+        "description": "ornith-9b:latest via Ollama. 9B Q4_K_M, context 128k. Veloce, 5.6 GB. Nessuna chiave richiesta.",
+        "provider_kind": "ollama",
+        "env_required": [],
+        "default_model": "ornith-9b:latest",
+        "default_base_url": None,
+        "icon": "🐣",
+    },
     "opus-4.8": {
         "label": "Opus 4.8 (Anthropic)",
         "description": "Claude Opus 4.8 via Anthropic Messages API. Richiede ANTHROPIC_API_KEY.",
@@ -200,6 +209,7 @@ _MODEL_FOR_PROVIDER = {
     "ollama-auto": "auto",
     "opus-local": "qwen3.6-opus-abliterated:35b",
     "ornith-35b": "ornith-35b:latest",
+    "ornith-9b": "ornith-9b:latest",
 }
 
 
