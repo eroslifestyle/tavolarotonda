@@ -16,21 +16,10 @@
 
 ## ⬜ Backlog (in ordine di priorità)
 
-- [ ] **TR-010** — `git commit + push` modifiche sessione 2026-07-02 (gui/app.py + providers.py)
-      Comando: `cd /home/mrxxx/Obsidian/Memoria/progetti/tavolarotonda-due && git add gui/app.py tavolarotonda/providers.py && git commit -m "feat: integrate ornith-35b as llm provider + fix think-strip" && git push`
-      Done when: `git push` exit 0, `git status` → "up to date"
-
-- [ ] **TR-011** — Test sessione reale Ornith (3 round, mode topic, council monolitico)
-      Comando: avvia GUI `python gui/app.py` → POST `/api/run` con `model=ornith-35b, rounds=3`
-      Done when: `/api/report/<sid>` HTML generato, nessun errore nel log
-
-- [ ] **TR-012** — Aggiunta `ornith-9b` (5.6 GB, 0.86s) come provider "veloce" opzionale
-      Comando: edit `gui/app.py` MODELS + `_MODEL_FOR_PROVIDER`, test smoke analogos TR-002
-      Done when: `/api/models` mostra `ornith-9b` state=ok
-
-- [ ] **TR-013** — Aggiornare `bin/war-room-tavolarotonda` con nuovo path dopo mv
-      Comando: `cat /home/mrxxx/Obsidian/Memoria/progetti/tavolarotonda-due/bin/war-room-tavolarotonda` e verifica path; aggiorna symlink `/usr/local/bin/` se rotto
-      Done when: `war-room-tavolarotonda --mock --rounds 1 "test"` exit 0
+- [x] **TR-010** — `git commit + push` modifiche sessione 2026-07-02 (gui/app.py + providers.py) · commit `785beb3` (2026-07-02)
+- [x] **TR-011** — Test sessione reale Ornith (3 round, mode topic, council monolitico) · session `625965bc086d`, HTML 6051B (2026-07-02)
+- [x] **TR-012** — Aggiunta `ornith-9b` (5.6 GB, 0.86s) come provider "veloce" opzionale · `ornith-9b:latest` state=ok (2026-07-02)
+- [x] **TR-013** — Verifica `bin/war-room-tavolarotonda` dopo mv del repo · exit 0 (2026-07-02)
 
 - [ ] **TR-014** — Ornith-35b nella triade: valutare se sostituire anche in routing CLI default
       Nota: ora CLI usa `local_only` → primo Ollama disponibile; ornith-35b è il primo → OK di default
