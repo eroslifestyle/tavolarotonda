@@ -2,7 +2,7 @@
 title: tavolarotonda-due - Indice
 type: project-index
 project: tavolarotonda-due
-updated: 2026-07-10 20:23
+updated: 2026-07-10 21:10
 tags: [tavolarotonda-due, index, auto-generated]
 ---
 

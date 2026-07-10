@@ -303,10 +303,112 @@ class MockProvider(LLMProvider):
         return ProviderResult(text=text, model=model, latency_ms=1, tokens_out=len(text.split()))
 
 
+
+class AnthropicCompatProvider(LLMProvider):
+    """Provider per endpoint Anthropic-compat (ai-router :8787 e porte dedicate GLM).
+
+    Usa /v1/messages (formato Anthropic) con decompressione gzip.
+    Supporta modelli MiniMax, GLM-5.2, Opus 4.8 via ai-router.
+    """
+
+    def __init__(
+        self,
+        base_url: str = "http://127.0.0.1:8787",
+        api_key: str = "mock",
+        privacy_tier: str = "cloud_ok",
+        default_timeout_s: float = 120.0,
+        **kwargs,
+    ):
+        super().__init__(privacy_tier=privacy_tier, default_timeout_s=default_timeout_s)
+        self.base_url = base_url.rstrip("/")
+        self.api_key = api_key
+        self.breaker = CircuitBreaker()
+
+    def kind_for(self, model: str) -> ProviderKind:
+        return "anthropic_compat"
+
+    async def complete(
+        self,
+        prompt: str,
+        *,
+        model: str,
+        system: str = "",
+        temperature: float = 0.7,
+        max_tokens: int = 1024,
+        timeout_s: float | None = None,
+    ) -> ProviderResult:
+        if self.breaker.is_open(model):
+            return ProviderResult(text="", model=model, error="circuit_open")
+
+        prompt_text = self.redact_for_privacy(prompt)
+        if system:
+            system = self.redact_for_privacy(system)
+
+        timeout = timeout_s or self.default_timeout_s
+
+        for attempt in range(3):
+            try:
+                t0 = time.time()
+                text = await self._request(model, prompt_text, system, temperature, max_tokens, timeout)
+                latency = int((time.time() - t0) * 1000)
+                text = _strip_think(text)
+                self.breaker.record_success(model)
+                return ProviderResult(text=text, model=model, latency_ms=latency)
+            except Exception as exc:
+                if attempt == 2:
+                    self.breaker.record_failure(model)
+                    return ProviderResult(text="", model=model, error=str(exc))
+                await asyncio.sleep(2 ** attempt)
+
+        return ProviderResult(text="", model=model, error="max_retries_exceeded")
+
+    async def _request(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
+        import gzip
+        import urllib.request
+        import json as _json
+
+        messages = [{"role": "user", "content": prompt}]
+        payload = {
+            "model": model,
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+            "messages": messages,
+        }
+        if system:
+            payload["system"] = system
+
+        loop = asyncio.get_event_loop()
+
+        def _do() -> str:
+            req = urllib.request.Request(
+                f"{self.base_url}/v1/messages",
+                data=_json.dumps(payload).encode(),
+                headers={
+                    "Content-Type": "application/json",
+                    "x-api-key": self.api_key,
+                    "anthropic-version": "2023-06-01",
+                    "Accept-Encoding": "gzip, deflate",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                raw = r.read()
+                if r.info().get("Content-Encoding") == "gzip":
+                    raw = gzip.decompress(raw)
+                raw_str = raw.decode("utf-8", errors="replace")
+                data = _json.loads(raw_str)
+                # Estrai text da content array (Anthropic format)
+                for item in data.get("content", []):
+                    if item.get("type") == "text":
+                        return item["text"]
+                return ""
+
+        return await loop.run_in_executor(None, _do)
+
 __all__ = [
     "LLMProvider",
     "MockProvider",
     "ProviderResult",
     "ProviderKind",
     "CircuitBreaker",
+    "AnthropicCompatProvider",
 ]

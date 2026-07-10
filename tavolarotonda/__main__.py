@@ -32,7 +32,7 @@ from pathlib import Path
 from .agents import AGENTS, default_council
 from .memory_palace import MemoryPalace, transcript_markdown
 from .phases import run_full_council
-from .providers import LLMProvider, MockProvider
+from .providers import LLMProvider, MockProvider, AnthropicCompatProvider
 from .reports import audit_report_from_palace, render_audit_report, render_qa_template
 
 
@@ -56,19 +56,39 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--format", choices=["text", "html", "json"], default="text",
                         help="Formato output (default: text)")
     parser.add_argument("--save-palace", metavar="PATH", help="Salva Memory Palace JSON")
+    parser.add_argument("--provider", choices=["ollama", "openai", "anthropic", "mock"],
+                        default="anthropic", help="Provider LLM (default: anthropic)")
+    parser.add_argument("--anthropic-url", default="http://127.0.0.1:8787",
+                        help="URL base per provider anthropic (default: http://127.0.0.1:8787)")
     return parser.parse_args(argv)
 
 
 def _build_provider(args: argparse.Namespace) -> LLMProvider:
     if args.mock or os.environ.get("TAVOLAROTONDA_MOCK"):
         return MockProvider(privacy_tier=args.privacy)
-    return LLMProvider(
-        ollama_base_url=os.environ.get("OLLAMA_BASE_URL", "http://127.0.0.1:11434"),
-        openai_base_url=os.environ.get("OPENAI_BASE_URL"),
-        openai_api_key=os.environ.get("OPENAI_API_KEY"),
-        anthropic_api_key=os.environ.get("ANTHROPIC_API_KEY"),
-        privacy_tier=args.privacy,
-    )
+
+    provider_type = getattr(args, "provider", "anthropic")
+
+    if provider_type == "anthropic":
+        return AnthropicCompatProvider(
+            base_url=getattr(args, "anthropic_url", "http://127.0.0.1:8787"),
+            api_key=os.environ.get("ANTHROPIC_API_KEY", "mock"),
+            privacy_tier=args.privacy,
+        )
+    elif provider_type == "ollama":
+        return LLMProvider(
+            ollama_base_url=os.environ.get("OLLAMA_BASE_URL", "http://127.0.0.1:11434"),
+            privacy_tier=args.privacy,
+        )
+    elif provider_type == "openai":
+        return LLMProvider(
+            openai_base_url=os.environ.get("OPENAI_BASE_URL"),
+            openai_api_key=os.environ.get("OPENAI_API_KEY"),
+            anthropic_api_key=os.environ.get("ANTHROPIC_API_KEY"),
+            privacy_tier=args.privacy,
+        )
+    else:
+        return MockProvider(privacy_tier=args.privacy)
 
 
 def _build_council(args: argparse.Namespace) -> list:
@@ -94,9 +114,10 @@ async def run_topic(args: argparse.Namespace, topic: str) -> MemoryPalace:
     provider = _build_provider(args)
     council = _build_council(args)
 
+    provider_name = getattr(args, "provider", "anthropic") if not args.mock else "mock"
     print(f"\n🥽 Tavola Rotonda: {topic}")
     print(f"   Council: {len(council)} agenti | Rounds: {args.rounds} | "
-          f"Privacy: {args.privacy} | Provider: {'mock' if args.mock else 'live'}")
+          f"Privacy: {args.privacy} | Provider: {provider_name}")
     print()
 
     events = []
