@@ -1,31 +1,32 @@
-# Graph Report - tavolarotonda-due  (2026-07-02)
+# Graph Report - tavolarotonda-due  (2026-07-10)
 
 ## Corpus Check
-- 28 files · ~36,298 words
+- 29 files · ~36,459 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 318 nodes · 799 edges · 11 communities
+- 325 nodes · 805 edges · 12 communities
 - Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 82 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `785beb3d`
+- Built from commit: `699e831b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- Community 0
-- Community 1
-- Community 2
-- Community 4
-- Community 5
-- Community 6
-- Community 7
-- Community 8
-- Community 9
-- Community 10
-- Community 11
+- [[_COMMUNITY_Community 0|Community 0]]
+- [[_COMMUNITY_Community 1|Community 1]]
+- [[_COMMUNITY_Community 2|Community 2]]
+- [[_COMMUNITY_Community 3|Community 3]]
+- [[_COMMUNITY_Community 4|Community 4]]
+- [[_COMMUNITY_Community 5|Community 5]]
+- [[_COMMUNITY_Community 6|Community 6]]
+- [[_COMMUNITY_Community 7|Community 7]]
+- [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 9|Community 9]]
+- [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 11|Community 11]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `LLMProvider` - 43 edges
@@ -40,10 +41,10 @@
 10. `PhaseEvent` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `int` --uses--> `MemoryPalace`  [INFERRED]
-  reports.py → /mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py
-- `MemoryPalace` --uses--> `MemoryPalace`  [INFERRED]
-  reports.py → /mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py
+- `LLMProvider` --uses--> `LLMProvider`  [INFERRED]
+  director.py → tavolarotonda/providers.py
+- `int` --uses--> `LLMProvider`  [INFERRED]
+  director.py → tavolarotonda/providers.py
 - `MultiProvider` --uses--> `CircuitBreaker`  [INFERRED]
   gui/app.py → tavolarotonda/providers.py
 - `MultiProvider` --uses--> `ProviderResult`  [INFERRED]
@@ -51,35 +52,39 @@
 - `_build_provider()` --calls--> `MockProvider`  [INFERRED]
   gui/app.py → tavolarotonda/providers.py
 
-## Communities (11 total, 0 thin omitted)
+## Communities (12 total, 0 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.08
-Nodes (61): Agent, Director, int, LLMProvider, str, int, LLMProvider, str (+53 more)
+Cohesion: 0.10
+Nodes (52): Agent, str, Director, str, bool, int, LLMProvider, MemoryPalace (+44 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.09
 Nodes (30): float, ProviderKind, ProviderResult, bool, float, int, str, CircuitBreaker (+22 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.11
-Nodes (39): int, LLMProvider, MemoryPalace, str, float, int, str, int (+31 more)
+Cohesion: 0.20
+Nodes (25): int, LLMProvider, MemoryPalace, str, int, LLMProvider, MemoryPalace, str (+17 more)
+
+### Community 3 - "Community 3"
+Cohesion: 0.18
+Nodes (9): int, str, int, str, Director / Regista — per ogni round fissa il focus e assegna chi confuta chi.  P, Template di prompt centralizzati — anti-duplicazione (regola modularità KING)., Rimuove marker di prompt injection, tronca a max_length.      NON è una garanzia, sanitize_directive() (+1 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.18
-Nodes (14): int, MemoryPalace, str, int, MemoryPalace, str, tavolarotonda — Council multi-agente per decisioni reali e concrete.  Package: 9, audit_report_from_palace() (+6 more)
+Cohesion: 0.10
+Nodes (28): float, int, str, float, int, str, int, MemoryPalace (+20 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.29
 Nodes (20): int, str, int, str, SearchProvider, adversarial_research(), _detect_provider(), _mock_search() (+12 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.29
-Nodes (9): str, str, agent_by_name(), default_council(), polarities_for(), 18 personas fisse con polarity pairs (Council of High Intelligence pattern).  Og, Cerca un agente per key (case-insensitive). Ritorna None se non trovato., Ritorna il set di agenti di default (12, bilanciati per dominio). (+1 more)
+Cohesion: 0.33
+Nodes (5): Commit, Sessione 2026-07-02 — TR-011/012/013, TR-011 ✅ — Test sessione reale Ornith, TR-012 ✅ — ornith-9b come provider veloce, TR-013 ✅ — war-room path dopo mv
 
 ### Community 7 - "Community 7"
-Cohesion: 0.22
-Nodes (8): LLMProvider, MemoryPalace, str, LLMProvider, MemoryPalace, str, Aggiorna palace.strategy_summary in place., Genera un summary testuale della strategia per i prompt successivi.
+Cohesion: 0.11
+Nodes (17): int, LLMProvider, str, int, LLMProvider, str, LLMProvider, MemoryPalace (+9 more)
 
 ### Community 8 - "Community 8"
 Cohesion: 0.07
@@ -94,22 +99,22 @@ Cohesion: 0.20
 Nodes (9): 1. Rename + spostamento progetto, 2. Integrazione Ornith-35B (Qwen3.6 MoE, ctx 256K, Q4_K_M), 3. Test end-to-end verificati, Cosa è stato fatto, File modificati, Prossimi passi, Sessione 2026-07-02 — Rename + Integrazione Ornith-35B, Stato post-sessione (+1 more)
 
 ### Community 11 - "Community 11"
-Cohesion: 0.40
-Nodes (4): Altri file root, .Claude (`.claude/`), tavolarotonda-due — Indice Progetto, Tavolarotonda (`tavolarotonda/`)
+Cohesion: 0.33
+Nodes (5): Altri file root, .Claude (`.claude/`), Sessioni (`sessioni/`), tavolarotonda-due — Indice Progetto, Tavolarotonda (`tavolarotonda/`)
 
 ## Knowledge Gaps
-- **41 isolated node(s):** `Altri file root`, `.Claude (`.claude/`)`, `Tavolarotonda (`tavolarotonda/`)`, `1. Rename + spostamento progetto`, `2. Integrazione Ornith-35B (Qwen3.6 MoE, ctx 256K, Q4_K_M)` (+36 more)
+- **46 isolated node(s):** `Sessioni (`sessioni/`)`, `Altri file root`, `.Claude (`.claude/`)`, `Tavolarotonda (`tavolarotonda/`)`, `TR-011 ✅ — Test sessione reale Ornith` (+41 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `LLMProvider` connect `Community 0` to `Community 8`, `Community 1`, `Community 2`, `Community 7`?**
-  _High betweenness centrality (0.322) - this node is a cross-community bridge._
-- **Why does `MemoryPalace` connect `Community 2` to `Community 0`, `Community 4`, `Community 7`?**
-  _High betweenness centrality (0.118) - this node is a cross-community bridge._
+  _High betweenness centrality (0.308) - this node is a cross-community bridge._
+- **Why does `MemoryPalace` connect `Community 4` to `Community 0`, `Community 2`, `Community 7`?**
+  _High betweenness centrality (0.113) - this node is a cross-community bridge._
 - **Why does `_build_provider()` connect `Community 8` to `Community 0`, `Community 2`?**
-  _High betweenness centrality (0.107) - this node is a cross-community bridge._
+  _High betweenness centrality (0.103) - this node is a cross-community bridge._
 - **Are the 22 inferred relationships involving `LLMProvider` (e.g. with `Director` and `PhaseEvent`) actually correct?**
   _`LLMProvider` has 22 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 21 inferred relationships involving `MemoryPalace` (e.g. with `str` and `int`) actually correct?**

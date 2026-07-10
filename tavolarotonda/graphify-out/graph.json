@@ -4,562 +4,625 @@
   "graph": {},
   "nodes": [
     {
-      "label": "app.py",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L1",
-      "id": "gui_app_py",
-      "community": 8,
-      "norm_label": "app.py"
-    },
-    {
-      "label": "_check_env()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L139",
-      "id": "gui_app_check_env",
-      "community": 8,
-      "norm_label": "_check_env()"
-    },
-    {
-      "label": "str",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L139",
-      "id": "str",
-      "community": 8,
-      "norm_label": "str"
-    },
-    {
-      "label": "_check_ollama()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L144",
-      "id": "gui_app_check_ollama",
-      "community": 8,
-      "norm_label": "_check_ollama()"
-    },
-    {
-      "label": "bool",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L144",
-      "id": "bool",
-      "community": 8,
-      "norm_label": "bool"
-    },
-    {
-      "label": "_extract_agent_key()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L216",
-      "id": "gui_app_extract_agent_key",
-      "community": 8,
-      "norm_label": "_extract_agent_key()"
-    },
-    {
-      "label": "MultiProvider",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L233",
-      "id": "gui_app_multiprovider",
-      "community": 8,
-      "norm_label": "multiprovider"
-    },
-    {
-      "label": "LLMProvider",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "id": "llmprovider",
-      "community": 8,
-      "norm_label": "llmprovider"
-    },
-    {
-      "label": ".__init__()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L236",
-      "id": "gui_app_multiprovider_init",
-      "community": 8,
-      "norm_label": ".__init__()"
-    },
-    {
-      "label": ".complete()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L253",
-      "id": "gui_app_multiprovider_complete",
-      "community": 8,
-      "norm_label": ".complete()"
-    },
-    {
-      "label": "ProviderResult",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L253",
-      "id": "providerresult",
-      "community": 1,
-      "norm_label": "providerresult"
-    },
-    {
-      "label": "_build_multi_provider()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L264",
-      "id": "gui_app_build_multi_provider",
-      "community": 8,
-      "norm_label": "_build_multi_provider()"
-    },
-    {
-      "label": "_build_provider()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L301",
-      "id": "gui_app_build_provider",
-      "community": 8,
-      "norm_label": "_build_provider()"
-    },
-    {
-      "label": "index()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L394",
-      "id": "gui_app_index",
-      "community": 8,
-      "norm_label": "index()"
-    },
-    {
-      "label": "static_files()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L404",
-      "id": "gui_app_static_files",
-      "community": 8,
-      "norm_label": "static_files()"
-    },
-    {
-      "label": "_get_build_id()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L413",
-      "id": "gui_app_get_build_id",
-      "community": 8,
-      "norm_label": "_get_build_id()"
-    },
-    {
-      "label": "_is_auditable()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L469",
-      "id": "gui_app_is_auditable",
-      "community": 8,
-      "norm_label": "_is_auditable()"
-    },
-    {
-      "label": "Path",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L469",
-      "id": "path",
-      "community": 8,
-      "norm_label": "path"
-    },
-    {
-      "label": "_should_skip_dir()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L481",
-      "id": "gui_app_should_skip_dir",
-      "community": 8,
-      "norm_label": "_should_skip_dir()"
-    },
-    {
-      "label": "audit_collect_targets()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L486",
-      "id": "gui_app_audit_collect_targets",
-      "community": 8,
-      "norm_label": "audit_collect_targets()"
-    },
-    {
-      "label": "int",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L486",
-      "id": "int",
-      "community": 8,
-      "norm_label": "int"
-    },
-    {
-      "label": "audit_project_stats()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L539",
-      "id": "gui_app_audit_project_stats",
-      "community": 8,
-      "norm_label": "audit_project_stats()"
-    },
-    {
-      "label": "audit_render_tree()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L558",
-      "id": "gui_app_audit_render_tree",
-      "community": 8,
-      "norm_label": "audit_render_tree()"
-    },
-    {
-      "label": "_ext_hint()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L588",
-      "id": "gui_app_ext_hint",
-      "community": 8,
-      "norm_label": "_ext_hint()"
-    },
-    {
-      "label": "api_agents()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L602",
-      "id": "gui_app_api_agents",
-      "community": 8,
-      "norm_label": "api_agents()"
-    },
-    {
-      "label": "api_council_presets()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L619",
-      "id": "gui_app_api_council_presets",
-      "community": 8,
-      "norm_label": "api_council_presets()"
-    },
-    {
-      "label": "api_models()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L640",
-      "id": "gui_app_api_models",
-      "community": 8,
-      "norm_label": "api_models()"
-    },
-    {
-      "label": "health()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L698",
-      "id": "gui_app_health",
-      "community": 8,
-      "norm_label": "health()"
-    },
-    {
-      "label": "api_run()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L709",
-      "id": "gui_app_api_run",
-      "community": 8,
-      "norm_label": "api_run()"
-    },
-    {
-      "label": "_emit_event()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L765",
-      "id": "gui_app_emit_event",
-      "community": 8,
-      "norm_label": "_emit_event()"
-    },
-    {
-      "label": "_run_session()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L783",
-      "id": "gui_app_run_session",
-      "community": 8,
-      "norm_label": "_run_session()"
-    },
-    {
-      "label": "api_stream()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L946",
-      "id": "gui_app_api_stream",
-      "community": 8,
-      "norm_label": "api_stream()"
-    },
-    {
-      "label": "api_report()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L989",
-      "id": "gui_app_api_report",
-      "community": 8,
-      "norm_label": "api_report()"
-    },
-    {
-      "label": "api_palace()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L997",
-      "id": "gui_app_api_palace",
-      "community": 8,
-      "norm_label": "api_palace()"
-    },
-    {
-      "label": "api_sessions()",
-      "file_type": "code",
-      "source_file": "gui/app.py",
-      "source_location": "L1005",
-      "id": "gui_app_api_sessions",
-      "community": 8,
-      "norm_label": "api_sessions()"
-    },
-    {
-      "label": "TavolaRotonda GUI \u2014 Web App interattiva =======================================",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L1",
-      "id": "gui_app_rationale_1",
-      "community": 8,
-      "norm_label": "tavolarotonda gui \u2014 web app interattiva ======================================="
-    },
-    {
-      "label": "Ritorna lista env var mancanti (vuota se tutte presenti).",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L140",
-      "id": "gui_app_rationale_140",
-      "community": 8,
-      "norm_label": "ritorna lista env var mancanti (vuota se tutte presenti)."
-    },
-    {
-      "label": "Verifica se Ollama \u00e8 raggiungibile e ritorna lista modelli disponibili.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L145",
-      "id": "gui_app_rationale_145",
-      "community": 8,
-      "norm_label": "verifica se ollama e raggiungibile e ritorna lista modelli disponibili."
-    },
-    {
-      "label": "Estrae l'agent_key dal system_seed (es. 'Sei Aristotele. ...' \u2192 'aristotele').",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L217",
-      "id": "gui_app_rationale_217",
-      "community": 8,
-      "norm_label": "estrae l'agent_key dal system_seed (es. 'sei aristotele. ...' \u2192 'aristotele')."
-    },
-    {
-      "label": "Provider che instrada ogni chiamata al sub-provider giusto in base all'agent_key",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L234",
-      "id": "gui_app_rationale_234",
-      "community": 8,
-      "norm_label": "provider che instrada ogni chiamata al sub-provider giusto in base all'agent_key"
-    },
-    {
-      "label": "Istanzia il provider giusto (singolo o MultiProvider) per il council mode scelto",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L265",
-      "id": "gui_app_rationale_265",
-      "community": 8,
-      "norm_label": "istanzia il provider giusto (singolo o multiprovider) per il council mode scelto"
-    },
-    {
-      "label": "Istanzia il provider giusto per la scelta utente, con fallback automatico.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L302",
-      "id": "gui_app_rationale_302",
-      "community": 8,
-      "norm_label": "istanzia il provider giusto per la scelta utente, con fallback automatico."
-    },
-    {
-      "label": "Ritorna git SHA breve (8 char) o fallback timestamp se non git repo.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L414",
-      "id": "gui_app_rationale_414",
-      "community": 8,
-      "norm_label": "ritorna git sha breve (8 char) o fallback timestamp se non git repo."
-    },
-    {
-      "label": "True se path \u00e8 un file leggibile e la sua estensione \u00e8 ammessa.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L470",
-      "id": "gui_app_rationale_470",
-      "community": 8,
-      "norm_label": "true se path e un file leggibile e la sua estensione e ammessa."
-    },
-    {
-      "label": "True se la directory deve essere saltata completamente.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L482",
-      "id": "gui_app_rationale_482",
-      "community": 8,
-      "norm_label": "true se la directory deve essere saltata completamente."
-    },
-    {
-      "label": "Raccoglie file da un progetto per audit.      Ritorna lista di tuple (relpath, c",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L492",
-      "id": "gui_app_rationale_492",
-      "community": 8,
-      "norm_label": "raccoglie file da un progetto per audit.      ritorna lista di tuple (relpath, c"
-    },
-    {
-      "label": "Calcola statistiche di sintesi del progetto raccolto.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L540",
-      "id": "gui_app_rationale_540",
-      "community": 8,
-      "norm_label": "calcola statistiche di sintesi del progetto raccolto."
-    },
-    {
-      "label": "Genera albero ASCII della struttura del progetto (solo file inclusi).",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L559",
-      "id": "gui_app_rationale_559",
-      "community": 8,
-      "norm_label": "genera albero ascii della struttura del progetto (solo file inclusi)."
-    },
-    {
-      "label": "Hint di linguaggio per code fence (per syntax highlight in output).",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L589",
-      "id": "gui_app_rationale_589",
-      "community": 8,
-      "norm_label": "hint di linguaggio per code fence (per syntax highlight in output)."
-    },
-    {
-      "label": "Lista i 18 agenti disponibili con metadati.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L603",
-      "id": "gui_app_rationale_603",
-      "community": 8,
-      "norm_label": "lista i 18 agenti disponibili con metadati."
-    },
-    {
-      "label": "Lista i preset di modalit\u00e0 council (monolitico / triade / alternating).",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L620",
-      "id": "gui_app_rationale_620",
-      "community": 8,
-      "norm_label": "lista i preset di modalita council (monolitico / triade / alternating)."
-    },
-    {
-      "label": "Lista i modelli LLM disponibili con stato corrente (env / ollama).",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L641",
-      "id": "gui_app_rationale_641",
-      "community": 8,
-      "norm_label": "lista i modelli llm disponibili con stato corrente (env / ollama)."
-    },
-    {
-      "label": "Avvia un dibattito. Ritorna session_id per lo stream SSE.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L710",
-      "id": "gui_app_rationale_710",
-      "community": 8,
-      "norm_label": "avvia un dibattito. ritorna session_id per lo stream sse."
-    },
-    {
-      "label": "Factory per callback on_event che mette eventi in queue.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L766",
-      "id": "gui_app_rationale_766",
-      "community": 8,
-      "norm_label": "factory per callback on_event che mette eventi in queue."
-    },
-    {
-      "label": "Coroutine principale: esegue il council e salva gli output.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L785",
-      "id": "gui_app_rationale_785",
-      "community": 8,
-      "norm_label": "coroutine principale: esegue il council e salva gli output."
-    },
-    {
-      "label": "Server-Sent Events stream per la sessione.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L947",
-      "id": "gui_app_rationale_947",
-      "community": 8,
-      "norm_label": "server-sent events stream per la sessione."
-    },
-    {
-      "label": "Debug: lista sessioni attive.",
-      "file_type": "rationale",
-      "source_file": "gui/app.py",
-      "source_location": "L1006",
-      "id": "gui_app_rationale_1006",
-      "community": 8,
-      "norm_label": "debug: lista sessioni attive."
-    },
-    {
       "label": "_INDEX.md",
       "file_type": "document",
       "source_file": "_INDEX.md",
       "source_location": "L1",
+      "id": "index_md",
       "community": 11,
-      "norm_label": "_index.md",
-      "id": "index_md"
+      "norm_label": "_index.md"
     },
     {
       "label": "tavolarotonda-due \u2014 Indice Progetto",
       "file_type": "document",
       "source_file": "_INDEX.md",
       "source_location": "L9",
+      "id": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto",
       "community": 11,
-      "norm_label": "tavolarotonda-due \u2014 indice progetto",
-      "id": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto"
+      "norm_label": "tavolarotonda-due \u2014 indice progetto"
+    },
+    {
+      "label": "Sessioni (`sessioni/`)",
+      "file_type": "document",
+      "source_file": "_INDEX.md",
+      "source_location": "L13",
+      "id": "tavolarotonda_due_index_sessioni_sessioni",
+      "community": 11,
+      "norm_label": "sessioni (`sessioni/`)"
     },
     {
       "label": "Altri file root",
       "file_type": "document",
       "source_file": "_INDEX.md",
-      "source_location": "L13",
+      "source_location": "L18",
+      "id": "tavolarotonda_due_index_altri_file_root",
       "community": 11,
-      "norm_label": "altri file root",
-      "id": "tavolarotonda_due_index_altri_file_root"
+      "norm_label": "altri file root"
     },
     {
       "label": ".Claude (`.claude/`)",
       "file_type": "document",
       "source_file": "_INDEX.md",
-      "source_location": "L19",
+      "source_location": "L24",
+      "id": "tavolarotonda_due_index_claude_claude",
       "community": 11,
-      "norm_label": ".claude (`.claude/`)",
-      "id": "tavolarotonda_due_index_claude_claude"
+      "norm_label": ".claude (`.claude/`)"
     },
     {
       "label": "Tavolarotonda (`tavolarotonda/`)",
       "file_type": "document",
       "source_file": "_INDEX.md",
-      "source_location": "L24",
+      "source_location": "L32",
+      "id": "tavolarotonda_due_index_tavolarotonda_tavolarotonda",
       "community": 11,
-      "norm_label": "tavolarotonda (`tavolarotonda/`)",
-      "id": "tavolarotonda_due_index_tavolarotonda_tavolarotonda"
+      "norm_label": "tavolarotonda (`tavolarotonda/`)"
+    },
+    {
+      "label": "2026-07-02-tr-011-012-013.md",
+      "file_type": "document",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L1",
+      "id": "sessioni_2026_07_02_tr_011_012_013_md",
+      "community": 6,
+      "norm_label": "2026-07-02-tr-011-012-013.md"
+    },
+    {
+      "label": "Sessione 2026-07-02 \u2014 TR-011/012/013",
+      "file_type": "document",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L8",
+      "id": "sessioni_2026_07_02_tr_011_012_013_sessione_2026_07_02_tr_011_012_013",
+      "community": 6,
+      "norm_label": "sessione 2026-07-02 \u2014 tr-011/012/013"
+    },
+    {
+      "label": "TR-011 \u2705 \u2014 Test sessione reale Ornith",
+      "file_type": "document",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L10",
+      "id": "sessioni_2026_07_02_tr_011_012_013_tr_011_test_sessione_reale_ornith",
+      "community": 6,
+      "norm_label": "tr-011 \u2705 \u2014 test sessione reale ornith"
+    },
+    {
+      "label": "TR-012 \u2705 \u2014 ornith-9b come provider veloce",
+      "file_type": "document",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L19",
+      "id": "sessioni_2026_07_02_tr_011_012_013_tr_012_ornith_9b_come_provider_veloce",
+      "community": 6,
+      "norm_label": "tr-012 \u2705 \u2014 ornith-9b come provider veloce"
+    },
+    {
+      "label": "TR-013 \u2705 \u2014 war-room path dopo mv",
+      "file_type": "document",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L27",
+      "id": "sessioni_2026_07_02_tr_011_012_013_tr_013_war_room_path_dopo_mv",
+      "community": 6,
+      "norm_label": "tr-013 \u2705 \u2014 war-room path dopo mv"
+    },
+    {
+      "label": "Commit",
+      "file_type": "document",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L32",
+      "id": "sessioni_2026_07_02_tr_011_012_013_commit",
+      "community": 6,
+      "norm_label": "commit"
+    },
+    {
+      "label": "app.py",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L1",
+      "community": 8,
+      "norm_label": "app.py",
+      "id": "gui_app_py"
+    },
+    {
+      "label": "_check_env()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L139",
+      "community": 8,
+      "norm_label": "_check_env()",
+      "id": "gui_app_check_env"
+    },
+    {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L139",
+      "community": 8,
+      "norm_label": "str",
+      "id": "str"
+    },
+    {
+      "label": "_check_ollama()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L144",
+      "community": 8,
+      "norm_label": "_check_ollama()",
+      "id": "gui_app_check_ollama"
+    },
+    {
+      "label": "bool",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L144",
+      "community": 8,
+      "norm_label": "bool",
+      "id": "bool"
+    },
+    {
+      "label": "_extract_agent_key()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L216",
+      "community": 8,
+      "norm_label": "_extract_agent_key()",
+      "id": "gui_app_extract_agent_key"
+    },
+    {
+      "label": "MultiProvider",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L233",
+      "community": 8,
+      "norm_label": "multiprovider",
+      "id": "gui_app_multiprovider"
+    },
+    {
+      "label": "LLMProvider",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "community": 8,
+      "norm_label": "llmprovider",
+      "id": "llmprovider"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L236",
+      "community": 8,
+      "norm_label": ".__init__()",
+      "id": "gui_app_multiprovider_init"
+    },
+    {
+      "label": ".complete()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L253",
+      "community": 8,
+      "norm_label": ".complete()",
+      "id": "gui_app_multiprovider_complete"
+    },
+    {
+      "label": "ProviderResult",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L253",
+      "community": 1,
+      "norm_label": "providerresult",
+      "id": "providerresult"
+    },
+    {
+      "label": "_build_multi_provider()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L264",
+      "community": 8,
+      "norm_label": "_build_multi_provider()",
+      "id": "gui_app_build_multi_provider"
+    },
+    {
+      "label": "_build_provider()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L301",
+      "community": 8,
+      "norm_label": "_build_provider()",
+      "id": "gui_app_build_provider"
+    },
+    {
+      "label": "index()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L394",
+      "community": 8,
+      "norm_label": "index()",
+      "id": "gui_app_index"
+    },
+    {
+      "label": "static_files()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L404",
+      "community": 8,
+      "norm_label": "static_files()",
+      "id": "gui_app_static_files"
+    },
+    {
+      "label": "_get_build_id()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L413",
+      "community": 8,
+      "norm_label": "_get_build_id()",
+      "id": "gui_app_get_build_id"
+    },
+    {
+      "label": "_is_auditable()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L469",
+      "community": 8,
+      "norm_label": "_is_auditable()",
+      "id": "gui_app_is_auditable"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L469",
+      "community": 8,
+      "norm_label": "path",
+      "id": "path"
+    },
+    {
+      "label": "_should_skip_dir()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L481",
+      "community": 8,
+      "norm_label": "_should_skip_dir()",
+      "id": "gui_app_should_skip_dir"
+    },
+    {
+      "label": "audit_collect_targets()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L486",
+      "community": 8,
+      "norm_label": "audit_collect_targets()",
+      "id": "gui_app_audit_collect_targets"
+    },
+    {
+      "label": "int",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L486",
+      "community": 8,
+      "norm_label": "int",
+      "id": "int"
+    },
+    {
+      "label": "audit_project_stats()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L539",
+      "community": 8,
+      "norm_label": "audit_project_stats()",
+      "id": "gui_app_audit_project_stats"
+    },
+    {
+      "label": "audit_render_tree()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L558",
+      "community": 8,
+      "norm_label": "audit_render_tree()",
+      "id": "gui_app_audit_render_tree"
+    },
+    {
+      "label": "_ext_hint()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L588",
+      "community": 8,
+      "norm_label": "_ext_hint()",
+      "id": "gui_app_ext_hint"
+    },
+    {
+      "label": "api_agents()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L602",
+      "community": 8,
+      "norm_label": "api_agents()",
+      "id": "gui_app_api_agents"
+    },
+    {
+      "label": "api_council_presets()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L619",
+      "community": 8,
+      "norm_label": "api_council_presets()",
+      "id": "gui_app_api_council_presets"
+    },
+    {
+      "label": "api_models()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L640",
+      "community": 8,
+      "norm_label": "api_models()",
+      "id": "gui_app_api_models"
+    },
+    {
+      "label": "health()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L698",
+      "community": 8,
+      "norm_label": "health()",
+      "id": "gui_app_health"
+    },
+    {
+      "label": "api_run()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L709",
+      "community": 8,
+      "norm_label": "api_run()",
+      "id": "gui_app_api_run"
+    },
+    {
+      "label": "_emit_event()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L765",
+      "community": 8,
+      "norm_label": "_emit_event()",
+      "id": "gui_app_emit_event"
+    },
+    {
+      "label": "_run_session()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L783",
+      "community": 8,
+      "norm_label": "_run_session()",
+      "id": "gui_app_run_session"
+    },
+    {
+      "label": "api_stream()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L946",
+      "community": 8,
+      "norm_label": "api_stream()",
+      "id": "gui_app_api_stream"
+    },
+    {
+      "label": "api_report()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L989",
+      "community": 8,
+      "norm_label": "api_report()",
+      "id": "gui_app_api_report"
+    },
+    {
+      "label": "api_palace()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L997",
+      "community": 8,
+      "norm_label": "api_palace()",
+      "id": "gui_app_api_palace"
+    },
+    {
+      "label": "api_sessions()",
+      "file_type": "code",
+      "source_file": "gui/app.py",
+      "source_location": "L1005",
+      "community": 8,
+      "norm_label": "api_sessions()",
+      "id": "gui_app_api_sessions"
+    },
+    {
+      "label": "TavolaRotonda GUI \u2014 Web App interattiva =======================================",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L1",
+      "community": 8,
+      "norm_label": "tavolarotonda gui \u2014 web app interattiva =======================================",
+      "id": "gui_app_rationale_1"
+    },
+    {
+      "label": "Ritorna lista env var mancanti (vuota se tutte presenti).",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L140",
+      "community": 8,
+      "norm_label": "ritorna lista env var mancanti (vuota se tutte presenti).",
+      "id": "gui_app_rationale_140"
+    },
+    {
+      "label": "Verifica se Ollama \u00e8 raggiungibile e ritorna lista modelli disponibili.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L145",
+      "community": 8,
+      "norm_label": "verifica se ollama e raggiungibile e ritorna lista modelli disponibili.",
+      "id": "gui_app_rationale_145"
+    },
+    {
+      "label": "Estrae l'agent_key dal system_seed (es. 'Sei Aristotele. ...' \u2192 'aristotele').",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L217",
+      "community": 8,
+      "norm_label": "estrae l'agent_key dal system_seed (es. 'sei aristotele. ...' \u2192 'aristotele').",
+      "id": "gui_app_rationale_217"
+    },
+    {
+      "label": "Provider che instrada ogni chiamata al sub-provider giusto in base all'agent_key",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L234",
+      "community": 8,
+      "norm_label": "provider che instrada ogni chiamata al sub-provider giusto in base all'agent_key",
+      "id": "gui_app_rationale_234"
+    },
+    {
+      "label": "Istanzia il provider giusto (singolo o MultiProvider) per il council mode scelto",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L265",
+      "community": 8,
+      "norm_label": "istanzia il provider giusto (singolo o multiprovider) per il council mode scelto",
+      "id": "gui_app_rationale_265"
+    },
+    {
+      "label": "Istanzia il provider giusto per la scelta utente, con fallback automatico.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L302",
+      "community": 8,
+      "norm_label": "istanzia il provider giusto per la scelta utente, con fallback automatico.",
+      "id": "gui_app_rationale_302"
+    },
+    {
+      "label": "Ritorna git SHA breve (8 char) o fallback timestamp se non git repo.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L414",
+      "community": 8,
+      "norm_label": "ritorna git sha breve (8 char) o fallback timestamp se non git repo.",
+      "id": "gui_app_rationale_414"
+    },
+    {
+      "label": "True se path \u00e8 un file leggibile e la sua estensione \u00e8 ammessa.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L470",
+      "community": 8,
+      "norm_label": "true se path e un file leggibile e la sua estensione e ammessa.",
+      "id": "gui_app_rationale_470"
+    },
+    {
+      "label": "True se la directory deve essere saltata completamente.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L482",
+      "community": 8,
+      "norm_label": "true se la directory deve essere saltata completamente.",
+      "id": "gui_app_rationale_482"
+    },
+    {
+      "label": "Raccoglie file da un progetto per audit.      Ritorna lista di tuple (relpath, c",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L492",
+      "community": 8,
+      "norm_label": "raccoglie file da un progetto per audit.      ritorna lista di tuple (relpath, c",
+      "id": "gui_app_rationale_492"
+    },
+    {
+      "label": "Calcola statistiche di sintesi del progetto raccolto.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L540",
+      "community": 8,
+      "norm_label": "calcola statistiche di sintesi del progetto raccolto.",
+      "id": "gui_app_rationale_540"
+    },
+    {
+      "label": "Genera albero ASCII della struttura del progetto (solo file inclusi).",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L559",
+      "community": 8,
+      "norm_label": "genera albero ascii della struttura del progetto (solo file inclusi).",
+      "id": "gui_app_rationale_559"
+    },
+    {
+      "label": "Hint di linguaggio per code fence (per syntax highlight in output).",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L589",
+      "community": 8,
+      "norm_label": "hint di linguaggio per code fence (per syntax highlight in output).",
+      "id": "gui_app_rationale_589"
+    },
+    {
+      "label": "Lista i 18 agenti disponibili con metadati.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L603",
+      "community": 8,
+      "norm_label": "lista i 18 agenti disponibili con metadati.",
+      "id": "gui_app_rationale_603"
+    },
+    {
+      "label": "Lista i preset di modalit\u00e0 council (monolitico / triade / alternating).",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L620",
+      "community": 8,
+      "norm_label": "lista i preset di modalita council (monolitico / triade / alternating).",
+      "id": "gui_app_rationale_620"
+    },
+    {
+      "label": "Lista i modelli LLM disponibili con stato corrente (env / ollama).",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L641",
+      "community": 8,
+      "norm_label": "lista i modelli llm disponibili con stato corrente (env / ollama).",
+      "id": "gui_app_rationale_641"
+    },
+    {
+      "label": "Avvia un dibattito. Ritorna session_id per lo stream SSE.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L710",
+      "community": 8,
+      "norm_label": "avvia un dibattito. ritorna session_id per lo stream sse.",
+      "id": "gui_app_rationale_710"
+    },
+    {
+      "label": "Factory per callback on_event che mette eventi in queue.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L766",
+      "community": 8,
+      "norm_label": "factory per callback on_event che mette eventi in queue.",
+      "id": "gui_app_rationale_766"
+    },
+    {
+      "label": "Coroutine principale: esegue il council e salva gli output.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L785",
+      "community": 8,
+      "norm_label": "coroutine principale: esegue il council e salva gli output.",
+      "id": "gui_app_rationale_785"
+    },
+    {
+      "label": "Server-Sent Events stream per la sessione.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L947",
+      "community": 8,
+      "norm_label": "server-sent events stream per la sessione.",
+      "id": "gui_app_rationale_947"
+    },
+    {
+      "label": "Debug: lista sessioni attive.",
+      "file_type": "rationale",
+      "source_file": "gui/app.py",
+      "source_location": "L1006",
+      "community": 8,
+      "norm_label": "debug: lista sessioni attive.",
+      "id": "gui_app_rationale_1006"
     },
     {
       "label": "2026-07-02-rename-ornith-integration.md",
@@ -1313,7 +1376,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 3,
       "norm_label": "director.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_director_py"
     },
@@ -1322,7 +1385,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L20",
-      "community": 0,
+      "community": 7,
       "norm_label": "_extract_json()",
       "id": "tavolarotonda_director_extract_json"
     },
@@ -1331,7 +1394,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L20",
-      "community": 0,
+      "community": 7,
       "norm_label": "str",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_director_py_str"
     },
@@ -1349,7 +1412,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L48",
-      "community": 0,
+      "community": 7,
       "norm_label": ".__init__()",
       "id": "tavolarotonda_director_director_init"
     },
@@ -1358,7 +1421,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L48",
-      "community": 0,
+      "community": 7,
       "norm_label": "llmprovider",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_director_py_llmprovider"
     },
@@ -1367,7 +1430,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L52",
-      "community": 0,
+      "community": 7,
       "norm_label": ".set_agenda()",
       "id": "tavolarotonda_director_director_set_agenda"
     },
@@ -1376,7 +1439,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L52",
-      "community": 0,
+      "community": 7,
       "norm_label": "int",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_director_py_int"
     },
@@ -1385,7 +1448,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 3,
       "norm_label": "director / regista \u2014 per ogni round fissa il focus e assegna chi confuta chi.  p",
       "id": "tavolarotonda_director_rationale_1"
     },
@@ -1394,7 +1457,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L21",
-      "community": 0,
+      "community": 7,
       "norm_label": "best-effort json extraction (gestisce code fences e testo intorno).",
       "id": "tavolarotonda_director_rationale_21"
     },
@@ -1412,7 +1475,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L61",
-      "community": 0,
+      "community": 7,
       "norm_label": "restituisce {focus, assignments{agent: instruction}, converged}.",
       "id": "tavolarotonda_director_rationale_61"
     },
@@ -1421,7 +1484,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/prompts.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 3,
       "norm_label": "prompts.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_prompts_py"
     },
@@ -1430,7 +1493,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/prompts.py",
       "source_location": "L190",
-      "community": 0,
+      "community": 3,
       "norm_label": "sanitize_directive()",
       "id": "tavolarotonda_prompts_sanitize_directive"
     },
@@ -1439,7 +1502,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/prompts.py",
       "source_location": "L190",
-      "community": 0,
+      "community": 3,
       "norm_label": "str",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_prompts_py_str"
     },
@@ -1448,7 +1511,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/prompts.py",
       "source_location": "L190",
-      "community": 0,
+      "community": 3,
       "norm_label": "int",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_prompts_py_int"
     },
@@ -1457,7 +1520,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/prompts.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 3,
       "norm_label": "template di prompt centralizzati \u2014 anti-duplicazione (regola modularita king).",
       "id": "tavolarotonda_prompts_rationale_1"
     },
@@ -1466,7 +1529,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/prompts.py",
       "source_location": "L191",
-      "community": 0,
+      "community": 3,
       "norm_label": "rimuove marker di prompt injection, tronca a max_length.      non e una garanzia",
       "id": "tavolarotonda_prompts_rationale_191"
     },
@@ -1574,7 +1637,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L1",
-      "community": 2,
+      "community": 4,
       "norm_label": "memory_palace.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_memory_palace_py"
     },
@@ -1583,7 +1646,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L38",
-      "community": 2,
+      "community": 4,
       "norm_label": "memorypalace",
       "id": "tavolarotonda_memory_palace_memorypalace"
     },
@@ -1592,7 +1655,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L58",
-      "community": 2,
+      "community": 4,
       "norm_label": ".touch()",
       "id": "tavolarotonda_memory_palace_memorypalace_touch"
     },
@@ -1601,7 +1664,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L61",
-      "community": 2,
+      "community": 4,
       "norm_label": ".add_brainstorm()",
       "id": "tavolarotonda_memory_palace_memorypalace_add_brainstorm"
     },
@@ -1610,7 +1673,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L61",
-      "community": 2,
+      "community": 4,
       "norm_label": "str",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_memory_palace_py_str"
     },
@@ -1619,7 +1682,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L61",
-      "community": 2,
+      "community": 4,
       "norm_label": "int",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_memory_palace_py_int"
     },
@@ -1628,7 +1691,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L65",
-      "community": 2,
+      "community": 4,
       "norm_label": ".add_critique()",
       "id": "tavolarotonda_memory_palace_memorypalace_add_critique"
     },
@@ -1637,7 +1700,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L71",
-      "community": 2,
+      "community": 4,
       "norm_label": ".set_synthesis()",
       "id": "tavolarotonda_memory_palace_memorypalace_set_synthesis"
     },
@@ -1646,7 +1709,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L75",
-      "community": 2,
+      "community": 4,
       "norm_label": ".add_vote()",
       "id": "tavolarotonda_memory_palace_memorypalace_add_vote"
     },
@@ -1655,7 +1718,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L75",
-      "community": 2,
+      "community": 4,
       "norm_label": "float",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_memory_palace_py_float"
     },
@@ -1664,7 +1727,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L79",
-      "community": 2,
+      "community": 4,
       "norm_label": ".add_research()",
       "id": "tavolarotonda_memory_palace_memorypalace_add_research"
     },
@@ -1673,7 +1736,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L84",
-      "community": 2,
+      "community": 4,
       "norm_label": ".to_dict()",
       "id": "tavolarotonda_memory_palace_memorypalace_to_dict"
     },
@@ -1682,7 +1745,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L88",
-      "community": 2,
+      "community": 4,
       "norm_label": "from_dict()",
       "id": "tavolarotonda_memory_palace_from_dict"
     },
@@ -1691,7 +1754,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L93",
-      "community": 2,
+      "community": 4,
       "norm_label": ".save()",
       "id": "tavolarotonda_memory_palace_memorypalace_save"
     },
@@ -1700,7 +1763,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L101",
-      "community": 2,
+      "community": 4,
       "norm_label": "load()",
       "id": "tavolarotonda_memory_palace_load"
     },
@@ -1709,7 +1772,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L106",
-      "community": 2,
+      "community": 4,
       "norm_label": "transcript_markdown()",
       "id": "tavolarotonda_memory_palace_transcript_markdown"
     },
@@ -1718,7 +1781,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L1",
-      "community": 2,
+      "community": 4,
       "norm_label": "memory palace \u2014 stato condiviso persistente per la sessione di tavola rotonda.",
       "id": "tavolarotonda_memory_palace_rationale_1"
     },
@@ -1727,7 +1790,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L39",
-      "community": 2,
+      "community": 4,
       "norm_label": "stato persistente condiviso della sessione di dibattito.",
       "id": "tavolarotonda_memory_palace_rationale_39"
     },
@@ -1736,7 +1799,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L94",
-      "community": 2,
+      "community": 4,
       "norm_label": "salva su disco come json pretty-printed.",
       "id": "tavolarotonda_memory_palace_rationale_94"
     },
@@ -1745,7 +1808,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/memory_palace.py",
       "source_location": "L107",
-      "community": 2,
+      "community": 4,
       "norm_label": "esporta la sessione come transcript markdown leggibile.",
       "id": "tavolarotonda_memory_palace_rationale_107"
     },
@@ -2024,7 +2087,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/secretary.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 3,
       "norm_label": "secretary.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_secretary_py"
     },
@@ -2096,7 +2159,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/secretary.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 3,
       "norm_label": "secretary / segretario \u2014 consolida la strategia live dopo ogni turn.  output jso",
       "id": "tavolarotonda_secretary_rationale_1"
     },
@@ -2195,7 +2258,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L1",
-      "community": 6,
+      "community": 0,
       "norm_label": "agents.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_agents_py"
     },
@@ -2213,7 +2276,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L228",
-      "community": 6,
+      "community": 0,
       "norm_label": "agent_by_name()",
       "id": "tavolarotonda_agents_agent_by_name"
     },
@@ -2222,7 +2285,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L228",
-      "community": 6,
+      "community": 0,
       "norm_label": "str",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_agents_py_str"
     },
@@ -2231,7 +2294,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L233",
-      "community": 6,
+      "community": 0,
       "norm_label": "default_council()",
       "id": "tavolarotonda_agents_default_council"
     },
@@ -2240,7 +2303,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L242",
-      "community": 6,
+      "community": 0,
       "norm_label": "polarities_for()",
       "id": "tavolarotonda_agents_polarities_for"
     },
@@ -2249,7 +2312,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L1",
-      "community": 6,
+      "community": 0,
       "norm_label": "18 personas fisse con polarity pairs (council of high intelligence pattern).  og",
       "id": "tavolarotonda_agents_rationale_1"
     },
@@ -2267,7 +2330,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L229",
-      "community": 6,
+      "community": 0,
       "norm_label": "cerca un agente per key (case-insensitive). ritorna none se non trovato.",
       "id": "tavolarotonda_agents_rationale_229"
     },
@@ -2276,7 +2339,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L234",
-      "community": 6,
+      "community": 0,
       "norm_label": "ritorna il set di agenti di default (12, bilanciati per dominio).",
       "id": "tavolarotonda_agents_rationale_234"
     },
@@ -2285,7 +2348,7 @@
       "file_type": "rationale",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L243",
-      "community": 6,
+      "community": 0,
       "norm_label": "ritorna le keys degli agenti in polarita con l'agent dato.",
       "id": "tavolarotonda_agents_rationale_243"
     },
@@ -2510,7 +2573,7 @@
       "file_type": "code",
       "source_file": "prompts.py",
       "source_location": "L190",
-      "community": 0,
+      "community": 3,
       "norm_label": "str",
       "id": "prompts_py_str"
     },
@@ -2519,7 +2582,7 @@
       "file_type": "code",
       "source_file": "prompts.py",
       "source_location": "L190",
-      "community": 0,
+      "community": 3,
       "norm_label": "int",
       "id": "prompts_py_int"
     },
@@ -2708,7 +2771,7 @@
       "file_type": "code",
       "source_file": "memory_palace.py",
       "source_location": "L1",
-      "community": 2,
+      "community": 4,
       "norm_label": "memory_palace.py",
       "id": "memory_palace_py"
     },
@@ -2717,7 +2780,7 @@
       "file_type": "code",
       "source_file": "memory_palace.py",
       "source_location": "L61",
-      "community": 2,
+      "community": 4,
       "norm_label": "str",
       "id": "memory_palace_py_str"
     },
@@ -2726,7 +2789,7 @@
       "file_type": "code",
       "source_file": "memory_palace.py",
       "source_location": "L61",
-      "community": 2,
+      "community": 4,
       "norm_label": "int",
       "id": "memory_palace_py_int"
     },
@@ -2735,7 +2798,7 @@
       "file_type": "code",
       "source_file": "memory_palace.py",
       "source_location": "L75",
-      "community": 2,
+      "community": 4,
       "norm_label": "float",
       "id": "memory_palace_py_float"
     },
@@ -2753,7 +2816,7 @@
       "file_type": "code",
       "source_file": "agents.py",
       "source_location": "L228",
-      "community": 6,
+      "community": 0,
       "norm_label": "str",
       "id": "agents_py_str"
     },
@@ -2843,7 +2906,7 @@
       "file_type": "code",
       "source_file": "director.py",
       "source_location": "L20",
-      "community": 0,
+      "community": 7,
       "norm_label": "str",
       "id": "director_py_str"
     },
@@ -2852,7 +2915,7 @@
       "file_type": "code",
       "source_file": "director.py",
       "source_location": "L48",
-      "community": 0,
+      "community": 7,
       "norm_label": "llmprovider",
       "id": "director_py_llmprovider"
     },
@@ -2861,12 +2924,112 @@
       "file_type": "code",
       "source_file": "director.py",
       "source_location": "L52",
-      "community": 0,
+      "community": 7,
       "norm_label": "int",
       "id": "director_py_int"
     }
   ],
   "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_INDEX.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "index_md",
+      "target": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_INDEX.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto",
+      "target": "tavolarotonda_due_index_sessioni_sessioni",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_INDEX.md",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto",
+      "target": "tavolarotonda_due_index_altri_file_root"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_INDEX.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto",
+      "target": "tavolarotonda_due_index_claude_claude"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "_INDEX.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto",
+      "target": "tavolarotonda_due_index_tavolarotonda_tavolarotonda"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "sessioni_2026_07_02_tr_011_012_013_md",
+      "target": "sessioni_2026_07_02_tr_011_012_013_sessione_2026_07_02_tr_011_012_013",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "sessioni_2026_07_02_tr_011_012_013_sessione_2026_07_02_tr_011_012_013",
+      "target": "sessioni_2026_07_02_tr_011_012_013_tr_011_test_sessione_reale_ornith",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "sessioni_2026_07_02_tr_011_012_013_sessione_2026_07_02_tr_011_012_013",
+      "target": "sessioni_2026_07_02_tr_011_012_013_tr_012_ornith_9b_come_provider_veloce",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "sessioni_2026_07_02_tr_011_012_013_sessione_2026_07_02_tr_011_012_013",
+      "target": "sessioni_2026_07_02_tr_011_012_013_tr_013_war_room_path_dopo_mv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "sessioni/2026-07-02-tr-011-012-013.md",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "sessioni_2026_07_02_tr_011_012_013_sessione_2026_07_02_tr_011_012_013",
+      "target": "sessioni_2026_07_02_tr_011_012_013_commit",
+      "confidence_score": 1.0
+    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -3166,9 +3329,9 @@
       "source_file": "gui/app.py",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_check_env",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "calls",
@@ -3198,9 +3361,9 @@
       "source_file": "gui/app.py",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_140",
-      "target": "gui_app_check_env",
-      "confidence_score": 1.0
+      "target": "gui_app_check_env"
     },
     {
       "relation": "references",
@@ -3209,9 +3372,9 @@
       "source_file": "gui/app.py",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_check_ollama",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3220,9 +3383,9 @@
       "source_file": "gui/app.py",
       "source_location": "L216",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_extract_agent_key",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3231,9 +3394,9 @@
       "source_file": "gui/app.py",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_multiprovider_init",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3242,9 +3405,9 @@
       "source_file": "gui/app.py",
       "source_location": "L253",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_multiprovider_complete",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3253,9 +3416,9 @@
       "source_file": "gui/app.py",
       "source_location": "L264",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_build_multi_provider",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3264,9 +3427,9 @@
       "source_file": "gui/app.py",
       "source_location": "L301",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_build_provider",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "calls",
@@ -3275,9 +3438,9 @@
       "source_file": "gui/app.py",
       "source_location": "L417",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_get_build_id",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3286,9 +3449,9 @@
       "source_file": "gui/app.py",
       "source_location": "L481",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_should_skip_dir",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "calls",
@@ -3297,9 +3460,9 @@
       "source_file": "gui/app.py",
       "source_location": "L503",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_audit_collect_targets",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3308,9 +3471,9 @@
       "source_file": "gui/app.py",
       "source_location": "L539",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_audit_project_stats",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3319,9 +3482,9 @@
       "source_file": "gui/app.py",
       "source_location": "L558",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_audit_render_tree",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3330,9 +3493,9 @@
       "source_file": "gui/app.py",
       "source_location": "L588",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_ext_hint",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "calls",
@@ -3341,9 +3504,9 @@
       "source_file": "gui/app.py",
       "source_location": "L407",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_static_files",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "calls",
@@ -3352,9 +3515,9 @@
       "source_file": "gui/app.py",
       "source_location": "L905",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_run_session",
-      "target": "str",
-      "confidence_score": 1.0
+      "target": "str"
     },
     {
       "relation": "references",
@@ -3363,9 +3526,9 @@
       "source_file": "gui/app.py",
       "source_location": "L144",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_check_ollama",
-      "target": "bool",
-      "confidence_score": 1.0
+      "target": "bool"
     },
     {
       "relation": "calls",
@@ -3406,9 +3569,9 @@
       "source_file": "gui/app.py",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_145",
-      "target": "gui_app_check_ollama",
-      "confidence_score": 1.0
+      "target": "gui_app_check_ollama"
     },
     {
       "relation": "references",
@@ -3417,9 +3580,9 @@
       "source_file": "gui/app.py",
       "source_location": "L469",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_is_auditable",
-      "target": "bool",
-      "confidence_score": 1.0
+      "target": "bool"
     },
     {
       "relation": "references",
@@ -3428,9 +3591,9 @@
       "source_file": "gui/app.py",
       "source_location": "L481",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_should_skip_dir",
-      "target": "bool",
-      "confidence_score": 1.0
+      "target": "bool"
     },
     {
       "relation": "calls",
@@ -3439,9 +3602,9 @@
       "source_file": "gui/app.py",
       "source_location": "L720",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_api_run",
-      "target": "bool",
-      "confidence_score": 1.0
+      "target": "bool"
     },
     {
       "relation": "calls",
@@ -3450,9 +3613,9 @@
       "source_file": "gui/app.py",
       "source_location": "L1012",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_api_sessions",
-      "target": "bool",
-      "confidence_score": 1.0
+      "target": "bool"
     },
     {
       "relation": "calls",
@@ -3471,9 +3634,9 @@
       "source_file": "gui/app.py",
       "source_location": "L217",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_217",
-      "target": "gui_app_extract_agent_key",
-      "confidence_score": 1.0
+      "target": "gui_app_extract_agent_key"
     },
     {
       "relation": "inherits",
@@ -3481,9 +3644,9 @@
       "source_file": "gui/app.py",
       "source_location": "L233",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_multiprovider",
-      "target": "llmprovider",
-      "confidence_score": 1.0
+      "target": "llmprovider"
     },
     {
       "relation": "method",
@@ -3522,9 +3685,9 @@
       "source_file": "gui/app.py",
       "source_location": "L234",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_234",
-      "target": "gui_app_multiprovider",
-      "confidence_score": 1.0
+      "target": "gui_app_multiprovider"
     },
     {
       "relation": "inherits",
@@ -3563,9 +3726,9 @@
       "source_file": "gui/app.py",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_multiprovider_init",
-      "target": "llmprovider",
-      "confidence_score": 1.0
+      "target": "llmprovider"
     },
     {
       "relation": "calls",
@@ -3574,9 +3737,9 @@
       "source_file": "gui/app.py",
       "source_location": "L338",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_build_provider",
-      "target": "llmprovider",
-      "confidence_score": 1.0
+      "target": "llmprovider"
     },
     {
       "relation": "references",
@@ -3659,9 +3822,9 @@
       "source_file": "gui/app.py",
       "source_location": "L265",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_265",
-      "target": "gui_app_build_multi_provider",
-      "confidence_score": 1.0
+      "target": "gui_app_build_multi_provider"
     },
     {
       "relation": "rationale_for",
@@ -3669,9 +3832,9 @@
       "source_file": "gui/app.py",
       "source_location": "L302",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_302",
-      "target": "gui_app_build_provider",
-      "confidence_score": 1.0
+      "target": "gui_app_build_provider"
     },
     {
       "relation": "calls",
@@ -3724,9 +3887,9 @@
       "source_file": "gui/app.py",
       "source_location": "L427",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_get_build_id",
-      "target": "int",
-      "confidence_score": 1.0
+      "target": "int"
     },
     {
       "relation": "rationale_for",
@@ -3734,9 +3897,9 @@
       "source_file": "gui/app.py",
       "source_location": "L414",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_414",
-      "target": "gui_app_get_build_id",
-      "confidence_score": 1.0
+      "target": "gui_app_get_build_id"
     },
     {
       "relation": "references",
@@ -3766,9 +3929,9 @@
       "source_file": "gui/app.py",
       "source_location": "L470",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_470",
-      "target": "gui_app_is_auditable",
-      "confidence_score": 1.0
+      "target": "gui_app_is_auditable"
     },
     {
       "relation": "references",
@@ -3873,9 +4036,9 @@
       "source_file": "gui/app.py",
       "source_location": "L482",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_482",
-      "target": "gui_app_should_skip_dir",
-      "confidence_score": 1.0
+      "target": "gui_app_should_skip_dir"
     },
     {
       "relation": "references",
@@ -3884,9 +4047,9 @@
       "source_file": "gui/app.py",
       "source_location": "L486",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_audit_collect_targets",
-      "target": "int",
-      "confidence_score": 1.0
+      "target": "int"
     },
     {
       "relation": "calls",
@@ -3905,9 +4068,9 @@
       "source_file": "gui/app.py",
       "source_location": "L492",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_492",
-      "target": "gui_app_audit_collect_targets",
-      "confidence_score": 1.0
+      "target": "gui_app_audit_collect_targets"
     },
     {
       "relation": "rationale_for",
@@ -3926,9 +4089,9 @@
       "source_file": "gui/app.py",
       "source_location": "L539",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_audit_project_stats",
-      "target": "int",
-      "confidence_score": 1.0
+      "target": "int"
     },
     {
       "relation": "references",
@@ -3937,9 +4100,9 @@
       "source_file": "gui/app.py",
       "source_location": "L558",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_audit_render_tree",
-      "target": "int",
-      "confidence_score": 1.0
+      "target": "int"
     },
     {
       "relation": "calls",
@@ -3948,9 +4111,9 @@
       "source_file": "gui/app.py",
       "source_location": "L702",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_health",
-      "target": "int",
-      "confidence_score": 1.0
+      "target": "int"
     },
     {
       "relation": "calls",
@@ -3959,9 +4122,9 @@
       "source_file": "gui/app.py",
       "source_location": "L716",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_api_run",
-      "target": "int",
-      "confidence_score": 1.0
+      "target": "int"
     },
     {
       "relation": "calls",
@@ -3970,9 +4133,9 @@
       "source_file": "gui/app.py",
       "source_location": "L1011",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_api_sessions",
-      "target": "int",
-      "confidence_score": 1.0
+      "target": "int"
     },
     {
       "relation": "calls",
@@ -3991,9 +4154,9 @@
       "source_file": "gui/app.py",
       "source_location": "L540",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_540",
-      "target": "gui_app_audit_project_stats",
-      "confidence_score": 1.0
+      "target": "gui_app_audit_project_stats"
     },
     {
       "relation": "calls",
@@ -4012,9 +4175,9 @@
       "source_file": "gui/app.py",
       "source_location": "L559",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_559",
-      "target": "gui_app_audit_render_tree",
-      "confidence_score": 1.0
+      "target": "gui_app_audit_render_tree"
     },
     {
       "relation": "calls",
@@ -4033,9 +4196,9 @@
       "source_file": "gui/app.py",
       "source_location": "L589",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_589",
-      "target": "gui_app_ext_hint",
-      "confidence_score": 1.0
+      "target": "gui_app_ext_hint"
     },
     {
       "relation": "rationale_for",
@@ -4043,9 +4206,9 @@
       "source_file": "gui/app.py",
       "source_location": "L603",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_603",
-      "target": "gui_app_api_agents",
-      "confidence_score": 1.0
+      "target": "gui_app_api_agents"
     },
     {
       "relation": "rationale_for",
@@ -4053,9 +4216,9 @@
       "source_file": "gui/app.py",
       "source_location": "L620",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_620",
-      "target": "gui_app_api_council_presets",
-      "confidence_score": 1.0
+      "target": "gui_app_api_council_presets"
     },
     {
       "relation": "rationale_for",
@@ -4063,9 +4226,9 @@
       "source_file": "gui/app.py",
       "source_location": "L641",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_641",
-      "target": "gui_app_api_models",
-      "confidence_score": 1.0
+      "target": "gui_app_api_models"
     },
     {
       "relation": "rationale_for",
@@ -4073,9 +4236,9 @@
       "source_file": "gui/app.py",
       "source_location": "L710",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_710",
-      "target": "gui_app_api_run",
-      "confidence_score": 1.0
+      "target": "gui_app_api_run"
     },
     {
       "relation": "calls",
@@ -4094,9 +4257,9 @@
       "source_file": "gui/app.py",
       "source_location": "L766",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_766",
-      "target": "gui_app_emit_event",
-      "confidence_score": 1.0
+      "target": "gui_app_emit_event"
     },
     {
       "relation": "rationale_for",
@@ -4104,9 +4267,9 @@
       "source_file": "gui/app.py",
       "source_location": "L785",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_785",
-      "target": "gui_app_run_session",
-      "confidence_score": 1.0
+      "target": "gui_app_run_session"
     },
     {
       "relation": "rationale_for",
@@ -4114,9 +4277,9 @@
       "source_file": "gui/app.py",
       "source_location": "L947",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_947",
-      "target": "gui_app_api_stream",
-      "confidence_score": 1.0
+      "target": "gui_app_api_stream"
     },
     {
       "relation": "rationale_for",
@@ -4124,49 +4287,9 @@
       "source_file": "gui/app.py",
       "source_location": "L1006",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "gui_app_rationale_1006",
-      "target": "gui_app_api_sessions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "_INDEX.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "index_md",
-      "target": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "_INDEX.md",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto",
-      "target": "tavolarotonda_due_index_altri_file_root"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "_INDEX.md",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto",
-      "target": "tavolarotonda_due_index_claude_claude"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "_INDEX.md",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_due_index_tavolarotonda_due_indice_progetto",
-      "target": "tavolarotonda_due_index_tavolarotonda_tavolarotonda"
+      "target": "gui_app_api_sessions"
     },
     {
       "relation": "contains",
@@ -11295,5 +11418,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "785beb3d72e87815a8fd4a6f266e3690a68d1fb6"
+  "built_at_commit": "699e831be8cfbca1d195f533545d9f5a6253d58b"
 }
