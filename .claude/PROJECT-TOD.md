@@ -12,7 +12,9 @@
 
 ## 🔄 In Progress
 
-(nessuno)
+- [ ] **TR-040** — Roadmap AQ TavolaRotonda 2.0 (20 domande → piano sviluppo)
+      Owner: sessione 2026-07-11
+      Done when: piano approvato, implementazione iniziata
 
 ## ⬜ Backlog (in ordine di priorità)
 
@@ -23,6 +25,22 @@
 
 - [ ] **TR-014** — Ornith-35b nella triade: valutare se sostituire anche in routing CLI default
       Nota: ora CLI usa `local_only` → primo Ollama disponibile; ornith-35b è il primo → OK di default
+
+- [ ] **TR-041** — Implementare config.yaml centralizzato (modelli, agenti, preset, prompt)
+      Comando: creare `tavolarotonda/config.yaml` + refactoring `gui/app.py`
+      Done when: config.yaml funziona, tutti i modelli presenti
+
+- [ ] **TR-042** — Aggiungere Top 5 modelli AQ alla GUI (qwen3.6-opus, coder-32b, gemma-4, qwen2.5:14b, qwen2.5:7b)
+      Done when: model-select mostra 5 modelli benchmarkati
+
+- [ ] **TR-043** — Unificare LLMProvider + AnthropicCompatProvider
+      Done when: una sola classe provider gestisce tutti gli endpoint
+
+- [ ] **TR-044** — GitHub Actions CI (test + lint + type-check)
+      Done when: workflow attivo su push/PR
+
+- [ ] **TR-045** — Integrazione Obsidian (topic da vault, risultati in vault)
+      Done when: `/api/obsidian-topic` funziona, output markdown salvato in vault
 
 - [ ] **TR-020** — Implementare MCP server (vs quorum-cli)
       Done when: `tavolarotonda serve --mcp` + client test
