@@ -15,7 +15,10 @@
 - [x] **TR-042** — aq_score in api_models + top_5_by_aq ranking · commit `49e5619` (2026-07-11)
 - [x] **TR-047** — Streaming SSE con agent_key + agent_color · commit `49e5619` (2026-07-11)
 - [x] **TR-044** — GitHub Actions CI: test (pytest 3.11/3.12 + coverage) + lint (ruff) + type-check (mypy) · commit `fa2db97` (2026-07-11)
-      Note: mypy 8 errors tracked separately (providers/phases/__main__ type annotations)
+- [x] **TR-045** — Integrazione Obsidian: obsidian_vault.py (read_topic/save_session) + serve.py HTTP API (/api/obsidian/topic, /api/obsidian/save, /health) · commit `db5b90c` (2026-07-11)
+- [x] **TR-020** — MCP server: mcp_server.py (discuss/status/history tools) + POST /mcp JSON-RPC + MCP handshake OK · commit `db5b90c` (2026-07-11)
+- [x] **TR-021** — opus-m3-confer wiring: MODEL_TIER_MAP + confer_phase() + --intensity CLI flag (fast|standard|reasoning|critical) · commit `db5b90c` (2026-07-11)
+- [x] **mypy fix** — 12 type errors fixed (providers.py, evidence.py, phases.py, __main__.py) → mypy 0 issues · commit `db5b90c` (2026-07-11)
 
 ## 🔄 In Progress
 
@@ -23,16 +26,6 @@ nessuna
 
 ## ⬜ Backlog (in ordine di priorità)
 
-- [ ] **TR-045** — Integrazione Obsidian (topic da vault, risultati in vault)
-      Comando: `cd /mnt/backup/Dropbox/1\ Programmazione/Progetti/tavolarotonda-due && python -m tavolarotonda serve`
-      Done when: endpoint `/api/obsidian-topic` risponde, output markdown salvato in vault
-
-- [ ] **TR-020** — Implementare MCP server (tavolarotonda serve --mcp)
-      Comando: `cd /mnt/backup/Dropbox/1\ Programmazione/Progetti/tavolarotonda-due && python -m tavolarotonda serve --mcp`
-      Done when: client test OK, risposta HTTP 200 da MCP handshake
-
-- [ ] **TR-021** — Wiring con `opus-m3-confer` per routing decisioni complesse
-      Riferimento: `[[tavolarotonda-due]]` sezione Prossimi passi
 
 - [ ] **TR-014** — Ornith-35b nella triade: valutare se sostituire anche in routing CLI default
       Nota: ora CLI usa `local_only` → primo Ollama disponibile; ornith-35b è il primo → OK di default
