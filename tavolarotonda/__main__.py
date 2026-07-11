@@ -42,10 +42,10 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         prog="tavolarotonda",
         description="Council multi-agente per decisioni reali, audit e Q&A multi-domanda.",
     )
-    parser.add_argument("topic", nargs="?", help="Topico della tavola rotonda")
-    subparsers = parser.add_subparsers(dest="command", help="Comandi")
+    parser.add_argument("--topic", "-t", dest="topic", help="Topic for the council / Argomento della tavola rotonda")
+    subparsers = parser.add_subparsers(dest="command", help="Comandi / Commands")
 
-    serve_sp = subparsers.add_parser("serve", help="Avvia HTTP server per API Obsidian")
+    serve_sp = subparsers.add_parser("serve", help="Avvia HTTP server per API Obsidian / Start HTTP server")
     serve_sp.add_argument("--port", type=int, default=8765)
     serve_sp.add_argument("--vault", default=None)
 
@@ -272,7 +272,7 @@ def main(argv: list[str] | None = None) -> int:
                     print(palace_json)
             return 0
         else:
-            print("❌ Specifica un topic, --audit FILE, o --qa 'Q1' 'Q2' ...", file=sys.stderr)
+            print("❌ Specify --topic TOPIC, --audit FILE, or --qa 'Q1' 'Q2' ...", file=sys.stderr)
             _parse_args(["--help"])
             return 1
 
