@@ -1,0 +1,170 @@
+# Tavola Rotonda Config — centralizzato
+# Source: gui/app.py MODELS + COUNCIL_PRESETS + _MODEL_FOR_PROVIDER
+# Version: 1.0 — 2026-07-11
+
+version: "1.0"
+app_name: "Tavola Rotonda"
+description: "Multi-agent debate framework — single-user, privacy-first"
+privacy_tier_default: "cloud_ok"
+
+ollama_base_url: "http://127.0.0.1:11434"
+ai_router_url: "http://127.0.0.1:8787"
+
+timeout:
+  default_timeout_s: 180
+  circuit_failure_threshold: 3
+  circuit_open_duration_s: 300
+  retry_attempts: 3
+
+# ── Models ────────────────────────────────────────────────────────────────────
+# provider_kind: mock | ollama | anthropic_compat | openai_compat
+# env_required: lista di env var necessarie (vuota = nessuna)
+# aq_score: da benchmark 2026-07-11 (40 risposte/modello)
+models:
+  mock:
+    label: "Mock (no LLM reale)"
+    description: "Risposte stub per testare il wiring del council. Nessuna chiamata di rete."
+    provider_kind: "mock"
+    env_required: []
+    default_model: null
+    default_base_url: null
+    icon: "🧪"
+    aq_score: 0
+
+  ollama-auto:
+    label: "Ollama locale (auto)"
+    description: "Usa il primo modello Ollama disponibile. Richiede Ollama in esecuzione su :11434."
+    provider_kind: "ollama"
+    env_required: []
+    default_model: "auto"
+    default_base_url: null
+    icon: "🏠"
+    aq_score: 2.5
+
+  opus-local:
+    label: "Opus locale (Qwen3.6 35B abliterated)"
+    description: "qwen3.6-opus-abliterated:35b via Ollama. Nessuna chiave richiesta."
+    provider_kind: "ollama"
+    env_required: []
+    default_model: "qwen3.6-opus-abliterated:35b"
+    default_base_url: null
+    icon: "🏛️"
+    aq_score: 4.69
+
+  opus-4.8:
+    label: "Opus 4.8 (via ai-router :8787)"
+    description: "Claude Opus 4.8 via ai-router :8787 (Anthropic-compat /v1/messages). Richiede ANTHROPIC_API_KEY."
+    provider_kind: "anthropic_compat"
+    env_required: ["ANTHROPIC_API_KEY"]
+    default_model: "claude-opus-4-8"
+    default_base_url: "http://127.0.0.1:8787"
+    icon: "🧠"
+    aq_score: 8.0
+
+  MiniMax-M3:
+    label: "MiniMax M3 (via ai-router :8787)"
+    description: "MiniMax-M3 via ai-router :8787 (Anthropic-compat /v1/messages). Richiede MiniMax_API_KEY."
+    provider_kind: "anthropic_compat"
+    env_required: ["MiniMax_API_KEY"]
+    default_model: "MiniMax/MiniMax-M3"
+    default_base_url: "http://127.0.0.1:8787"
+    icon: "🌊"
+    aq_score: 7.5
+
+# ── Council presets ───────────────────────────────────────────────────────────
+# routing: dict[agent_key → provider_key] — null = monolithic (nessun routing)
+council_presets:
+  monolithic:
+    label: "Monolitico (1 LLM per tutti)"
+    description: "Tutti i 18 agenti usano il modello selezionato sopra. Nessun routing."
+    icon: "🧊"
+    routing: null
+
+  triade:
+    label: "Triade bilanciata (3 LLM)"
+    description: "Razionali/analitici → Opus · Creativi/dialogo → MiniMax · Pratici/tecnici → Opus locale"
+    icon: "🔱"
+    routing:
+      # Gruppo A → Opus 4.8 (ragionamento forte)
+      aristotle: "opus-4.8"
+      socrates: "opus-4.8"
+      feynman: "opus-4.8"
+      karpathy: "opus-4.8"
+      kahneman: "opus-4.8"
+      sutskever: "opus-4.8"
+      # Gruppo B → MiniMax-M3 (creatività + dialogo)
+      sun_tzu: "MiniMax-M3"
+      ada: "MiniMax-M3"
+      aurelius: "MiniMax-M3"
+      machiavelli: "MiniMax-M3"
+      lao_tzu: "MiniMax-M3"
+      watts: "MiniMax-M3"
+      # Gruppo C → Opus locale (pratico + veloce)
+      torvalds: "opus-local"
+      musashi: "opus-local"
+      meadows: "opus-local"
+      munger: "opus-local"
+      taleb: "opus-local"
+      rams: "opus-local"
+
+  alternating:
+    label: "Round-robin alternato"
+    description: "Cicla Opus 4.8 → MiniMax → Opus locale → Opus 4.8 → ..."
+    icon: "🔄"
+    routing:
+      aristotle: "opus-4.8"
+      socrates: "MiniMax-M3"
+      feynman: "opus-local"
+      karpathy: "opus-4.8"
+      kahneman: "MiniMax-M3"
+      sutskever: "opus-local"
+      sun_tzu: "opus-4.8"
+      ada: "MiniMax-M3"
+      aurelius: "opus-local"
+      machiavelli: "opus-4.8"
+      lao_tzu: "MiniMax-M3"
+      watts: "opus-local"
+      torvalds: "opus-4.8"
+      musashi: "MiniMax-M3"
+      meadows: "opus-local"
+      munger: "opus-4.8"
+      taleb: "MiniMax-M3"
+      rams: "opus-local"
+
+# ── Modello concreto per ogni provider key ────────────────────────────────────
+# Mappa: provider_key → model name passato a complete(model=...)
+model_for_provider:
+  mock: "mock"
+  opus-4.8: "claude-opus-4-8"
+  MiniMax-M3: "MiniMax/MiniMax-M3"
+  ollama-auto: "auto"
+  opus-local: "qwen3.6-opus-abliterated:35b"
+
+# ── Export ────────────────────────────────────────────────────────────────────
+export_formats:
+  - html
+  - json
+  - pdf
+  - markdown
+  - csv
+
+# ── Agent colors per streaming UX ─────────────────────────────────────────────
+agent_colors:
+  aristotle: "#f0883e"
+  socrates: "#58a6ff"
+  feynman: "#7ee787"
+  karpathy: "#d2a8ff"
+  kahneman: "#79c0ff"
+  sutskever: "#a5d6ff"
+  sun_tzu: "#ff7b72"
+  ada: "#ffadd6"
+  aurelius: "#d2a8ff"
+  machiavelli: "#ffa657"
+  lao_tzu: "#a5d6ff"
+  watts: "#7ee787"
+  torvalds: "#79c0ff"
+  musashi: "#ff7b72"
+  meadows: "#7ee787"
+  munger: "#ffa657"
+  taleb: "#d2a8ff"
+  rams: "#a5d6ff"

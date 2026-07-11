@@ -46,11 +46,7 @@ from tavolarotonda import (
 )
 from tavolarotonda.evidence import adversarial_research
 from tavolarotonda.providers import AnthropicCompatProvider, CircuitBreaker, ProviderResult
-
-import re
-from tavolarotonda.providers import AnthropicCompatProvider, CircuitBreaker, ProviderResult
-
-import re
+from tavolarotonda.config import load as load_config, get_model, get_preset, get_agent_color, get_timeout
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(name)s] %(message)s")
 log = logging.getLogger("tavolarotonda-gui")
@@ -69,53 +65,10 @@ SESSIONS: dict[str, dict] = {}
 # === MODEL CONFIGURATION ===
 # Mappa dei modelli LLM selezionabili dalla GUI.
 # Ogni modello: provider_kind, env_required, default_model, default_base_url, label, icon
-MODELS: dict[str, dict] = {
-    "mock": {
-        "label": "Mock (no LLM reale)",
-        "description": "Risposte stub per testare il wiring del council. Nessuna chiamata di rete.",
-        "provider_kind": "mock",
-        "env_required": [],
-        "default_model": None,
-        "default_base_url": None,
-        "icon": "🧪",
-    },
-    "ollama-auto": {
-        "label": "Ollama locale (auto)",
-        "description": "Usa il primo modello Ollama disponibile. Richiede Ollama in esecuzione su :11434.",
-        "provider_kind": "ollama",
-        "env_required": [],
-        "default_model": "auto",
-        "default_base_url": None,
-        "icon": "🏠",
-    },
-    "opus-local": {
-        "label": "Opus locale (Qwen3.6 35B abliterated)",
-        "description": "qwen3.6-opus-abliterated:35b via Ollama. Nessuna chiave richiesta.",
-        "provider_kind": "ollama",
-        "env_required": [],
-        "default_model": "qwen3.6-opus-abliterated:35b",
-        "default_base_url": None,
-        "icon": "🏛️",
-    },
-    "opus-4.8": {
-        "label": "Opus 4.8 (via ai-router :8787)",
-        "description": "Claude Opus 4.8 via ai-router :8787 (Anthropic-compat /v1/messages). Richiede ANTHROPIC_API_KEY.",
-        "provider_kind": "anthropic_compat",
-        "env_required": ["ANTHROPIC_API_KEY"],
-        "default_model": "claude-opus-4-8",
-        "default_base_url": "http://127.0.0.1:8787",
-        "icon": "🧠",
-    },
-    "MiniMax-M3": {
-        "label": "MiniMax M3 (via ai-router :8787)",
-        "description": "MiniMax-M3 via ai-router :8787 (Anthropic-compat /v1/messages). Richiede MiniMax_API_KEY.",
-        "provider_kind": "anthropic_compat",
-        "env_required": ["MiniMax_API_KEY"],
-        "default_model": "MiniMax/MiniMax-M3",
-        "default_base_url": "http://127.0.0.1:8787",
-        "icon": "🌊",
-    },
-}
+# === Loaded from config.yaml ───────────────────────────────────────────────────
+_cfg = load_config()
+MODELS: dict[str, dict] = _cfg.get("models", {})
+MODEL_FOR_PROVIDER: dict[str, str] = _cfg.get("model_for_provider", {})
 
 
 def _check_env(env_required: list[str]) -> list[str]:
@@ -134,64 +87,28 @@ def _check_ollama(base_url: str = "http://127.0.0.1:11434") -> tuple[bool, list[
         return False, []
 
 
-# === COUNCIL MODES (multi-provider routing) ===
-# Permette di fare una tavola rotonda TRA PIÙ PROVIDER (es. Opus + MiniMax + Ollama).
-# Ogni preset definisce un routing dict[agent_key → provider_key].
+# === COUNCIL MODES (from config.yaml) ────────────────────────────────────────
+_c = _cfg.get("council_presets", {})
 COUNCIL_PRESETS: dict[str, dict] = {
-    "monolithic": {
-        "label": "Monolitico (1 LLM per tutti)",
-        "description": "Tutti i 18 agenti usano il modello selezionato sopra. Nessun routing.",
-        "icon": "🧊",
-    },
-    "triade": {
-        "label": "Triade bilanciata (3 LLM)",
-        "description": "Razionali/analitici → Opus · Creativi/dialogo → MiniMax · Pratici/tecnici → Ornith 35B",
-        "icon": "🔱",
-        "routing": {
-            # Gruppo A → Opus 4.8 (ragionamento forte)
-            "aristotle": "opus-4.8",
-            "socrates": "opus-4.8",
-            "feynman": "opus-4.8",
-            "karpathy": "opus-4.8",
-            "kahneman": "opus-4.8",
-            "sutskever": "opus-4.8",
-            # Gruppo B → MiniMax-M3 (creatività + dialogo)
-            "sun_tzu": "MiniMax-M3",
-            "ada": "MiniMax-M3",
-            "aurelius": "MiniMax-M3",
-            "machiavelli": "MiniMax-M3",
-            "lao_tzu": "MiniMax-M3",
-            "watts": "MiniMax-M3",
-            # Gruppo C → Opus locale (pratico + veloce)
-            "torvalds": "opus-local",
-            "musashi": "opus-local",
-            "meadows": "opus-local",
-            "munger": "opus-local",
-            "taleb": "opus-local",
-            "rams": "opus-local",
-        },
-    },
+    k: v for k, v in _c.items() if v.get("routing") is not None
 }
-# Round-robin alternato: cicla A,B,C,A,B,C,...
-_keys_all = list(AGENTS.keys())
-_choices_alt = ["opus-4.8", "MiniMax-M3", "opus-local"]
-COUNCIL_PRESETS["alternating"] = {
-    "label": "Round-robin alternato",
-    "description": "Cicla Opus 4.8 → MiniMax → Opus locale → Opus 4.8 → ...",
-    "icon": "🔄",
-    "routing": {k: _choices_alt[i % 3] for i, k in enumerate(_keys_all)},
-}
+# Aggiungi monolithic (routing: null — gestito come caso speciale in _build_multi_provider)
+if "monolithic" in _c:
+    COUNCIL_PRESETS["monolithic"] = _c["monolithic"]
+# Genera alternating dinamicamente se non definito esplicitamente
+if "alternating" not in COUNCIL_PRESETS:
+    _keys_all = list(AGENTS.keys())
+    _choices_alt = ["opus-4.8", "MiniMax-M3", "opus-local"]
+    COUNCIL_PRESETS["alternating"] = {
+        "label": "Round-robin alternato",
+        "description": "Cicla Opus 4.8 → MiniMax → Opus locale → Opus 4.8 → ...",
+        "icon": "🔄",
+        "routing": {k: _choices_alt[i % 3] for i, k in enumerate(_keys_all)},
+    }
 
 
 # Modello concreto da passare a `complete(model=...)` per ogni provider_key
-_MODEL_FOR_PROVIDER = {
-    "mock": "mock",
-    "opus-4.8": "claude-opus-4-8",
-    "MiniMax-M3": "MiniMax/MiniMax-M3",
-    "ollama-auto": "auto",
-    "opus-local": "qwen3.6-opus-abliterated:35b",
-
-}
+# model_for_provider: caricato da config.yaml in MODEL_FOR_PROVIDER (riga 71)
 
 
 def _extract_agent_key(system: str) -> str | None:
@@ -223,7 +140,7 @@ class MultiProvider(LLMProvider):
         self.default_provider = providers[self.default_provider_name]
         self.privacy_tier = "cloud_ok"
         self.breaker = CircuitBreaker()
-        self.default_timeout_s = 180.0
+        self.default_timeout_s = get_timeout()
         self.kind = "multi"
         self.call_log: list[dict] = []
         self.ollama_base_url = "http://127.0.0.1:11434"
@@ -237,7 +154,7 @@ class MultiProvider(LLMProvider):
         if agent_key and agent_key in self.agent_routing:
             provider_name = self.agent_routing[agent_key]
         provider = self.providers.get(provider_name, self.default_provider)
-        target_model = _MODEL_FOR_PROVIDER.get(provider_name, model)
+        target_model = MODEL_FOR_PROVIDER.get(provider_name, model)
         self.call_log.append({"agent": agent_key, "provider": provider_name, "model": target_model})
         return await provider.complete(prompt, model=target_model, system=system, **kwargs)
 
@@ -319,7 +236,7 @@ def _build_provider(choice: str, privacy_tier: str = "cloud_ok") -> tuple:
         provider = LLMProvider(
             ollama_base_url=base_url,
             privacy_tier=privacy_tier,
-            default_timeout_s=180.0,
+            default_timeout_s=get_timeout(),
         )
         return provider, {"state": "ok", "reason": f"Ollama attivo ({len(models)} modelli)", "model": chosen}
 
@@ -334,7 +251,7 @@ def _build_provider(choice: str, privacy_tier: str = "cloud_ok") -> tuple:
         provider = LLMProvider(
             anthropic_api_key=os.environ["ANTHROPIC_API_KEY"],
             privacy_tier=privacy_tier,
-            default_timeout_s=180.0,
+            default_timeout_s=get_timeout(),
         )
         return provider, {
             "state": "ok",
@@ -354,7 +271,7 @@ def _build_provider(choice: str, privacy_tier: str = "cloud_ok") -> tuple:
             openai_base_url=cfg["default_base_url"],
             openai_api_key=os.environ[cfg["env_required"][0]],
             privacy_tier=privacy_tier,
-            default_timeout_s=180.0,
+            default_timeout_s=get_timeout(),
         )
         return provider, {
             "state": "ok",
@@ -374,7 +291,7 @@ def _build_provider(choice: str, privacy_tier: str = "cloud_ok") -> tuple:
             base_url=cfg.get("default_base_url", "http://127.0.0.1:8787"),
             api_key=os.environ.get(cfg["env_required"][0], "mock"),
             privacy_tier=privacy_tier,
-            default_timeout_s=180.0,
+            default_timeout_s=get_timeout(),
         )
         return provider, {
             "state": "ok",
@@ -627,7 +544,7 @@ def api_council_presets():
             "description": cfg["description"],
             "icon": cfg.get("icon", "🎭"),
         }
-        if "routing" in cfg:
+        if cfg.get("routing"):
             info["routing"] = cfg["routing"]
             counts = {}
             for ak, pn in cfg["routing"].items():
