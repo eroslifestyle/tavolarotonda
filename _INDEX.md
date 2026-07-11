@@ -2,7 +2,7 @@
 title: tavolarotonda-due - Indice
 type: project-index
 project: tavolarotonda-due
-updated: 2026-07-10 21:10
+updated: 2026-07-11 12:22
 tags: [tavolarotonda-due, index, auto-generated]
 ---
 
@@ -14,11 +14,15 @@ tags: [tavolarotonda-due, index, auto-generated]
 
 - [[2026-07-02-rename-ornith-integration]]
 - [[2026-07-02-tr-011-012-013]]
+- [[2026-07-11-aq-benchmark-20-domande]]
+- [[2026-07-11-aq-synth-roadmap]]
+- [[2026-07-11-tr-044-ci]]
 
 ## Altri file root
 
 - [[CLAUDE]]
 - [[README]]
+- [[ROADMAP]]
 - [[tavolarotonda-due]]
 
 ## .Claude (`.claude/`)
@@ -27,7 +31,16 @@ tags: [tavolarotonda-due, index, auto-generated]
 - [[CP_20260621_2017]]
 - [[CP_20260702_0154]]
 - [[CP_20260702_0817]]
+- [[CP_20260711_1008]]
+- [[CP_20260711_2100]]
+- [[CP_20260711_2115]]
+- [[CP_20260711_2248]]
+- [[CP_20260711_2350]]
 - [[PROJECT-TOD]]
+
+## .Pytest_Cache (`.pytest_cache/`)
+
+- [[README]]
 
 ## Tavolarotonda (`tavolarotonda/`)
 
@@ -36,4 +49,4 @@ tags: [tavolarotonda-due, index, auto-generated]
 
 ---
 
-_Auto-generato da `obsidian_auto_update.py` — 11 file indicizzati._
+_Auto-generato da `obsidian_auto_update.py` — 21 file indicizzati._
