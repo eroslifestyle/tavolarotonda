@@ -14,6 +14,8 @@
 - [x] **TR-046** — Unificato LLMProvider + AnthropicCompatProvider (deprecated → thin wrapper) · commit `49e5619` (2026-07-11)
 - [x] **TR-042** — aq_score in api_models + top_5_by_aq ranking · commit `49e5619` (2026-07-11)
 - [x] **TR-047** — Streaming SSE con agent_key + agent_color · commit `49e5619` (2026-07-11)
+- [x] **TR-044** — GitHub Actions CI: test (pytest 3.11/3.12 + coverage) + lint (ruff) + type-check (mypy) · commit `fa2db97` (2026-07-11)
+      Note: mypy 8 errors tracked separately (providers/phases/__main__ type annotations)
 
 ## 🔄 In Progress
 
@@ -21,25 +23,20 @@ nessuna
 
 ## ⬜ Backlog (in ordine di priorità)
 
-- [x] **TR-010** — `git commit + push` modifiche sessione 2026-07-02 (gui/app.py + providers.py) · commit `785beb3` (2026-07-02)
-- [x] **TR-011** — Test sessione reale Ornith (3 round, mode topic, council monolitico) · session `625965bc086d`, HTML 6051B (2026-07-02)
-- [x] **TR-012** — Aggiunta `ornith-9b` (5.6 GB, 0.86s) come provider "veloce" opzionale · `ornith-9b:latest` state=ok (2026-07-02)
-- [x] **TR-013** — Verifica `bin/war-room-tavolarotonda` dopo mv del repo · exit 0 (2026-07-02)
+- [ ] **TR-045** — Integrazione Obsidian (topic da vault, risultati in vault)
+      Comando: `cd /mnt/backup/Dropbox/1\ Programmazione/Progetti/tavolarotonda-due && python -m tavolarotonda serve`
+      Done when: endpoint `/api/obsidian-topic` risponde, output markdown salvato in vault
+
+- [ ] **TR-020** — Implementare MCP server (tavolarotonda serve --mcp)
+      Comando: `cd /mnt/backup/Dropbox/1\ Programmazione/Progetti/tavolarotonda-due && python -m tavolarotonda serve --mcp`
+      Done when: client test OK, risposta HTTP 200 da MCP handshake
+
+- [ ] **TR-021** — Wiring con `opus-m3-confer` per routing decisioni complesse
+      Riferimento: `[[tavolarotonda-due]]` sezione Prossimi passi
 
 - [ ] **TR-014** — Ornith-35b nella triade: valutare se sostituire anche in routing CLI default
       Nota: ora CLI usa `local_only` → primo Ollama disponibile; ornith-35b è il primo → OK di default
 
-- [ ] **TR-044** — GitHub Actions CI (test + lint + type-check)
-      Done when: workflow attivo su push/PR
-
-- [ ] **TR-045** — Integrazione Obsidian (topic da vault, risultati in vault)
-      Done when: `/api/obsidian-topic` funziona, output markdown salvato in vault
-
-- [ ] **TR-020** — Implementare MCP server (vs quorum-cli)
-      Done when: `tavolarotonda serve --mcp` + client test
-
-- [ ] **TR-021** — Wiring con `opus-m3-confer` per routing decisioni complesse
-      Riferimento: `[[tavolarotonda-due]]` sezione Prossimi passi
 
 ## 🚫 Deferred / Blocked
 
