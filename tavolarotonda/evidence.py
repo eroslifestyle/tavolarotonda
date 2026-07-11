@@ -20,6 +20,7 @@ import os
 import re
 from dataclasses import dataclass
 from typing import Literal
+from urllib.parse import quote as _quote
 
 SearchProvider = Literal["searxng", "brave", "duckduckgo", "mock"]
 
@@ -80,7 +81,7 @@ def _search_searxng(query: str, max_results: int) -> list[SearchResult]:
     base = os.environ.get("SEARXNG_URL", "").rstrip("/")
     if not base:
         return _mock_search(query, max_results)
-    url = f"{base}/search?q={urllib.parse.quote(query)}&format=json&language=it"
+    url = f"{base}/search?q={_quote(query)}&format=json&language=it"
     try:
         with urllib.request.urlopen(url, timeout=10) as r:
             data = _json.loads(r.read().decode())

@@ -81,6 +81,16 @@ def _strip_think(text: str) -> str:
     return t.strip()
 
 
+# Model tier mapping per opus-m3-confer pattern
+# "critical" -> Opus per reasoning profondo, "reasoning" -> M3, "standard" -> default, "fast" -> haiku
+MODEL_TIER_MAP: dict[str, str] = {
+    "critical": "opus-4-7",  # reasoning profondo, architettura critica
+    "reasoning": "minimax-sonar-pro",  # M3 per pianificazione e analisi complessa
+    "standard": "claude-sonnet-5",  # default council
+    "fast": "claude-haiku-4",  # risposte rapide, fase restate
+}
+
+
 class LLMProvider:
     """Provider unificato. Internamente switch su Ollama / OpenAI-compat / Claude."""
 
@@ -147,18 +157,26 @@ class LLMProvider:
         max_tokens: int = 1024,
         timeout_s: float | None = None,
         provider_kind: ProviderKind | None = None,
+        model_tier: str | None = None,
     ) -> ProviderResult:
-        """Esegue una completion LLM. Retry + circuit breaker integrati."""
-        if self.breaker.is_open(model):
-            return ProviderResult(text="", model=model, error="circuit_open")
+        """Esegue una completion LLM. Retry + circuit breaker integrati.
+
+        Args:
+            model_tier: se passato, override il modello default con MODEL_TIER_MAP[tier].
+                        Es. tier="critical" usa opus-4-7, tier="reasoning" usa minimax-sonar-pro.
+        """
+        # Resolve tier override
+        resolved_model = model_tier and MODEL_TIER_MAP.get(model_tier) or model
+        if self.breaker.is_open(resolved_model):
+            return ProviderResult(text="", model=resolved_model, error="circuit_open")
 
         prompt = self.redact_for_privacy(prompt)
         if system:
             system = self.redact_for_privacy(system)
 
         timeout = timeout_s or self.default_timeout_s
-        kind = provider_kind if provider_kind is not None else self.kind_for(model)
-        model_id = model.replace("ollama:", "") if model.startswith("ollama:") else model
+        kind = provider_kind if provider_kind is not None else self.kind_for(resolved_model)
+        model_id = resolved_model.replace("ollama:", "") if resolved_model.startswith("ollama:") else resolved_model
 
         for attempt in range(3):
             try:
@@ -176,16 +194,16 @@ class LLMProvider:
 
                 latency = int((time.time() - t0) * 1000)
                 text = _strip_think(text)
-                self.breaker.record_success(model)
-                return ProviderResult(text=text, model=model, latency_ms=latency)
+                self.breaker.record_success(resolved_model)
+                return ProviderResult(text=text, model=resolved_model, latency_ms=latency)
 
             except Exception as exc:
                 if attempt == 2:
-                    self.breaker.record_failure(model)
-                    return ProviderResult(text="", model=model, error=str(exc))
+                    self.breaker.record_failure(resolved_model)
+                    return ProviderResult(text="", model=resolved_model, error=str(exc))
                 await asyncio.sleep(2 ** attempt)
 
-        return ProviderResult(text="", model=model, error="max_retries_exceeded")
+        return ProviderResult(text="", model=resolved_model, error="max_retries_exceeded")
 
     async def _ollama(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
         """Chiama Ollama /api/generate."""
@@ -276,7 +294,7 @@ class LLMProvider:
                 data=_json.dumps(payload).encode(),
                 headers={
                     "Content-Type": "application/json",
-                    "x-api-key": self.anthropic_api_key,
+                    "x-api-key": self.anthropic_api_key or "",
                     "anthropic-version": "2023-06-01",
                 },
             )
@@ -334,7 +352,7 @@ class MockProvider(LLMProvider):
         self.responses = responses or {}
         self.call_log: list[dict] = []
 
-    async def complete(self, prompt: str, *, model: str, system: str = "", **kwargs) -> ProviderResult:
+    async def complete(self, prompt: str, *, model: str, system: str = "", model_tier: str | None = None, **kwargs) -> ProviderResult:
         self.call_log.append({"model": model, "prompt_len": len(prompt), "system_len": len(system)})
         if model in self.responses:
             text = self.responses[model]
@@ -371,13 +389,14 @@ class AnthropicCompatProvider(LLMProvider):
     def kind_for(self, model: str) -> ProviderKind:
         return "anthropic_compat"
 
-    async def complete(self, prompt: str, *, model: str, system: str = "", temperature: float = 0.7, max_tokens: int = 1024, timeout_s: float | None = None, provider_kind: ProviderKind | None = None) -> ProviderResult:
+    async def complete(self, prompt: str, *, model: str, system: str = "", temperature: float = 0.7, max_tokens: int = 1024, timeout_s: float | None = None, provider_kind: ProviderKind | None = None, model_tier: str | None = None) -> ProviderResult:
         # Forza provider_kind così LLMProvider.complete() usa _anthropic_compat
-        return await super().complete(prompt, model=model, system=system, temperature=temperature, max_tokens=max_tokens, timeout_s=timeout_s, provider_kind="anthropic_compat")
+        return await super().complete(prompt, model=model, system=system, temperature=temperature, max_tokens=max_tokens, timeout_s=timeout_s, provider_kind="anthropic_compat", model_tier=model_tier)  # type: ignore[arg-type]
 
 __all__ = [
     "LLMProvider",
     "MockProvider",
+    "MODEL_TIER_MAP",
     "ProviderResult",
     "ProviderKind",
     "CircuitBreaker",

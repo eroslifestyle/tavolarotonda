@@ -20,6 +20,7 @@ Schema:
   "decision": str | None,                  # decisione finale se converged
   "open_questions": [str],                 # sempre presenti
   "next_steps": [str],                     # sempre presenti
+  "confer_output": dict | None,            # opus-m3-confer pattern output
   "metrics": {"tokens_in": int, "tokens_out": int, "models_used": [...]}
 }
 """
@@ -52,6 +53,7 @@ class MemoryPalace:
     decision: str | None = None
     open_questions: list[str] = field(default_factory=list)
     next_steps: list[str] = field(default_factory=list)
+    confer_output: dict | None = None  # opus-m3-confer pattern output
     metrics: dict = field(default_factory=lambda: {"tokens_in": 0, "tokens_out": 0, "models_used": []})
 
     def touch(self) -> None:

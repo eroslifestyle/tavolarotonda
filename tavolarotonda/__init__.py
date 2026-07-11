@@ -1,6 +1,6 @@
 """tavolarotonda — Council multi-agente per decisioni reali e concrete.
 
-Package: 9 moduli indipendenti, zero duplicazione, single-source-of-truth.
+Package: 11 moduli indipendenti, zero duplicazione, single-source-of-truth.
 
 Moduli:
 - agents:     18 personas con polarity pairs
@@ -12,17 +12,21 @@ Moduli:
 - secretary:  Segretario (strategy live)
 - phases:     Pipeline (Research → Restate → Brainstorm → Critique → Synthesis → Vote)
 - reports:    HTML audit + Q&A generator
+- obsidian_vault: Lettura topic e salvataggio sessioni nel vault Obsidian
+- serve:      HTTP server API Obsidian (starlette + uvicorn)
 
 Uso CLI:
-    python -m tavolarotonda.tavolarotonda "Dovrei aprire-sorgere il mio agent framework?"
-    python -m tavolarotonda.tavolarotonda --audit examples/audit_target.py
-    python -m tavolarotonda.tavolarotonda --qa "Domanda 1" "Domanda 2"
+    python -m tavolarotonda "Dovrei aprire-sorgere il mio agent framework?"
+    python -m tavolarotonda --audit examples/audit_target.py
+    python -m tavolarotonda --qa "Domanda 1" "Domanda 2"
+    python -m tavolarotonda serve --port 8765
 """
 
 __version__ = "0.1.0"
 
 from .agents import AGENTS, POLARITY_PAIRS, Agent, default_council
 from .memory_palace import MemoryPalace, transcript_markdown
+from .obsidian_vault import read_topic, save_session
 from .phases import run_full_council
 from .providers import LLMProvider, MockProvider
 from .reports import audit_report_from_palace, render_audit_report, render_qa_template
@@ -40,4 +44,6 @@ __all__ = [
     "render_audit_report",
     "render_qa_template",
     "audit_report_from_palace",
+    "read_topic",
+    "save_session",
 ]

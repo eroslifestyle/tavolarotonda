@@ -10,8 +10,10 @@ from __future__ import annotations
 
 import asyncio
 import json as _json
+import re as _re
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
+from typing import Any
 
 from .agents import Agent
 from .director import Director
@@ -80,10 +82,11 @@ async def phase_restate(
     ]
     results = await asyncio.gather(*coros, return_exceptions=True)
     for agent, res in zip(agents, results, strict=True):
-        if isinstance(res, Exception) or res.error:
-            text = f"[restate error: {getattr(res, 'error', res)}]"
+        if isinstance(res, Exception):
+            text = f"[restate error: {res}]"
         else:
-            text = res.text.strip()
+            err = getattr(res, 'error', None)
+            text = f"[restate error: {err}]" if err else res.text.strip()  # type: ignore[union-attr]
         restatements.append({"agent": agent.key, "text": text})
         ev = PhaseEvent(phase="restate", agent=agent.name, text=text)
         events.append(ev)
@@ -187,7 +190,7 @@ async def phase_critique(
     Mira a rompere il groupthink: se >70% sono d'accordo, forza 2 agenti a
     steelman l'opposizione (meccanismo anti-groupthink da 0xNyk).
     """
-    events = []
+    events: list[PhaseEvent] = []
     if not palace.brainstorm:
         return events
 
@@ -282,7 +285,7 @@ async def phase_verdict(
     provider: LLMProvider,
 ) -> list[PhaseEvent]:
     """Ogni agente vota 0-10 sulla proposta finale (feasibility, impact, risk_safety)."""
-    events = []
+    events: list[PhaseEvent] = []
     proposals = [b["text"] for b in palace.brainstorm[-3:]]
     if not proposals:
         return events
@@ -318,6 +321,51 @@ async def phase_verdict(
     return events
 
 
+# === OPUS-M3-CONFER PATTERN ===
+
+CONFER_PROMPT = (
+    "Sei il facilitatore strategico.\n"
+    "Topic: {topic}\n\n"
+    "Analizza il topic e restituisci ESATTAMENTE in questo formato JSON:\n"
+    '{{"domains": ["dominio1", "dominio2", "dominio3"], '
+    '"key_question": "la domanda chiave da esplorare", '
+    '"agents_hint": ["aristotle", "kahneman", "torvalds"]}}'
+    "\nNon scrivere altro, solo JSON valido."
+)
+
+
+async def confer_phase(
+    palace: MemoryPalace,
+    provider: LLMProvider,
+) -> dict[str, Any]:
+    """Confer phase: M3 pianifica quali agenti/domini attivare per questo topic.
+
+    Pattern opus-m3-confer: 1 round con M3 per pianificare, poi council normale.
+    Salva il risultato in palace.confer_output.
+    """
+    prompt = CONFER_PROMPT.format(topic=palace.topic)
+    result = await provider.complete(
+        prompt,
+        model="mock",  # fallback: M3 reale quando provider ha api key
+        system="Sei un facilitatore strategico.",
+        model_tier="reasoning",
+        temperature=0.5,
+        max_tokens=300,
+    )
+    # Estrai JSON dalla risposta
+    match = _re.search(r'\{.*\}', result.text if result.text else "", _re.DOTALL)
+    if match:
+        try:
+            data = _json.loads(match.group())
+            palace.confer_output = data  # type: ignore[attr-defined]
+            return data
+        except Exception:
+            pass
+    # Fallback
+    palace.confer_output = {"domains": [], "key_question": palace.topic, "agents_hint": []}  # type: ignore[attr-defined]
+    return palace.confer_output  # type: ignore[return-value]
+
+
 # === Helpers ===
 
 def _extract_section(text: str, header: str) -> str | None:
@@ -351,6 +399,7 @@ async def run_full_council(
     provider: LLMProvider,
     *,
     rounds: int = 3,
+    intensity: str = "standard",
     include_research: bool = True,
     include_critique: bool = True,
     include_verdict: bool = True,
@@ -370,6 +419,10 @@ async def run_full_council(
     director = Director(provider, director_model)
     secretary = Secretary(provider, secretary_model)
 
+    # Opus-M3-Confer: se intensity e' reasoning o critical, chiama confer per pianificare
+    if intensity in ("reasoning", "critical"):
+        await confer_phase(palace, provider)
+
     if include_research:
         all_events.extend(await phase_research(palace))
 
@@ -388,6 +441,7 @@ async def run_full_council(
 
 __all__ = [
     "PhaseEvent",
+    "confer_phase",
     "phase_research",
     "phase_restate",
     "phase_brainstorm",

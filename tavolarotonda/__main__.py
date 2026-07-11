@@ -31,7 +31,7 @@ from pathlib import Path
 
 from .agents import AGENTS, default_council
 from .memory_palace import MemoryPalace, transcript_markdown
-from .phases import run_full_council
+from .phases import PhaseEvent, run_full_council
 from .providers import AnthropicCompatProvider, LLMProvider, MockProvider
 from .reports import audit_report_from_palace, render_qa_template
 
@@ -42,11 +42,19 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         description="Council multi-agente per decisioni reali, audit e Q&A multi-domanda.",
     )
     parser.add_argument("topic", nargs="?", help="Topico della tavola rotonda")
+    subparsers = parser.add_subparsers(dest="command", help="Comandi")
+
+    serve_sp = subparsers.add_parser("serve", help="Avvia HTTP server per API Obsidian")
+    serve_sp.add_argument("--port", type=int, default=8765)
+    serve_sp.add_argument("--vault", default=None)
+
     parser.add_argument("--audit", metavar="FILE", help="Modalità audit: analizza un file di codice")
     parser.add_argument("--qa", nargs="+", metavar="Q", help="Modalità Q&A: lista di domande")
     parser.add_argument("--rounds", type=int, default=3, help="Numero di round (default: 3)")
     parser.add_argument("--council", nargs="+", metavar="AGENT",
                         help="Lista agenti (default: 12 bilanciati)")
+    parser.add_argument("--intensity", choices=["fast", "standard", "reasoning", "critical"],
+                        default="standard", help="Intensita del council (default: standard)")
     parser.add_argument("--privacy", choices=["local_only", "cloud_ok", "free_api_ok"],
                         default="cloud_ok", help="Privacy tier (default: cloud_ok)")
     parser.add_argument("--mock", action="store_true", help="Usa MockProvider (no LLM reale)")
@@ -117,15 +125,16 @@ async def run_topic(args: argparse.Namespace, topic: str) -> MemoryPalace:
     provider_name = getattr(args, "provider", "anthropic") if not args.mock else "mock"
     print(f"\n🥽 Tavola Rotonda: {topic}")
     print(f"   Council: {len(council)} agenti | Rounds: {args.rounds} | "
-          f"Privacy: {args.privacy} | Provider: {provider_name}")
+          f"Privacy: {args.privacy} | Intensity: {args.intensity} | Provider: {provider_name}")
     print()
 
-    events = []
+    events: list[PhaseEvent] = []
     await run_full_council(
         palace,
         council,
         provider,
         rounds=args.rounds,
+        intensity=args.intensity,
         include_research=not args.no_research,
         include_critique=not args.no_critique,
         include_verdict=True,
@@ -157,10 +166,11 @@ async def run_audit(args: argparse.Namespace, file_path: str) -> str:
     print(f"   Council: {len(council)} agenti | Privacy: {args.privacy}")
     print()
 
-    events = []
+    events: list[PhaseEvent] = []
     await run_full_council(
         palace, council, provider,
         rounds=args.rounds,
+        intensity=args.intensity,
         include_research=False,  # niente web per audit di codice locale
         include_critique=True,
         include_verdict=True,
@@ -192,10 +202,11 @@ async def run_qa(args: argparse.Namespace, questions: list[str]) -> str:
     print(f"   Council: {len(council)} agenti")
     print()
 
-    events = []
+    events: list[PhaseEvent] = []
     await run_full_council(
         palace, council, provider,
         rounds=min(args.rounds, 2),  # Q&A più rapido
+        intensity=args.intensity,
         include_research=False,
         include_critique=True,
         include_verdict=False,
@@ -221,6 +232,13 @@ async def run_qa(args: argparse.Namespace, questions: list[str]) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
+
+    if args.command == "serve":
+        from . import serve as _serve
+
+        vault = args.vault or str(Path.home() / "Obsidian" / "Memoria")
+        _serve.run(vault, args.port)
+        return 0
 
     try:
         if args.audit:

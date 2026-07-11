@@ -7,7 +7,11 @@ name = "tavolarotonda"
 version = "0.1.0"
 description = "Council multi-agente per decisioni reali e concrete"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "starlette>=0.27",
+    "uvicorn>=0.27",
+    "httpx>=0.25",
+]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
