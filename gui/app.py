@@ -607,9 +607,17 @@ def api_models():
             "icon": cfg.get("icon", "🤖"),
             "provider_kind": cfg["provider_kind"],
             "env_required": cfg["env_required"],
+            "aq_score": cfg.get("aq_score", 0),
             **status,
         })
-    return jsonify({"models": out, "count": len(out)})
+    # Top 5 modelli per AQ score (escludi mock con aq_score == 0)
+    ranked = sorted(
+        [m for m in out if m.get("aq_score", 0) > 0],
+        key=lambda m: m.get("aq_score", 0),
+        reverse=True,
+    )
+    top5_aq = ranked[:5]
+    return jsonify({"models": out, "count": len(out), "top_5_by_aq": top5_aq})
 
 
 @app.route("/api/health")
@@ -684,10 +692,17 @@ async def _emit_event(q):
     """Factory per callback on_event che mette eventi in queue."""
     async def _cb(ev):
         try:
+            # Estrai agent_key e agent_color dal system prompt in meta
+            agent_key = None
+            if ev.meta:
+                agent_key = _extract_agent_key(ev.meta.get("system", ""))
+            agent_color = get_agent_color(agent_key) if agent_key else "#58a6ff"
             q.put_nowait({
                 "type": ev.phase,
                 "phase": ev.phase,
                 "agent": ev.agent,
+                "agent_key": agent_key,
+                "agent_color": agent_color,
                 "text": ev.text,
                 "round": ev.round,
                 "meta": ev.meta or {},

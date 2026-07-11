@@ -24,7 +24,7 @@ import time
 from dataclasses import dataclass, field
 from typing import Literal
 
-ProviderKind = Literal["ollama", "openai_compat", "claude", "mock"]
+ProviderKind = Literal["ollama", "openai_compat", "claude", "mock", "anthropic_compat"]
 
 
 @dataclass
@@ -90,6 +90,8 @@ class LLMProvider:
         openai_base_url: str | None = None,
         openai_api_key: str | None = None,
         anthropic_api_key: str | None = None,
+        anthropic_compat_base_url: str | None = None,
+        anthropic_compat_api_key: str | None = None,
         privacy_tier: str = "cloud_ok",
         default_timeout_s: float = 120.0,
     ):
@@ -97,6 +99,8 @@ class LLMProvider:
         self.openai_base_url = openai_base_url or os.environ.get("OPENAI_BASE_URL")
         self.openai_api_key = openai_api_key or os.environ.get("OPENAI_API_KEY")
         self.anthropic_api_key = anthropic_api_key or os.environ.get("ANTHROPIC_API_KEY")
+        self.anthropic_compat_base_url = anthropic_compat_base_url
+        self.anthropic_compat_api_key = anthropic_compat_api_key
         self.privacy_tier = privacy_tier
         self.default_timeout_s = default_timeout_s
         self.breaker = CircuitBreaker()
@@ -142,6 +146,7 @@ class LLMProvider:
         temperature: float = 0.7,
         max_tokens: int = 1024,
         timeout_s: float | None = None,
+        provider_kind: ProviderKind | None = None,
     ) -> ProviderResult:
         """Esegue una completion LLM. Retry + circuit breaker integrati."""
         if self.breaker.is_open(model):
@@ -152,7 +157,7 @@ class LLMProvider:
             system = self.redact_for_privacy(system)
 
         timeout = timeout_s or self.default_timeout_s
-        kind = self.kind_for(model)
+        kind = provider_kind if provider_kind is not None else self.kind_for(model)
         model_id = model.replace("ollama:", "") if model.startswith("ollama:") else model
 
         for attempt in range(3):
@@ -164,6 +169,8 @@ class LLMProvider:
                     text = await self._openai_compat(model_id, prompt, system, temperature, max_tokens, timeout)
                 elif kind == "claude":
                     text = await self._claude(model_id, prompt, system, temperature, max_tokens, timeout)
+                elif kind == "anthropic_compat":
+                    text = await self._anthropic_compat(model_id, prompt, system, temperature, max_tokens, timeout)
                 else:
                     return ProviderResult(text="", model=model, error="unknown_kind")
 
@@ -279,6 +286,40 @@ class LLMProvider:
 
         return await loop.run_in_executor(None, _do)
 
+    async def _anthropic_compat(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
+        """Chiama endpoint Anthropic-compat (ai-router :8787, MiniMax, GLM, ecc.)."""
+        base_url = self.anthropic_compat_base_url or os.environ.get("ANTHROPIC_COMPAT_BASE_URL", "http://127.0.0.1:8787")
+        api_key = self.anthropic_compat_api_key or os.environ.get("ANTHROPIC_COMPAT_API_KEY", "mock")
+        import gzip
+        import urllib.request
+        import json as _json
+        messages = [{"role": "user", "content": prompt}]
+        payload = {"model": model, "max_tokens": max_tokens, "temperature": temperature, "messages": messages}
+        if system:
+            payload["system"] = system
+        loop = asyncio.get_event_loop()
+        def _do() -> str:
+            req = urllib.request.Request(
+                f"{base_url}/v1/messages",
+                data=_json.dumps(payload).encode(),
+                headers={
+                    "Content-Type": "application/json",
+                    "x-api-key": api_key,
+                    "anthropic-version": "2023-06-01",
+                    "Accept-Encoding": "gzip, deflate",
+                },
+            )
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                raw = r.read()
+                if r.info().get("Content-Encoding") == "gzip":
+                    raw = gzip.decompress(raw)
+                data = _json.loads(raw.decode("utf-8", errors="replace"))
+                for item in data.get("content", []):
+                    if item.get("type") == "text":
+                        return item["text"]
+                return ""
+        return await loop.run_in_executor(None, _do)
+
 
 # Mock provider per test/demos offline
 class MockProvider(LLMProvider):
@@ -305,10 +346,10 @@ class MockProvider(LLMProvider):
 
 
 class AnthropicCompatProvider(LLMProvider):
-    """Provider per endpoint Anthropic-compat (ai-router :8787 e porte dedicate GLM).
+    """DEPRECATED: usare LLMProvider con provider_kind='anthropic_compat'.
 
-    Usa /v1/messages (formato Anthropic) con decompressione gzip.
-    Supporta modelli MiniMax, GLM-5.2, Opus 4.8 via ai-router.
+    Questa classe esiste solo per retrocompatibilita.
+    Nuovo uso: LLMProvider(anthropic_compat_base_url=..., anthropic_compat_api_key=...)
     """
 
     def __init__(
@@ -319,90 +360,20 @@ class AnthropicCompatProvider(LLMProvider):
         default_timeout_s: float = 120.0,
         **kwargs,
     ):
-        super().__init__(privacy_tier=privacy_tier, default_timeout_s=default_timeout_s)
-        self.base_url = base_url.rstrip("/")
-        self.api_key = api_key
+        super().__init__(
+            privacy_tier=privacy_tier,
+            default_timeout_s=default_timeout_s,
+            anthropic_compat_base_url=base_url,
+            anthropic_compat_api_key=api_key,
+        )
         self.breaker = CircuitBreaker()
 
     def kind_for(self, model: str) -> ProviderKind:
         return "anthropic_compat"
 
-    async def complete(
-        self,
-        prompt: str,
-        *,
-        model: str,
-        system: str = "",
-        temperature: float = 0.7,
-        max_tokens: int = 1024,
-        timeout_s: float | None = None,
-    ) -> ProviderResult:
-        if self.breaker.is_open(model):
-            return ProviderResult(text="", model=model, error="circuit_open")
-
-        prompt_text = self.redact_for_privacy(prompt)
-        if system:
-            system = self.redact_for_privacy(system)
-
-        timeout = timeout_s or self.default_timeout_s
-
-        for attempt in range(3):
-            try:
-                t0 = time.time()
-                text = await self._request(model, prompt_text, system, temperature, max_tokens, timeout)
-                latency = int((time.time() - t0) * 1000)
-                text = _strip_think(text)
-                self.breaker.record_success(model)
-                return ProviderResult(text=text, model=model, latency_ms=latency)
-            except Exception as exc:
-                if attempt == 2:
-                    self.breaker.record_failure(model)
-                    return ProviderResult(text="", model=model, error=str(exc))
-                await asyncio.sleep(2 ** attempt)
-
-        return ProviderResult(text="", model=model, error="max_retries_exceeded")
-
-    async def _request(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
-        import gzip
-        import urllib.request
-        import json as _json
-
-        messages = [{"role": "user", "content": prompt}]
-        payload = {
-            "model": model,
-            "max_tokens": max_tokens,
-            "temperature": temperature,
-            "messages": messages,
-        }
-        if system:
-            payload["system"] = system
-
-        loop = asyncio.get_event_loop()
-
-        def _do() -> str:
-            req = urllib.request.Request(
-                f"{self.base_url}/v1/messages",
-                data=_json.dumps(payload).encode(),
-                headers={
-                    "Content-Type": "application/json",
-                    "x-api-key": self.api_key,
-                    "anthropic-version": "2023-06-01",
-                    "Accept-Encoding": "gzip, deflate",
-                },
-            )
-            with urllib.request.urlopen(req, timeout=timeout) as r:
-                raw = r.read()
-                if r.info().get("Content-Encoding") == "gzip":
-                    raw = gzip.decompress(raw)
-                raw_str = raw.decode("utf-8", errors="replace")
-                data = _json.loads(raw_str)
-                # Estrai text da content array (Anthropic format)
-                for item in data.get("content", []):
-                    if item.get("type") == "text":
-                        return item["text"]
-                return ""
-
-        return await loop.run_in_executor(None, _do)
+    async def complete(self, prompt: str, *, model: str, system: str = "", temperature: float = 0.7, max_tokens: int = 1024, timeout_s: float | None = None, provider_kind: ProviderKind | None = None) -> ProviderResult:
+        # Forza provider_kind così LLMProvider.complete() usa _anthropic_compat
+        return await super().complete(prompt, model=model, system=system, temperature=temperature, max_tokens=max_tokens, timeout_s=timeout_s, provider_kind="anthropic_compat")
 
 __all__ = [
     "LLMProvider",

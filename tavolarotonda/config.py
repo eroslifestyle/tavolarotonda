@@ -55,5 +55,11 @@ def get_timeout() -> float:
     return float(cfg.get("timeout", {}).get("default_timeout_s", 180))
 
 
+def get_aq_score(model_key: str) -> float:
+    """Return aq_score for a model key, or 0 if not found."""
+    cfg = _load_config()
+    return float(cfg.get("models", {}).get(model_key, {}).get("aq_score", 0))
+
+
 if __name__ == "__main__":
     print(json.dumps(load(), indent=2))
