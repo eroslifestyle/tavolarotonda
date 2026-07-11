@@ -189,8 +189,8 @@ class LLMProvider:
 
     async def _ollama(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
         """Chiama Ollama /api/generate."""
-        import urllib.request
         import json as _json
+        import urllib.request
 
         payload = {
             "model": model,
@@ -220,8 +220,8 @@ class LLMProvider:
         if not self.openai_base_url or not self.openai_api_key:
             raise RuntimeError(f"OPENAI_BASE_URL/OPENAI_API_KEY non configurati per {model}")
 
-        import urllib.request
         import json as _json
+        import urllib.request
 
         messages = []
         if system:
@@ -256,8 +256,8 @@ class LLMProvider:
         if not self.anthropic_api_key:
             raise RuntimeError("ANTHROPIC_API_KEY non configurata")
 
-        import urllib.request
         import json as _json
+        import urllib.request
 
         payload = {
             "model": model,
@@ -291,8 +291,8 @@ class LLMProvider:
         base_url = self.anthropic_compat_base_url or os.environ.get("ANTHROPIC_COMPAT_BASE_URL", "http://127.0.0.1:8787")
         api_key = self.anthropic_compat_api_key or os.environ.get("ANTHROPIC_COMPAT_API_KEY", "mock")
         import gzip
-        import urllib.request
         import json as _json
+        import urllib.request
         messages = [{"role": "user", "content": prompt}]
         payload = {"model": model, "max_tokens": max_tokens, "temperature": temperature, "messages": messages}
         if system:

@@ -7,10 +7,10 @@ from __future__ import annotations
 
 import json as _json
 
+from .director import _extract_json
 from .memory_palace import MemoryPalace
 from .prompts import SECRETARY_PROMPT
 from .providers import LLMProvider
-from .director import _extract_json
 
 
 class Secretary:

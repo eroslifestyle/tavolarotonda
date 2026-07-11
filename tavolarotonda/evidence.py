@@ -18,7 +18,6 @@ from __future__ import annotations
 import asyncio
 import os
 import re
-import urllib.parse
 from dataclasses import dataclass
 from typing import Literal
 
@@ -76,8 +75,8 @@ async def adversarial_research(topic: str, *, max_per_side: int = 5) -> tuple[li
 
 def _search_searxng(query: str, max_results: int) -> list[SearchResult]:
     """SearXNG JSON API."""
-    import urllib.request
     import json as _json
+    import urllib.request
     base = os.environ.get("SEARXNG_URL", "").rstrip("/")
     if not base:
         return _mock_search(query, max_results)
@@ -95,8 +94,8 @@ def _search_searxng(query: str, max_results: int) -> list[SearchResult]:
 
 def _search_brave(query: str, max_results: int) -> list[SearchResult]:
     """Brave Search API."""
-    import urllib.request
     import json as _json
+    import urllib.request
     key = os.environ.get("BRAVE_API_KEY", "")
     if not key:
         return _mock_search(query, max_results)
@@ -119,8 +118,8 @@ def _search_brave(query: str, max_results: int) -> list[SearchResult]:
 
 def _search_ddg(query: str, max_results: int) -> list[SearchResult]:
     """DuckDuckGo HTML scraping (no key)."""
-    import urllib.request
     import html as html_lib
+    import urllib.request
     url = f"https://html.duckduckgo.com/html/?q={urllib.parse.quote(query)}"
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})

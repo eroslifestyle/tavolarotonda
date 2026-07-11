@@ -31,7 +31,6 @@ import os
 import time
 import uuid
 from dataclasses import asdict, dataclass, field
-from typing import Any
 
 
 @dataclass
@@ -85,7 +84,7 @@ class MemoryPalace:
         return asdict(self)
 
     @classmethod
-    def from_dict(cls, d: dict) -> "MemoryPalace":
+    def from_dict(cls, d: dict) -> MemoryPalace:
         # Filtra solo i campi noti (per forward-compat)
         valid = {k: v for k, v in d.items() if k in cls.__dataclass_fields__}
         return cls(**valid)
@@ -98,7 +97,7 @@ class MemoryPalace:
             json.dump(self.to_dict(), f, indent=2, ensure_ascii=False)
 
     @classmethod
-    def load(cls, path: str) -> "MemoryPalace":
+    def load(cls, path: str) -> MemoryPalace:
         with open(path, encoding="utf-8") as f:
             return cls.from_dict(json.load(f))
 
@@ -111,32 +110,32 @@ def transcript_markdown(palace: MemoryPalace) -> str:
     lines.append(f"**Aggiornato**: {palace.updated_at}  ")
     if palace.decision:
         lines.append(f"\n## 🎯 Decisione\n\n{palace.decision}\n")
-    lines.append(f"\n## 🌐 Ricerca web\n")
+    lines.append("\n## 🌐 Ricerca web\n")
     lines.append(f"**Supporting ({len(palace.web_research['supporting'])}):**")
     for r in palace.web_research["supporting"][:5]:
         lines.append(f"- {r}")
     lines.append(f"\n**Counter ({len(palace.web_research['counter'])}):**")
     for r in palace.web_research["counter"][:5]:
         lines.append(f"- {r}")
-    lines.append(f"\n## 💡 Brainstorm\n")
+    lines.append("\n## 💡 Brainstorm\n")
     for b in palace.brainstorm:
         lines.append(f"### {b['agent']} (round {b['round']})\n\n{b['text']}\n")
     if palace.critique:
-        lines.append(f"\n## ⚔️ Critica\n")
+        lines.append("\n## ⚔️ Critica\n")
         for c in palace.critique:
             lines.append(f"**{c['agent']} → {c['target_agent']}** (round {c['round']}): {c['text']}\n")
     if palace.synthesis:
         lines.append(f"\n## 🧬 Sintesi\n\n{palace.synthesis['text']}\n")
     if palace.votes:
-        lines.append(f"\n## 🗳️ Voti\n")
+        lines.append("\n## 🗳️ Voti\n")
         for v in palace.votes:
             lines.append(f"- **{v['agent']}**: {v['verdict']} (score {v['score']:.2f})")
     if palace.minority_report:
         lines.append(f"\n## ⚠️ Minority Report (caso CONTRO)\n\n{palace.minority_report}\n")
-    lines.append(f"\n## ❓ Open Questions\n")
+    lines.append("\n## ❓ Open Questions\n")
     for q in palace.open_questions:
         lines.append(f"- {q}")
-    lines.append(f"\n## ➡️ Next Steps\n")
+    lines.append("\n## ➡️ Next Steps\n")
     for s in palace.next_steps:
         lines.append(f"- {s}")
     return "\n".join(lines)

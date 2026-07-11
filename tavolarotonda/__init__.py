@@ -21,7 +21,7 @@ Uso CLI:
 
 __version__ = "0.1.0"
 
-from .agents import AGENTS, Agent, POLARITY_PAIRS, default_council
+from .agents import AGENTS, POLARITY_PAIRS, Agent, default_council
 from .memory_palace import MemoryPalace, transcript_markdown
 from .phases import run_full_council
 from .providers import LLMProvider, MockProvider

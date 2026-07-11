@@ -12,7 +12,7 @@ Uso:
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Literal
 
 PrivacyTier = Literal["local_only", "cloud_ok", "free_api_ok"]

@@ -8,11 +8,9 @@ from __future__ import annotations
 
 import json as _json
 import re
-from typing import Iterable
 
-from .providers import LLMProvider
 from .prompts import DIRECTOR_AGENDA_PROMPT
-
+from .providers import LLMProvider
 
 _JSON_OBJ_RE = re.compile(r"\{.*\}", re.DOTALL)
 

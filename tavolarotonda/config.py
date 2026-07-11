@@ -18,10 +18,10 @@ def _load_config() -> dict:
             with open(path, encoding="utf-8") as f:
                 _CONFIG = yaml.safe_load(f)
         except FileNotFoundError:
-            warnings.warn(f"config.yaml not found at {path}, using empty config")
+            warnings.warn(f"config.yaml not found at {path}, using empty config", stacklevel=2)
             _CONFIG = {}
         except yaml.YAMLError as e:
-            warnings.warn(f"Failed to parse config.yaml: {e}, using empty config")
+            warnings.warn(f"Failed to parse config.yaml: {e}, using empty config", stacklevel=2)
             _CONFIG = {}
     return _CONFIG
 

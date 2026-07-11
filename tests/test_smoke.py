@@ -9,7 +9,6 @@ Usage:
 from __future__ import annotations
 
 import asyncio
-import json
 import os
 import sys
 import tempfile
@@ -23,18 +22,15 @@ os.environ.setdefault("TAVOLAROTONDA_PRIVACY", "local_only")
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
 
-from tavolarotonda.agents import AGENTS, POLARITY_PAIRS, default_council, agent_by_name
-from tavolarotonda.providers import MockProvider, LLMProvider, _strip_think, CircuitBreaker
+from tavolarotonda.agents import AGENTS, POLARITY_PAIRS, agent_by_name, default_council
+from tavolarotonda.evidence import _mock_search, _query_for
 from tavolarotonda.memory_palace import MemoryPalace, transcript_markdown
-from tavolarotonda.evidence import adversarial_research, _query_for, _mock_search
-from tavolarotonda.prompts import sanitize_directive, INJECTION_MARKERS
-from tavolarotonda.director import Director
-from tavolarotonda.secretary import Secretary
 from tavolarotonda.phases import (
-    phase_research, phase_restate, phase_brainstorm,
-    phase_critique, phase_synthesis, phase_verdict, run_full_council,
+    run_full_council,
 )
-from tavolarotonda.reports import render_audit_report, render_qa_template, audit_report_from_palace
+from tavolarotonda.prompts import sanitize_directive
+from tavolarotonda.providers import CircuitBreaker, LLMProvider, MockProvider, _strip_think
+from tavolarotonda.reports import render_audit_report, render_qa_template
 
 
 def test_agents_load():
@@ -256,7 +252,7 @@ def run_all():
         loop = asyncio.new_event_loop()
         loop.run_until_complete(_run_async_tests())
         loop.close()
-        print(f"[PASS] full_pipeline_mock")
+        print("[PASS] full_pipeline_mock")
     except Exception as e:
         failures.append(("full_pipeline_mock", repr(e)))
         print(f"[ERROR] full_pipeline_mock: {e!r}")

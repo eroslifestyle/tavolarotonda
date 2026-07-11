@@ -32,8 +32,8 @@ from pathlib import Path
 from .agents import AGENTS, default_council
 from .memory_palace import MemoryPalace, transcript_markdown
 from .phases import run_full_council
-from .providers import LLMProvider, MockProvider, AnthropicCompatProvider
-from .reports import audit_report_from_palace, render_audit_report, render_qa_template
+from .providers import AnthropicCompatProvider, LLMProvider, MockProvider
+from .reports import audit_report_from_palace, render_qa_template
 
 
 def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -180,8 +180,8 @@ async def run_qa(args: argparse.Namespace, questions: list[str]) -> str:
     """Modalità Q&A: risposte multi-agente in parallelo."""
     # Per semplicità: facciamo UNA domanda "composta" con tutte le sotto-domande
     topic = (
-        f"Q&A MULTI-DOMANDA. Rispondi a CIASCUNA delle seguenti domande in modo "
-        f"indipendente, etichettando chiaramente la risposta (es. 'Q1:', 'Q2:', ...).\n\n"
+        "Q&A MULTI-DOMANDA. Rispondi a CIASCUNA delle seguenti domande in modo "
+        "indipendente, etichettando chiaramente la risposta (es. 'Q1:', 'Q2:', ...).\n\n"
         + "\n".join(f"Q{i+1}: {q}" for i, q in enumerate(questions))
     )
     palace = MemoryPalace(topic=topic)
@@ -225,10 +225,8 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if args.audit:
             output = asyncio.run(run_audit(args, args.audit))
-            ext = "html"
         elif args.qa:
             output = asyncio.run(run_qa(args, args.qa))
-            ext = "html"
         elif args.topic:
             palace = asyncio.run(run_topic(args, args.topic))
             # Stampa transcript

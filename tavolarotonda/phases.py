@@ -10,10 +10,10 @@ from __future__ import annotations
 
 import asyncio
 import json as _json
+from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
-from typing import Awaitable, Callable
 
-from .agents import AGENTS, Agent
+from .agents import Agent
 from .director import Director
 from .evidence import adversarial_research
 from .memory_palace import MemoryPalace
@@ -23,7 +23,6 @@ from .prompts import (
     PROBLEM_RESTATE_PROMPT,
     SYNTHESIS_PROMPT,
     VERDICT_PROMPT,
-    sanitize_directive,
 )
 from .providers import LLMProvider
 from .secretary import Secretary
@@ -80,7 +79,7 @@ async def phase_restate(
         for a in agents
     ]
     results = await asyncio.gather(*coros, return_exceptions=True)
-    for agent, res in zip(agents, results):
+    for agent, res in zip(agents, results, strict=True):
         if isinstance(res, Exception) or res.error:
             text = f"[restate error: {getattr(res, 'error', res)}]"
         else:
@@ -108,7 +107,6 @@ async def phase_brainstorm(
 ) -> list[PhaseEvent]:
     """Per ogni round: Director assegna focus+assignments, ogni agente brainstorrea, Secretary consolida."""
     events = []
-    agent_names = [a.name for a in agents]
     last_round = rounds
 
     for r in range(1, rounds + 1):
