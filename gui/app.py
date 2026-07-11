@@ -45,10 +45,10 @@ from tavolarotonda import (
     render_qa_template,
 )
 from tavolarotonda.evidence import adversarial_research
-from tavolarotonda.providers import CircuitBreaker, ProviderResult
+from tavolarotonda.providers import AnthropicCompatProvider, CircuitBreaker, ProviderResult
 
 import re
-from tavolarotonda.providers import CircuitBreaker, ProviderResult
+from tavolarotonda.providers import AnthropicCompatProvider, CircuitBreaker, ProviderResult
 
 import re
 
@@ -97,40 +97,22 @@ MODELS: dict[str, dict] = {
         "default_base_url": None,
         "icon": "🏛️",
     },
-    "ornith-35b": {
-        "label": "Ornith 35B (qwen3.6 MoE, ctx 256k)",
-        "description": "ornith-35b:latest via Ollama. MoE 34.7B Q4_K_M, context 262k. Nessuna chiave richiesta.",
-        "provider_kind": "ollama",
-        "env_required": [],
-        "default_model": "ornith-35b:latest",
-        "default_base_url": None,
-        "icon": "🐦",
-    },
-    "ornith-9b": {
-        "label": "Ornith 9B (qwen3.6 Small, ctx 128k)",
-        "description": "ornith-9b:latest via Ollama. 9B Q4_K_M, context 128k. Veloce, 5.6 GB. Nessuna chiave richiesta.",
-        "provider_kind": "ollama",
-        "env_required": [],
-        "default_model": "ornith-9b:latest",
-        "default_base_url": None,
-        "icon": "🐣",
-    },
     "opus-4.8": {
-        "label": "Opus 4.8 (Anthropic)",
-        "description": "Claude Opus 4.8 via Anthropic Messages API. Richiede ANTHROPIC_API_KEY.",
-        "provider_kind": "claude",
+        "label": "Opus 4.8 (via ai-router :8787)",
+        "description": "Claude Opus 4.8 via ai-router :8787 (Anthropic-compat /v1/messages). Richiede ANTHROPIC_API_KEY.",
+        "provider_kind": "anthropic_compat",
         "env_required": ["ANTHROPIC_API_KEY"],
         "default_model": "claude-opus-4-8",
-        "default_base_url": None,
+        "default_base_url": "http://127.0.0.1:8787",
         "icon": "🧠",
     },
     "MiniMax-M3": {
-        "label": "MiniMax M3",
-        "description": "MiniMax-M3 via OpenAI-compat API. Richiede MiniMax_API_KEY (+ opzionale MiniMax_BASE_URL).",
-        "provider_kind": "openai_compat",
+        "label": "MiniMax M3 (via ai-router :8787)",
+        "description": "MiniMax-M3 via ai-router :8787 (Anthropic-compat /v1/messages). Richiede MiniMax_API_KEY.",
+        "provider_kind": "anthropic_compat",
         "env_required": ["MiniMax_API_KEY"],
         "default_model": "MiniMax/MiniMax-M3",
-        "default_base_url": os.environ.get("MiniMax_BASE_URL", "https://api.MiniMax.chat/v1"),
+        "default_base_url": "http://127.0.0.1:8787",
         "icon": "🌊",
     },
 }
@@ -180,22 +162,22 @@ COUNCIL_PRESETS: dict[str, dict] = {
             "machiavelli": "MiniMax-M3",
             "lao_tzu": "MiniMax-M3",
             "watts": "MiniMax-M3",
-            # Gruppo C → Ornith 35B (pratico + veloce, ctx 256k)
-            "torvalds": "ornith-35b",
-            "musashi": "ornith-35b",
-            "meadows": "ornith-35b",
-            "munger": "ornith-35b",
-            "taleb": "ornith-35b",
-            "rams": "ornith-35b",
+            # Gruppo C → Opus locale (pratico + veloce)
+            "torvalds": "opus-local",
+            "musashi": "opus-local",
+            "meadows": "opus-local",
+            "munger": "opus-local",
+            "taleb": "opus-local",
+            "rams": "opus-local",
         },
     },
 }
 # Round-robin alternato: cicla A,B,C,A,B,C,...
 _keys_all = list(AGENTS.keys())
-_choices_alt = ["opus-4.8", "MiniMax-M3", "ornith-35b"]
+_choices_alt = ["opus-4.8", "MiniMax-M3", "opus-local"]
 COUNCIL_PRESETS["alternating"] = {
     "label": "Round-robin alternato",
-    "description": "Cicla Opus → MiniMax → Ollama → Opus → ... sugli agenti in ordine",
+    "description": "Cicla Opus 4.8 → MiniMax → Opus locale → Opus 4.8 → ...",
     "icon": "🔄",
     "routing": {k: _choices_alt[i % 3] for i, k in enumerate(_keys_all)},
 }
@@ -208,8 +190,7 @@ _MODEL_FOR_PROVIDER = {
     "MiniMax-M3": "MiniMax/MiniMax-M3",
     "ollama-auto": "auto",
     "opus-local": "qwen3.6-opus-abliterated:35b",
-    "ornith-35b": "ornith-35b:latest",
-    "ornith-9b": "ornith-9b:latest",
+
 }
 
 
@@ -378,6 +359,26 @@ def _build_provider(choice: str, privacy_tier: str = "cloud_ok") -> tuple:
         return provider, {
             "state": "ok",
             "reason": f"{cfg['env_required'][0]} OK, endpoint={cfg['default_base_url']}",
+            "model": cfg["default_model"],
+        }
+
+    if kind == "anthropic_compat":
+        missing = _check_env(cfg["env_required"])
+        if missing:
+            return MockProvider(privacy_tier=privacy_tier), {
+                "state": "fallback_mock",
+                "reason": f"env mancanti: {', '.join(missing)}. Settare: export {missing[0]}=...",
+                "model": "mock",
+            }
+        provider = AnthropicCompatProvider(
+            base_url=cfg.get("default_base_url", "http://127.0.0.1:8787"),
+            api_key=os.environ.get(cfg["env_required"][0], "mock"),
+            privacy_tier=privacy_tier,
+            default_timeout_s=180.0,
+        )
+        return provider, {
+            "state": "ok",
+            "reason": f"{cfg['env_required'][0]} OK ({cfg['default_model']})",
             "model": cfg["default_model"],
         }
 
