@@ -108,7 +108,7 @@
       "source_file": "prompts.py",
       "source_location": "L1",
       "id": "prompts_py",
-      "community": 0,
+      "community": 35,
       "norm_label": "prompts.py"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "prompts.py",
       "source_location": "L190",
       "id": "tavolarotonda_prompts_sanitize_directive",
-      "community": 0,
+      "community": 27,
       "norm_label": "sanitize_directive()"
     },
     {
@@ -126,7 +126,7 @@
       "source_file": "prompts.py",
       "source_location": "L190",
       "id": "prompts_py_str",
-      "community": 0,
+      "community": 27,
       "norm_label": "str"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "prompts.py",
       "source_location": "L190",
       "id": "prompts_py_int",
-      "community": 0,
+      "community": 27,
       "norm_label": "int"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "prompts.py",
       "source_location": "L1",
       "id": "tavolarotonda_prompts_rationale_1",
-      "community": 0,
+      "community": 35,
       "norm_label": "template di prompt centralizzati \u2014 anti-duplicazione (regola modularita king)."
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "prompts.py",
       "source_location": "L191",
       "id": "tavolarotonda_prompts_rationale_191",
-      "community": 0,
+      "community": 27,
       "norm_label": "rimuove marker di prompt injection, tronca a max_length.      non e una garanzia"
     },
     {
@@ -180,7 +180,7 @@
       "source_file": "providers.py",
       "source_location": "L1",
       "id": "providers_py",
-      "community": 4,
+      "community": 1,
       "norm_label": "providers.py"
     },
     {
@@ -259,16 +259,16 @@
       "label": "LLMProvider",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L94",
+      "source_location": "L95",
       "id": "tavolarotonda_providers_llmprovider",
-      "community": 4,
+      "community": 26,
       "norm_label": "llmprovider"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L97",
+      "source_location": "L98",
       "id": "tavolarotonda_providers_llmprovider_init",
       "community": 1,
       "norm_label": ".__init__()"
@@ -277,7 +277,7 @@
       "label": "float",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L97",
+      "source_location": "L98",
       "id": "providers_py_float",
       "community": 1,
       "norm_label": "float"
@@ -286,7 +286,7 @@
       "label": ".kind_for()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L118",
+      "source_location": "L119",
       "id": "tavolarotonda_providers_llmprovider_kind_for",
       "community": 1,
       "norm_label": ".kind_for()"
@@ -295,7 +295,7 @@
       "label": "ProviderKind",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L118",
+      "source_location": "L119",
       "id": "providerkind",
       "community": 1,
       "norm_label": "providerkind"
@@ -304,7 +304,7 @@
       "label": ".redact_for_privacy()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L132",
+      "source_location": "L133",
       "id": "tavolarotonda_providers_llmprovider_redact_for_privacy",
       "community": 1,
       "norm_label": ".redact_for_privacy()"
@@ -313,7 +313,7 @@
       "label": ".complete()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L150",
+      "source_location": "L151",
       "id": "tavolarotonda_providers_llmprovider_complete",
       "community": 1,
       "norm_label": ".complete()"
@@ -322,7 +322,7 @@
       "label": "int",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L150",
+      "source_location": "L151",
       "id": "providers_py_int",
       "community": 1,
       "norm_label": "int"
@@ -331,7 +331,7 @@
       "label": "._ollama()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L208",
+      "source_location": "L209",
       "id": "tavolarotonda_providers_llmprovider_ollama",
       "community": 1,
       "norm_label": "._ollama()"
@@ -340,7 +340,7 @@
       "label": "._openai_compat()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L236",
+      "source_location": "L237",
       "id": "tavolarotonda_providers_llmprovider_openai_compat",
       "community": 1,
       "norm_label": "._openai_compat()"
@@ -349,7 +349,7 @@
       "label": "._claude()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L272",
+      "source_location": "L273",
       "id": "tavolarotonda_providers_llmprovider_claude",
       "community": 1,
       "norm_label": "._claude()"
@@ -358,7 +358,7 @@
       "label": "._anthropic_compat()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L307",
+      "source_location": "L308",
       "id": "tavolarotonda_providers_llmprovider_anthropic_compat",
       "community": 1,
       "norm_label": "._anthropic_compat()"
@@ -367,7 +367,7 @@
       "label": "MockProvider",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L343",
+      "source_location": "L344",
       "id": "tavolarotonda_providers_mockprovider",
       "community": 4,
       "norm_label": "mockprovider"
@@ -376,7 +376,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L350",
+      "source_location": "L351",
       "id": "tavolarotonda_providers_mockprovider_init",
       "community": 1,
       "norm_label": ".__init__()"
@@ -385,7 +385,7 @@
       "label": ".complete()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L355",
+      "source_location": "L356",
       "id": "tavolarotonda_providers_mockprovider_complete",
       "community": 1,
       "norm_label": ".complete()"
@@ -394,16 +394,16 @@
       "label": "AnthropicCompatProvider",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L366",
+      "source_location": "L367",
       "id": "tavolarotonda_providers_anthropiccompatprovider",
-      "community": 4,
+      "community": 36,
       "norm_label": "anthropiccompatprovider"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L373",
+      "source_location": "L374",
       "id": "tavolarotonda_providers_anthropiccompatprovider_init",
       "community": 1,
       "norm_label": ".__init__()"
@@ -412,7 +412,7 @@
       "label": ".kind_for()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L389",
+      "source_location": "L390",
       "id": "tavolarotonda_providers_anthropiccompatprovider_kind_for",
       "community": 1,
       "norm_label": ".kind_for()"
@@ -421,7 +421,7 @@
       "label": ".complete()",
       "file_type": "code",
       "source_file": "providers.py",
-      "source_location": "L392",
+      "source_location": "L393",
       "id": "tavolarotonda_providers_anthropiccompatprovider_complete",
       "community": 1,
       "norm_label": ".complete()"
@@ -432,7 +432,7 @@
       "source_file": "providers.py",
       "source_location": "L1",
       "id": "tavolarotonda_providers_rationale_1",
-      "community": 0,
+      "community": 26,
       "norm_label": "provider llm abstraction \u2014 locali (ollama), free-api (groq/cerebras via litellm)"
     },
     {
@@ -466,17 +466,17 @@
       "label": "Provider unificato. Internamente switch su Ollama / OpenAI-compat / Claude.",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L95",
-      "id": "tavolarotonda_providers_rationale_95",
-      "community": 4,
+      "source_location": "L96",
+      "id": "tavolarotonda_providers_rationale_96",
+      "community": 26,
       "norm_label": "provider unificato. internamente switch su ollama / openai-compat / claude."
     },
     {
       "label": "Determina il kind del provider in base al nome del modello.",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L119",
-      "id": "tavolarotonda_providers_rationale_119",
+      "source_location": "L120",
+      "id": "tavolarotonda_providers_rationale_120",
       "community": 1,
       "norm_label": "determina il kind del provider in base al nome del modello."
     },
@@ -484,8 +484,8 @@
       "label": "PII redaction minima (best-effort) per free_api tier.          NB: questa \u00e8 una",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L133",
-      "id": "tavolarotonda_providers_rationale_133",
+      "source_location": "L134",
+      "id": "tavolarotonda_providers_rationale_134",
       "community": 1,
       "norm_label": "pii redaction minima (best-effort) per free_api tier.          nb: questa e una"
     },
@@ -493,8 +493,8 @@
       "label": "Esegue una completion LLM. Retry + circuit breaker integrati.          Args:",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L162",
-      "id": "tavolarotonda_providers_rationale_162",
+      "source_location": "L163",
+      "id": "tavolarotonda_providers_rationale_163",
       "community": 1,
       "norm_label": "esegue una completion llm. retry + circuit breaker integrati.          args:"
     },
@@ -502,8 +502,8 @@
       "label": "Chiama Ollama /api/generate.",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L209",
-      "id": "tavolarotonda_providers_rationale_209",
+      "source_location": "L210",
+      "id": "tavolarotonda_providers_rationale_210",
       "community": 1,
       "norm_label": "chiama ollama /api/generate."
     },
@@ -511,8 +511,8 @@
       "label": "Chiama API OpenAI-compat (LiteLLM proxy, OpenRouter, ecc.).",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L237",
-      "id": "tavolarotonda_providers_rationale_237",
+      "source_location": "L238",
+      "id": "tavolarotonda_providers_rationale_238",
       "community": 1,
       "norm_label": "chiama api openai-compat (litellm proxy, openrouter, ecc.)."
     },
@@ -520,8 +520,8 @@
       "label": "Chiama Claude API (Anthropic). Per ora solleva: usare SDK Anthropic o mock.",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L273",
-      "id": "tavolarotonda_providers_rationale_273",
+      "source_location": "L274",
+      "id": "tavolarotonda_providers_rationale_274",
       "community": 1,
       "norm_label": "chiama claude api (anthropic). per ora solleva: usare sdk anthropic o mock."
     },
@@ -529,8 +529,8 @@
       "label": "Chiama endpoint Anthropic-compat (ai-router :8787, MiniMax, GLM, ecc.).",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L308",
-      "id": "tavolarotonda_providers_rationale_308",
+      "source_location": "L309",
+      "id": "tavolarotonda_providers_rationale_309",
       "community": 1,
       "norm_label": "chiama endpoint anthropic-compat (ai-router :8787, minimax, glm, ecc.)."
     },
@@ -538,8 +538,8 @@
       "label": "Provider finto che ritorna risposte plausibili per smoke test.      NON usare in",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L344",
-      "id": "tavolarotonda_providers_rationale_344",
+      "source_location": "L345",
+      "id": "tavolarotonda_providers_rationale_345",
       "community": 4,
       "norm_label": "provider finto che ritorna risposte plausibili per smoke test.      non usare in"
     },
@@ -547,9 +547,9 @@
       "label": "DEPRECATED: usare LLMProvider con provider_kind='anthropic_compat'.      Questa",
       "file_type": "rationale",
       "source_file": "providers.py",
-      "source_location": "L367",
-      "id": "tavolarotonda_providers_rationale_367",
-      "community": 4,
+      "source_location": "L368",
+      "id": "tavolarotonda_providers_rationale_368",
+      "community": 36,
       "norm_label": "deprecated: usare llmprovider con provider_kind='anthropic_compat'.      questa"
     },
     {
@@ -666,7 +666,7 @@
       "source_file": "secretary.py",
       "source_location": "L1",
       "id": "secretary_py",
-      "community": 0,
+      "community": 35,
       "norm_label": "secretary.py"
     },
     {
@@ -738,7 +738,7 @@
       "source_file": "secretary.py",
       "source_location": "L1",
       "id": "tavolarotonda_secretary_rationale_1",
-      "community": 0,
+      "community": 35,
       "norm_label": "secretary / segretario \u2014 consolida la strategia live dopo ogni turn.  output jso"
     },
     {
@@ -1008,7 +1008,7 @@
       "source_file": "phases.py",
       "source_location": "L1",
       "id": "phases_py",
-      "community": 0,
+      "community": 35,
       "norm_label": "phases.py"
     },
     {
@@ -1017,7 +1017,7 @@
       "source_file": "phases.py",
       "source_location": "L34",
       "id": "tavolarotonda_phases_phaseevent",
-      "community": 0,
+      "community": 34,
       "norm_label": "phaseevent"
     },
     {
@@ -1053,7 +1053,7 @@
       "source_file": "phases.py",
       "source_location": "L59",
       "id": "tavolarotonda_phases_phase_restate",
-      "community": 0,
+      "community": 34,
       "norm_label": "phase_restate()"
     },
     {
@@ -1102,55 +1102,55 @@
       "norm_label": "secretary"
     },
     {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "phases.py",
+      "source_location": "L101",
+      "id": "phases_py_str",
+      "community": 0,
+      "norm_label": "str"
+    },
+    {
       "label": "phase_critique()",
       "file_type": "code",
       "source_file": "phases.py",
-      "source_location": "L181",
+      "source_location": "L184",
       "id": "tavolarotonda_phases_phase_critique",
-      "community": 0,
+      "community": 39,
       "norm_label": "phase_critique()"
     },
     {
       "label": "phase_synthesis()",
       "file_type": "code",
       "source_file": "phases.py",
-      "source_location": "L233",
+      "source_location": "L239",
       "id": "tavolarotonda_phases_phase_synthesis",
-      "community": 0,
+      "community": 40,
       "norm_label": "phase_synthesis()"
     },
     {
       "label": "phase_verdict()",
       "file_type": "code",
       "source_file": "phases.py",
-      "source_location": "L282",
+      "source_location": "L288",
       "id": "tavolarotonda_phases_phase_verdict",
-      "community": 0,
+      "community": 34,
       "norm_label": "phase_verdict()"
     },
     {
       "label": "confer_phase()",
       "file_type": "code",
       "source_file": "phases.py",
-      "source_location": "L337",
+      "source_location": "L343",
       "id": "tavolarotonda_phases_confer_phase",
       "community": 0,
       "norm_label": "confer_phase()"
     },
     {
-      "label": "str",
-      "file_type": "code",
-      "source_file": "phases.py",
-      "source_location": "L337",
-      "id": "phases_py_str",
-      "community": 0,
-      "norm_label": "str"
-    },
-    {
       "label": "Any",
       "file_type": "code",
       "source_file": "phases.py",
-      "source_location": "L337",
+      "source_location": "L343",
       "id": "any",
       "community": 0,
       "norm_label": "any"
@@ -1159,25 +1159,34 @@
       "label": "_extract_section()",
       "file_type": "code",
       "source_file": "phases.py",
-      "source_location": "L371",
+      "source_location": "L377",
       "id": "tavolarotonda_phases_extract_section",
-      "community": 0,
+      "community": 40,
       "norm_label": "_extract_section()"
     },
     {
       "label": "_extract_list_section()",
       "file_type": "code",
       "source_file": "phases.py",
-      "source_location": "L379",
+      "source_location": "L385",
       "id": "tavolarotonda_phases_extract_list_section",
-      "community": 0,
+      "community": 40,
       "norm_label": "_extract_list_section()"
+    },
+    {
+      "label": "_resolve_agent_model()",
+      "file_type": "code",
+      "source_file": "phases.py",
+      "source_location": "L401",
+      "id": "tavolarotonda_phases_resolve_agent_model",
+      "community": 39,
+      "norm_label": "_resolve_agent_model()"
     },
     {
       "label": "run_full_council()",
       "file_type": "code",
       "source_file": "phases.py",
-      "source_location": "L396",
+      "source_location": "L421",
       "id": "tavolarotonda_phases_run_full_council",
       "community": 0,
       "norm_label": "run_full_council()"
@@ -1186,7 +1195,7 @@
       "label": "bool",
       "file_type": "code",
       "source_file": "phases.py",
-      "source_location": "L396",
+      "source_location": "L421",
       "id": "phases_py_bool",
       "community": 0,
       "norm_label": "bool"
@@ -1197,7 +1206,7 @@
       "source_file": "phases.py",
       "source_location": "L1",
       "id": "tavolarotonda_phases_rationale_1",
-      "community": 0,
+      "community": 35,
       "norm_label": "pipeline principale del council: research \u2192 restate \u2192 brainstorm \u2192 critique \u2192 sy"
     },
     {
@@ -1206,7 +1215,7 @@
       "source_file": "phases.py",
       "source_location": "L35",
       "id": "tavolarotonda_phases_rationale_35",
-      "community": 0,
+      "community": 34,
       "norm_label": "evento emesso dalle fasi (per logging/ui)."
     },
     {
@@ -1224,15 +1233,15 @@
       "source_file": "phases.py",
       "source_location": "L66",
       "id": "tavolarotonda_phases_rationale_66",
-      "community": 0,
+      "community": 34,
       "norm_label": "ogni agente riformula il problema nel suo angolo.      se >30% divergono signifi"
     },
     {
       "label": "Per ogni round: Director assegna focus+assignments, ogni agente brainstorrea, Se",
       "file_type": "rationale",
       "source_file": "phases.py",
-      "source_location": "L111",
-      "id": "tavolarotonda_phases_rationale_111",
+      "source_location": "L112",
+      "id": "tavolarotonda_phases_rationale_112",
       "community": 0,
       "norm_label": "per ogni round: director assegna focus+assignments, ogni agente brainstorrea, se"
     },
@@ -1240,35 +1249,35 @@
       "label": "Ogni agente critica SPECIFICAMENTE un altro agente (cross-examination).      Mir",
       "file_type": "rationale",
       "source_file": "phases.py",
-      "source_location": "L188",
-      "id": "tavolarotonda_phases_rationale_188",
-      "community": 0,
+      "source_location": "L192",
+      "id": "tavolarotonda_phases_rationale_192",
+      "community": 39,
       "norm_label": "ogni agente critica specificamente un altro agente (cross-examination).      mir"
     },
     {
       "label": "Sintetizzatore finale: decisione + minority report + open questions + next steps",
       "file_type": "rationale",
       "source_file": "phases.py",
-      "source_location": "L240",
-      "id": "tavolarotonda_phases_rationale_240",
-      "community": 0,
+      "source_location": "L246",
+      "id": "tavolarotonda_phases_rationale_246",
+      "community": 40,
       "norm_label": "sintetizzatore finale: decisione + minority report + open questions + next steps"
     },
     {
       "label": "Ogni agente vota 0-10 sulla proposta finale (feasibility, impact, risk_safety).",
       "file_type": "rationale",
       "source_file": "phases.py",
-      "source_location": "L287",
-      "id": "tavolarotonda_phases_rationale_287",
-      "community": 0,
+      "source_location": "L293",
+      "id": "tavolarotonda_phases_rationale_293",
+      "community": 34,
       "norm_label": "ogni agente vota 0-10 sulla proposta finale (feasibility, impact, risk_safety)."
     },
     {
       "label": "Confer phase: M3 pianifica quali agenti/domini attivare per questo topic.      P",
       "file_type": "rationale",
       "source_file": "phases.py",
-      "source_location": "L341",
-      "id": "tavolarotonda_phases_rationale_341",
+      "source_location": "L347",
+      "id": "tavolarotonda_phases_rationale_347",
       "community": 0,
       "norm_label": "confer phase: m3 pianifica quali agenti/domini attivare per questo topic.      p"
     },
@@ -1276,26 +1285,35 @@
       "label": "Estrae una sezione markdown fino al prossimo header ## o fine testo.",
       "file_type": "rationale",
       "source_file": "phases.py",
-      "source_location": "L372",
-      "id": "tavolarotonda_phases_rationale_372",
-      "community": 0,
+      "source_location": "L378",
+      "id": "tavolarotonda_phases_rationale_378",
+      "community": 40,
       "norm_label": "estrae una sezione markdown fino al prossimo header ## o fine testo."
     },
     {
       "label": "Estrae una sezione markdown di lista bullet.",
       "file_type": "rationale",
       "source_file": "phases.py",
-      "source_location": "L380",
-      "id": "tavolarotonda_phases_rationale_380",
-      "community": 0,
+      "source_location": "L386",
+      "id": "tavolarotonda_phases_rationale_386",
+      "community": 40,
       "norm_label": "estrae una sezione markdown di lista bullet."
+    },
+    {
+      "label": "Resolve model + optional tier for an agent.      When agent.default_model == \"au",
+      "file_type": "rationale",
+      "source_file": "phases.py",
+      "source_location": "L402",
+      "id": "tavolarotonda_phases_rationale_402",
+      "community": 39,
+      "norm_label": "resolve model + optional tier for an agent.      when agent.default_model == \"au"
     },
     {
       "label": "Esegue l'intera pipeline. Ritorna tutti gli eventi emessi.",
       "file_type": "rationale",
       "source_file": "phases.py",
-      "source_location": "L410",
-      "id": "tavolarotonda_phases_rationale_410",
+      "source_location": "L436",
+      "id": "tavolarotonda_phases_rationale_436",
       "community": 0,
       "norm_label": "esegue l'intera pipeline. ritorna tutti gli eventi emessi."
     },
@@ -1485,7 +1503,7 @@
       "source_file": "agents.py",
       "source_location": "L1",
       "id": "agents_py",
-      "community": 24,
+      "community": 38,
       "norm_label": "agents.py"
     },
     {
@@ -1503,7 +1521,7 @@
       "source_file": "agents.py",
       "source_location": "L228",
       "id": "tavolarotonda_agents_agent_by_name",
-      "community": 24,
+      "community": 38,
       "norm_label": "agent_by_name()"
     },
     {
@@ -1512,7 +1530,7 @@
       "source_file": "agents.py",
       "source_location": "L228",
       "id": "agents_py_str",
-      "community": 24,
+      "community": 38,
       "norm_label": "str"
     },
     {
@@ -1521,7 +1539,7 @@
       "source_file": "agents.py",
       "source_location": "L233",
       "id": "tavolarotonda_agents_default_council",
-      "community": 24,
+      "community": 38,
       "norm_label": "default_council()"
     },
     {
@@ -1530,7 +1548,7 @@
       "source_file": "agents.py",
       "source_location": "L242",
       "id": "tavolarotonda_agents_polarities_for",
-      "community": 24,
+      "community": 38,
       "norm_label": "polarities_for()"
     },
     {
@@ -1539,7 +1557,7 @@
       "source_file": "agents.py",
       "source_location": "L1",
       "id": "tavolarotonda_agents_rationale_1",
-      "community": 24,
+      "community": 38,
       "norm_label": "18 personas fisse con polarity pairs (council of high intelligence pattern).  og"
     },
     {
@@ -1557,7 +1575,7 @@
       "source_file": "agents.py",
       "source_location": "L229",
       "id": "tavolarotonda_agents_rationale_229",
-      "community": 24,
+      "community": 38,
       "norm_label": "cerca un agente per key (case-insensitive). ritorna none se non trovato."
     },
     {
@@ -1566,7 +1584,7 @@
       "source_file": "agents.py",
       "source_location": "L234",
       "id": "tavolarotonda_agents_rationale_234",
-      "community": 24,
+      "community": 38,
       "norm_label": "ritorna il set di agenti di default (12, bilanciati per dominio)."
     },
     {
@@ -1575,7 +1593,7 @@
       "source_file": "agents.py",
       "source_location": "L243",
       "id": "tavolarotonda_agents_rationale_243",
-      "community": 24,
+      "community": 38,
       "norm_label": "ritorna le keys degli agenti in polarita con l'agent dato."
     },
     {
@@ -1584,7 +1602,7 @@
       "source_file": "__main__.py",
       "source_location": "L1",
       "id": "main_py",
-      "community": 24,
+      "community": 4,
       "norm_label": "__main__.py"
     },
     {
@@ -1618,7 +1636,7 @@
       "label": "_build_provider()",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L74",
+      "source_location": "L77",
       "id": "tavolarotonda_main_build_provider",
       "community": 4,
       "norm_label": "_build_provider()"
@@ -1627,7 +1645,7 @@
       "label": "LLMProvider",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L74",
+      "source_location": "L77",
       "id": "main_py_llmprovider",
       "community": 4,
       "norm_label": "llmprovider"
@@ -1636,7 +1654,7 @@
       "label": "_build_council()",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L102",
+      "source_location": "L105",
       "id": "tavolarotonda_main_build_council",
       "community": 4,
       "norm_label": "_build_council()"
@@ -1645,7 +1663,7 @@
       "label": "_emit_event()",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L107",
+      "source_location": "L110",
       "id": "tavolarotonda_main_emit_event",
       "community": 4,
       "norm_label": "_emit_event()"
@@ -1654,7 +1672,7 @@
       "label": "run_topic()",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L119",
+      "source_location": "L122",
       "id": "tavolarotonda_main_run_topic",
       "community": 4,
       "norm_label": "run_topic()"
@@ -1663,7 +1681,7 @@
       "label": "MemoryPalace",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L119",
+      "source_location": "L122",
       "id": "main_py_memorypalace",
       "community": 4,
       "norm_label": "memorypalace"
@@ -1672,7 +1690,7 @@
       "label": "run_audit()",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L146",
+      "source_location": "L150",
       "id": "tavolarotonda_main_run_audit",
       "community": 4,
       "norm_label": "run_audit()"
@@ -1681,7 +1699,7 @@
       "label": "run_qa()",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L189",
+      "source_location": "L194",
       "id": "tavolarotonda_main_run_qa",
       "community": 4,
       "norm_label": "run_qa()"
@@ -1690,7 +1708,7 @@
       "label": "main()",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L233",
+      "source_location": "L239",
       "id": "tavolarotonda_main_main",
       "community": 4,
       "norm_label": "main()"
@@ -1699,7 +1717,7 @@
       "label": "int",
       "file_type": "code",
       "source_file": "__main__.py",
-      "source_location": "L233",
+      "source_location": "L239",
       "id": "main_py_int",
       "community": 4,
       "norm_label": "int"
@@ -1710,15 +1728,15 @@
       "source_file": "__main__.py",
       "source_location": "L1",
       "id": "tavolarotonda_main_rationale_1",
-      "community": 24,
+      "community": 4,
       "norm_label": "entry point cli per tavolarotonda.  uso:     python -m tavolarotonda [options] ["
     },
     {
       "label": "Callback per stampare eventi durante l'esecuzione.",
       "file_type": "rationale",
       "source_file": "__main__.py",
-      "source_location": "L108",
-      "id": "tavolarotonda_main_rationale_108",
+      "source_location": "L111",
+      "id": "tavolarotonda_main_rationale_111",
       "community": 4,
       "norm_label": "callback per stampare eventi durante l'esecuzione."
     },
@@ -1726,8 +1744,8 @@
       "label": "Esegue una sessione di tavola rotonda su un topic.",
       "file_type": "rationale",
       "source_file": "__main__.py",
-      "source_location": "L120",
-      "id": "tavolarotonda_main_rationale_120",
+      "source_location": "L123",
+      "id": "tavolarotonda_main_rationale_123",
       "community": 4,
       "norm_label": "esegue una sessione di tavola rotonda su un topic."
     },
@@ -1735,8 +1753,8 @@
       "label": "Modalit\u00e0 audit: analizza un file di codice.",
       "file_type": "rationale",
       "source_file": "__main__.py",
-      "source_location": "L147",
-      "id": "tavolarotonda_main_rationale_147",
+      "source_location": "L151",
+      "id": "tavolarotonda_main_rationale_151",
       "community": 4,
       "norm_label": "modalita audit: analizza un file di codice."
     },
@@ -1744,8 +1762,8 @@
       "label": "Modalit\u00e0 Q&A: risposte multi-agente in parallelo.",
       "file_type": "rationale",
       "source_file": "__main__.py",
-      "source_location": "L190",
-      "id": "tavolarotonda_main_rationale_190",
+      "source_location": "L195",
+      "id": "tavolarotonda_main_rationale_195",
       "community": 4,
       "norm_label": "modalita q&a: risposte multi-agente in parallelo."
     },
@@ -1755,7 +1773,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L1",
       "id": "mcp_server_py",
-      "community": 24,
+      "community": 36,
       "norm_label": "mcp_server.py"
     },
     {
@@ -1764,7 +1782,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L15",
       "id": "tavolarotonda_mcp_server_mcprequest",
-      "community": 24,
+      "community": 36,
       "norm_label": "mcprequest"
     },
     {
@@ -1773,7 +1791,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L22",
       "id": "tavolarotonda_mcp_server_mcpresponse",
-      "community": 24,
+      "community": 36,
       "norm_label": "mcpresponse"
     },
     {
@@ -1782,7 +1800,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L30",
       "id": "tavolarotonda_mcp_server_session",
-      "community": 24,
+      "community": 36,
       "norm_label": "session"
     },
     {
@@ -1791,7 +1809,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L39",
       "id": "tavolarotonda_mcp_server_get_or_create_session",
-      "community": 24,
+      "community": 36,
       "norm_label": "_get_or_create_session()"
     },
     {
@@ -1800,7 +1818,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L39",
       "id": "mcp_server_py_str",
-      "community": 24,
+      "community": 36,
       "norm_label": "str"
     },
     {
@@ -1809,7 +1827,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L49",
       "id": "tavolarotonda_mcp_server_cleanup_loop",
-      "community": 24,
+      "community": 36,
       "norm_label": "_cleanup_loop()"
     },
     {
@@ -1818,7 +1836,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L57",
       "id": "tavolarotonda_mcp_server_start_cleanup",
-      "community": 24,
+      "community": 36,
       "norm_label": "_start_cleanup()"
     },
     {
@@ -1827,7 +1845,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L62",
       "id": "tavolarotonda_mcp_server_handle_initialize",
-      "community": 24,
+      "community": 36,
       "norm_label": "handle_initialize()"
     },
     {
@@ -1836,7 +1854,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L70",
       "id": "tavolarotonda_mcp_server_handle_tools_list",
-      "community": 24,
+      "community": 36,
       "norm_label": "handle_tools_list()"
     },
     {
@@ -1845,7 +1863,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L113",
       "id": "tavolarotonda_mcp_server_handle_tools_call",
-      "community": 24,
+      "community": 36,
       "norm_label": "handle_tools_call()"
     },
     {
@@ -1863,7 +1881,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L1",
       "id": "tavolarotonda_mcp_server_rationale_1",
-      "community": 24,
+      "community": 36,
       "norm_label": "mcp server per tavolarotonda \u2014 model context protocol."
     },
     {
@@ -1872,7 +1890,7 @@
       "source_file": "mcp_server.py",
       "source_location": "L63",
       "id": "tavolarotonda_mcp_server_rationale_63",
-      "community": 24,
+      "community": 36,
       "norm_label": "mcp initialize \u2014 handshake iniziale."
     },
     {
@@ -2061,7 +2079,7 @@
       "source_file": "director.py",
       "source_location": "L1",
       "id": "director_py",
-      "community": 0,
+      "community": 35,
       "norm_label": "director.py"
     },
     {
@@ -2070,7 +2088,7 @@
       "source_file": "director.py",
       "source_location": "L18",
       "id": "tavolarotonda_director_extract_json",
-      "community": 0,
+      "community": 26,
       "norm_label": "_extract_json()"
     },
     {
@@ -2079,7 +2097,7 @@
       "source_file": "director.py",
       "source_location": "L18",
       "id": "director_py_str",
-      "community": 4,
+      "community": 26,
       "norm_label": "str"
     },
     {
@@ -2097,7 +2115,7 @@
       "source_file": "director.py",
       "source_location": "L46",
       "id": "tavolarotonda_director_director_init",
-      "community": 4,
+      "community": 26,
       "norm_label": ".__init__()"
     },
     {
@@ -2106,7 +2124,7 @@
       "source_file": "director.py",
       "source_location": "L46",
       "id": "director_py_llmprovider",
-      "community": 4,
+      "community": 26,
       "norm_label": "llmprovider"
     },
     {
@@ -2115,7 +2133,7 @@
       "source_file": "director.py",
       "source_location": "L50",
       "id": "tavolarotonda_director_director_set_agenda",
-      "community": 4,
+      "community": 26,
       "norm_label": ".set_agenda()"
     },
     {
@@ -2124,7 +2142,7 @@
       "source_file": "director.py",
       "source_location": "L50",
       "id": "director_py_int",
-      "community": 4,
+      "community": 26,
       "norm_label": "int"
     },
     {
@@ -2133,7 +2151,7 @@
       "source_file": "director.py",
       "source_location": "L1",
       "id": "tavolarotonda_director_rationale_1",
-      "community": 0,
+      "community": 35,
       "norm_label": "director / regista \u2014 per ogni round fissa il focus e assegna chi confuta chi.  p"
     },
     {
@@ -2142,7 +2160,7 @@
       "source_file": "director.py",
       "source_location": "L19",
       "id": "tavolarotonda_director_rationale_19",
-      "community": 0,
+      "community": 26,
       "norm_label": "best-effort json extraction (gestisce code fences e testo intorno)."
     },
     {
@@ -2160,8 +2178,152 @@
       "source_file": "director.py",
       "source_location": "L59",
       "id": "tavolarotonda_director_rationale_59",
-      "community": 4,
+      "community": 26,
       "norm_label": "restituisce {focus, assignments{agent: instruction}, converged}."
+    },
+    {
+      "label": "__main__.py",
+      "file_type": "code",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L1",
+      "community": 4,
+      "norm_label": "__main__.py",
+      "id": "tavolarotonda_main_py"
+    },
+    {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L39",
+      "community": 4,
+      "norm_label": "str",
+      "id": "tavolarotonda_main_py_str"
+    },
+    {
+      "label": "LLMProvider",
+      "file_type": "code",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L77",
+      "community": 4,
+      "norm_label": "llmprovider",
+      "id": "tavolarotonda_main_py_llmprovider"
+    },
+    {
+      "label": "MemoryPalace",
+      "file_type": "code",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L122",
+      "community": 4,
+      "norm_label": "memorypalace",
+      "id": "tavolarotonda_main_py_memorypalace"
+    },
+    {
+      "label": "int",
+      "file_type": "code",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L239",
+      "community": 4,
+      "norm_label": "int",
+      "id": "tavolarotonda_main_py_int"
+    },
+    {
+      "label": "phases.py",
+      "file_type": "code",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L1",
+      "community": 26,
+      "norm_label": "phases.py",
+      "id": "tavolarotonda_phases_py"
+    },
+    {
+      "label": "MemoryPalace",
+      "file_type": "code",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L45",
+      "community": 0,
+      "norm_label": "memorypalace",
+      "id": "tavolarotonda_phases_py_memorypalace"
+    },
+    {
+      "label": "int",
+      "file_type": "code",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L45",
+      "community": 0,
+      "norm_label": "int",
+      "id": "tavolarotonda_phases_py_int"
+    },
+    {
+      "label": "LLMProvider",
+      "file_type": "code",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L59",
+      "community": 0,
+      "norm_label": "llmprovider",
+      "id": "tavolarotonda_phases_py_llmprovider"
+    },
+    {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L101",
+      "community": 39,
+      "norm_label": "str",
+      "id": "tavolarotonda_phases_py_str"
+    },
+    {
+      "label": "bool",
+      "file_type": "code",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L421",
+      "community": 0,
+      "norm_label": "bool",
+      "id": "tavolarotonda_phases_py_bool"
+    },
+    {
+      "label": "providers.py",
+      "file_type": "code",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L1",
+      "community": 26,
+      "norm_label": "providers.py",
+      "id": "tavolarotonda_providers_py"
+    },
+    {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L51",
+      "community": 1,
+      "norm_label": "str",
+      "id": "tavolarotonda_providers_py_str"
+    },
+    {
+      "label": "bool",
+      "file_type": "code",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L51",
+      "community": 1,
+      "norm_label": "bool",
+      "id": "tavolarotonda_providers_py_bool"
+    },
+    {
+      "label": "float",
+      "file_type": "code",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L98",
+      "community": 1,
+      "norm_label": "float",
+      "id": "float"
+    },
+    {
+      "label": "int",
+      "file_type": "code",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L151",
+      "community": 1,
+      "norm_label": "int",
+      "id": "tavolarotonda_providers_py_int"
     },
     {
       "label": "_INDEX.md",
@@ -2212,7 +2374,7 @@
       "label": ".Pytest_Cache (`.pytest_cache/`)",
       "file_type": "document",
       "source_file": "_INDEX.md",
-      "source_location": "L41",
+      "source_location": "L42",
       "community": 11,
       "norm_label": ".pytest_cache (`.pytest_cache/`)",
       "id": "tavolarotonda_due_index_pytest_cache_pytest_cache"
@@ -2221,10 +2383,208 @@
       "label": "Tavolarotonda (`tavolarotonda/`)",
       "file_type": "document",
       "source_file": "_INDEX.md",
-      "source_location": "L45",
+      "source_location": "L46",
       "community": 11,
       "norm_label": "tavolarotonda (`tavolarotonda/`)",
       "id": "tavolarotonda_due_index_tavolarotonda_tavolarotonda"
+    },
+    {
+      "label": "Provider unificato. Internamente switch su Ollama / OpenAI-compat / Claude.",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L95",
+      "community": 26,
+      "norm_label": "provider unificato. internamente switch su ollama / openai-compat / claude.",
+      "id": "tavolarotonda_providers_rationale_95"
+    },
+    {
+      "label": "Determina il kind del provider in base al nome del modello.",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L119",
+      "community": 1,
+      "norm_label": "determina il kind del provider in base al nome del modello.",
+      "id": "tavolarotonda_providers_rationale_119"
+    },
+    {
+      "label": "PII redaction minima (best-effort) per free_api tier.          NB: questa \u00e8 una",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L133",
+      "community": 1,
+      "norm_label": "pii redaction minima (best-effort) per free_api tier.          nb: questa e una",
+      "id": "tavolarotonda_providers_rationale_133"
+    },
+    {
+      "label": "Esegue una completion LLM. Retry + circuit breaker integrati.          Args:",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L162",
+      "community": 1,
+      "norm_label": "esegue una completion llm. retry + circuit breaker integrati.          args:",
+      "id": "tavolarotonda_providers_rationale_162"
+    },
+    {
+      "label": "Chiama Ollama /api/generate.",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L209",
+      "community": 1,
+      "norm_label": "chiama ollama /api/generate.",
+      "id": "tavolarotonda_providers_rationale_209"
+    },
+    {
+      "label": "Chiama API OpenAI-compat (LiteLLM proxy, OpenRouter, ecc.).",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L237",
+      "community": 1,
+      "norm_label": "chiama api openai-compat (litellm proxy, openrouter, ecc.).",
+      "id": "tavolarotonda_providers_rationale_237"
+    },
+    {
+      "label": "Chiama Claude API (Anthropic). Per ora solleva: usare SDK Anthropic o mock.",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L273",
+      "community": 1,
+      "norm_label": "chiama claude api (anthropic). per ora solleva: usare sdk anthropic o mock.",
+      "id": "tavolarotonda_providers_rationale_273"
+    },
+    {
+      "label": "Chiama endpoint Anthropic-compat (ai-router :8787, MiniMax, GLM, ecc.).",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L308",
+      "community": 1,
+      "norm_label": "chiama endpoint anthropic-compat (ai-router :8787, minimax, glm, ecc.).",
+      "id": "tavolarotonda_providers_rationale_308"
+    },
+    {
+      "label": "Provider finto che ritorna risposte plausibili per smoke test.      NON usare in",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L344",
+      "community": 4,
+      "norm_label": "provider finto che ritorna risposte plausibili per smoke test.      non usare in",
+      "id": "tavolarotonda_providers_rationale_344"
+    },
+    {
+      "label": "DEPRECATED: usare LLMProvider con provider_kind='anthropic_compat'.      Questa",
+      "file_type": "rationale",
+      "source_file": "providers.py",
+      "source_location": "L367",
+      "community": 36,
+      "norm_label": "deprecated: usare llmprovider con provider_kind='anthropic_compat'.      questa",
+      "id": "tavolarotonda_providers_rationale_367"
+    },
+    {
+      "label": "Per ogni round: Director assegna focus+assignments, ogni agente brainstorrea, Se",
+      "file_type": "rationale",
+      "source_file": "phases.py",
+      "source_location": "L111",
+      "community": 0,
+      "norm_label": "per ogni round: director assegna focus+assignments, ogni agente brainstorrea, se",
+      "id": "tavolarotonda_phases_rationale_111"
+    },
+    {
+      "label": "Ogni agente critica SPECIFICAMENTE un altro agente (cross-examination).      Mir",
+      "file_type": "rationale",
+      "source_file": "phases.py",
+      "source_location": "L188",
+      "community": 39,
+      "norm_label": "ogni agente critica specificamente un altro agente (cross-examination).      mir",
+      "id": "tavolarotonda_phases_rationale_188"
+    },
+    {
+      "label": "Sintetizzatore finale: decisione + minority report + open questions + next steps",
+      "file_type": "rationale",
+      "source_file": "phases.py",
+      "source_location": "L240",
+      "community": 40,
+      "norm_label": "sintetizzatore finale: decisione + minority report + open questions + next steps",
+      "id": "tavolarotonda_phases_rationale_240"
+    },
+    {
+      "label": "Ogni agente vota 0-10 sulla proposta finale (feasibility, impact, risk_safety).",
+      "file_type": "rationale",
+      "source_file": "phases.py",
+      "source_location": "L287",
+      "community": 34,
+      "norm_label": "ogni agente vota 0-10 sulla proposta finale (feasibility, impact, risk_safety).",
+      "id": "tavolarotonda_phases_rationale_287"
+    },
+    {
+      "label": "Confer phase: M3 pianifica quali agenti/domini attivare per questo topic.      P",
+      "file_type": "rationale",
+      "source_file": "phases.py",
+      "source_location": "L341",
+      "community": 0,
+      "norm_label": "confer phase: m3 pianifica quali agenti/domini attivare per questo topic.      p",
+      "id": "tavolarotonda_phases_rationale_341"
+    },
+    {
+      "label": "Estrae una sezione markdown fino al prossimo header ## o fine testo.",
+      "file_type": "rationale",
+      "source_file": "phases.py",
+      "source_location": "L372",
+      "community": 40,
+      "norm_label": "estrae una sezione markdown fino al prossimo header ## o fine testo.",
+      "id": "tavolarotonda_phases_rationale_372"
+    },
+    {
+      "label": "Estrae una sezione markdown di lista bullet.",
+      "file_type": "rationale",
+      "source_file": "phases.py",
+      "source_location": "L380",
+      "community": 40,
+      "norm_label": "estrae una sezione markdown di lista bullet.",
+      "id": "tavolarotonda_phases_rationale_380"
+    },
+    {
+      "label": "Esegue l'intera pipeline. Ritorna tutti gli eventi emessi.",
+      "file_type": "rationale",
+      "source_file": "phases.py",
+      "source_location": "L410",
+      "community": 0,
+      "norm_label": "esegue l'intera pipeline. ritorna tutti gli eventi emessi.",
+      "id": "tavolarotonda_phases_rationale_410"
+    },
+    {
+      "label": "Callback per stampare eventi durante l'esecuzione.",
+      "file_type": "rationale",
+      "source_file": "__main__.py",
+      "source_location": "L108",
+      "community": 4,
+      "norm_label": "callback per stampare eventi durante l'esecuzione.",
+      "id": "tavolarotonda_main_rationale_108"
+    },
+    {
+      "label": "Esegue una sessione di tavola rotonda su un topic.",
+      "file_type": "rationale",
+      "source_file": "__main__.py",
+      "source_location": "L120",
+      "community": 4,
+      "norm_label": "esegue una sessione di tavola rotonda su un topic.",
+      "id": "tavolarotonda_main_rationale_120"
+    },
+    {
+      "label": "Modalit\u00e0 audit: analizza un file di codice.",
+      "file_type": "rationale",
+      "source_file": "__main__.py",
+      "source_location": "L147",
+      "community": 4,
+      "norm_label": "modalita audit: analizza un file di codice.",
+      "id": "tavolarotonda_main_rationale_147"
+    },
+    {
+      "label": "Modalit\u00e0 Q&A: risposte multi-agente in parallelo.",
+      "file_type": "rationale",
+      "source_file": "__main__.py",
+      "source_location": "L190",
+      "community": 4,
+      "norm_label": "modalita q&a: risposte multi-agente in parallelo.",
+      "id": "tavolarotonda_main_rationale_190"
     },
     {
       "label": "2026-07-11-aq-benchmark-20-domande.md",
@@ -2506,51 +2866,6 @@
       "id": "tavolarotonda_init_py"
     },
     {
-      "label": "__main__.py",
-      "file_type": "code",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L1",
-      "community": 24,
-      "norm_label": "__main__.py",
-      "id": "tavolarotonda_main_py"
-    },
-    {
-      "label": "str",
-      "file_type": "code",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L39",
-      "community": 4,
-      "norm_label": "str",
-      "id": "tavolarotonda_main_py_str"
-    },
-    {
-      "label": "LLMProvider",
-      "file_type": "code",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L74",
-      "community": 4,
-      "norm_label": "llmprovider",
-      "id": "tavolarotonda_main_py_llmprovider"
-    },
-    {
-      "label": "MemoryPalace",
-      "file_type": "code",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L119",
-      "community": 4,
-      "norm_label": "memorypalace",
-      "id": "tavolarotonda_main_py_memorypalace"
-    },
-    {
-      "label": "int",
-      "file_type": "code",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L233",
-      "community": 4,
-      "norm_label": "int",
-      "id": "tavolarotonda_main_py_int"
-    },
-    {
       "label": "evidence.py",
       "file_type": "code",
       "source_file": "tavolarotonda/evidence.py",
@@ -2582,7 +2897,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/mcp_server.py",
       "source_location": "L1",
-      "community": 24,
+      "community": 36,
       "norm_label": "mcp_server.py",
       "id": "tavolarotonda_mcp_server_py"
     },
@@ -2591,7 +2906,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/mcp_server.py",
       "source_location": "L39",
-      "community": 24,
+      "community": 36,
       "norm_label": "str",
       "id": "tavolarotonda_mcp_server_py_str"
     },
@@ -2657,105 +2972,6 @@
       "community": 3,
       "norm_label": "str",
       "id": "tavolarotonda_obsidian_vault_py_str"
-    },
-    {
-      "label": "phases.py",
-      "file_type": "code",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L1",
-      "community": 0,
-      "norm_label": "phases.py",
-      "id": "tavolarotonda_phases_py"
-    },
-    {
-      "label": "MemoryPalace",
-      "file_type": "code",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L45",
-      "community": 0,
-      "norm_label": "memorypalace",
-      "id": "tavolarotonda_phases_py_memorypalace"
-    },
-    {
-      "label": "int",
-      "file_type": "code",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L45",
-      "community": 0,
-      "norm_label": "int",
-      "id": "tavolarotonda_phases_py_int"
-    },
-    {
-      "label": "LLMProvider",
-      "file_type": "code",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L59",
-      "community": 0,
-      "norm_label": "llmprovider",
-      "id": "tavolarotonda_phases_py_llmprovider"
-    },
-    {
-      "label": "str",
-      "file_type": "code",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L337",
-      "community": 0,
-      "norm_label": "str",
-      "id": "tavolarotonda_phases_py_str"
-    },
-    {
-      "label": "bool",
-      "file_type": "code",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L396",
-      "community": 0,
-      "norm_label": "bool",
-      "id": "tavolarotonda_phases_py_bool"
-    },
-    {
-      "label": "providers.py",
-      "file_type": "code",
-      "source_file": "tavolarotonda/providers.py",
-      "source_location": "L1",
-      "community": 0,
-      "norm_label": "providers.py",
-      "id": "tavolarotonda_providers_py"
-    },
-    {
-      "label": "str",
-      "file_type": "code",
-      "source_file": "tavolarotonda/providers.py",
-      "source_location": "L51",
-      "community": 1,
-      "norm_label": "str",
-      "id": "tavolarotonda_providers_py_str"
-    },
-    {
-      "label": "bool",
-      "file_type": "code",
-      "source_file": "tavolarotonda/providers.py",
-      "source_location": "L51",
-      "community": 1,
-      "norm_label": "bool",
-      "id": "tavolarotonda_providers_py_bool"
-    },
-    {
-      "label": "float",
-      "file_type": "code",
-      "source_file": "tavolarotonda/providers.py",
-      "source_location": "L97",
-      "community": 1,
-      "norm_label": "float",
-      "id": "tavolarotonda_providers_py_float"
-    },
-    {
-      "label": "int",
-      "file_type": "code",
-      "source_file": "tavolarotonda/providers.py",
-      "source_location": "L150",
-      "community": 1,
-      "norm_label": "int",
-      "id": "tavolarotonda_providers_py_int"
     },
     {
       "label": "serve.py",
@@ -3041,7 +3257,7 @@
       "file_type": "rationale",
       "source_file": "providers.py",
       "source_location": "L85",
-      "community": 4,
+      "community": 26,
       "norm_label": "provider unificato. internamente switch su ollama / openai-compat / claude.",
       "id": "tavolarotonda_providers_rationale_85"
     },
@@ -3122,7 +3338,7 @@
       "file_type": "rationale",
       "source_file": "providers.py",
       "source_location": "L349",
-      "community": 4,
+      "community": 36,
       "norm_label": "deprecated: usare llmprovider con provider_kind='anthropic_compat'.      questa",
       "id": "tavolarotonda_providers_rationale_349"
     },
@@ -3131,7 +3347,7 @@
       "file_type": "rationale",
       "source_file": "phases.py",
       "source_location": "L33",
-      "community": 0,
+      "community": 34,
       "norm_label": "evento emesso dalle fasi (per logging/ui).",
       "id": "tavolarotonda_phases_rationale_33"
     },
@@ -3149,7 +3365,7 @@
       "file_type": "rationale",
       "source_file": "phases.py",
       "source_location": "L64",
-      "community": 0,
+      "community": 34,
       "norm_label": "ogni agente riformula il problema nel suo angolo.      se >30% divergono signifi",
       "id": "tavolarotonda_phases_rationale_64"
     },
@@ -3167,7 +3383,7 @@
       "file_type": "rationale",
       "source_file": "phases.py",
       "source_location": "L185",
-      "community": 0,
+      "community": 39,
       "norm_label": "ogni agente critica specificamente un altro agente (cross-examination).      mir",
       "id": "tavolarotonda_phases_rationale_185"
     },
@@ -3176,7 +3392,7 @@
       "file_type": "rationale",
       "source_file": "phases.py",
       "source_location": "L237",
-      "community": 0,
+      "community": 40,
       "norm_label": "sintetizzatore finale: decisione + minority report + open questions + next steps",
       "id": "tavolarotonda_phases_rationale_237"
     },
@@ -3185,7 +3401,7 @@
       "file_type": "rationale",
       "source_file": "phases.py",
       "source_location": "L284",
-      "community": 0,
+      "community": 34,
       "norm_label": "ogni agente vota 0-10 sulla proposta finale (feasibility, impact, risk_safety).",
       "id": "tavolarotonda_phases_rationale_284"
     },
@@ -3194,7 +3410,7 @@
       "file_type": "rationale",
       "source_file": "phases.py",
       "source_location": "L324",
-      "community": 0,
+      "community": 40,
       "norm_label": "estrae una sezione markdown fino al prossimo header ## o fine testo.",
       "id": "tavolarotonda_phases_rationale_324"
     },
@@ -3203,7 +3419,7 @@
       "file_type": "rationale",
       "source_file": "phases.py",
       "source_location": "L332",
-      "community": 0,
+      "community": 40,
       "norm_label": "estrae una sezione markdown di lista bullet.",
       "id": "tavolarotonda_phases_rationale_332"
     },
@@ -3329,7 +3545,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/agents.py",
       "source_location": "L1",
-      "community": 24,
+      "community": 38,
       "norm_label": "agents.py",
       "id": "tavolarotonda_agents_py"
     },
@@ -3338,7 +3554,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/agents.py",
       "source_location": "L228",
-      "community": 24,
+      "community": 38,
       "norm_label": "str",
       "id": "tavolarotonda_agents_py_str"
     },
@@ -3374,7 +3590,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/director.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 26,
       "norm_label": "director.py",
       "id": "tavolarotonda_director_py"
     },
@@ -3383,7 +3599,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/director.py",
       "source_location": "L18",
-      "community": 4,
+      "community": 26,
       "norm_label": "str",
       "id": "tavolarotonda_director_py_str"
     },
@@ -3392,7 +3608,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/director.py",
       "source_location": "L46",
-      "community": 4,
+      "community": 26,
       "norm_label": "llmprovider",
       "id": "tavolarotonda_director_py_llmprovider"
     },
@@ -3401,7 +3617,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/director.py",
       "source_location": "L50",
-      "community": 4,
+      "community": 26,
       "norm_label": "int",
       "id": "tavolarotonda_director_py_int"
     },
@@ -3446,7 +3662,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/secretary.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 26,
       "norm_label": "secretary.py",
       "id": "tavolarotonda_secretary_py"
     },
@@ -3482,7 +3698,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L1",
-      "community": 24,
+      "community": 27,
       "norm_label": "test_smoke.py",
       "id": "tests_test_smoke_py"
     },
@@ -3491,7 +3707,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L36",
-      "community": 24,
+      "community": 38,
       "norm_label": "test_agents_load()",
       "id": "tests_test_smoke_test_agents_load"
     },
@@ -3500,7 +3716,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L44",
-      "community": 24,
+      "community": 27,
       "norm_label": "test_polarity_pairs()",
       "id": "tests_test_smoke_test_polarity_pairs"
     },
@@ -3509,7 +3725,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L52",
-      "community": 24,
+      "community": 27,
       "norm_label": "test_agent_by_name()",
       "id": "tests_test_smoke_test_agent_by_name"
     },
@@ -3518,7 +3734,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L59",
-      "community": 24,
+      "community": 27,
       "norm_label": "test_sanitize_directive()",
       "id": "tests_test_smoke_test_sanitize_directive"
     },
@@ -3545,7 +3761,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L91",
-      "community": 4,
+      "community": 27,
       "norm_label": "test_provider_redaction()",
       "id": "tests_test_smoke_test_provider_redaction"
     },
@@ -3572,7 +3788,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L121",
-      "community": 24,
+      "community": 27,
       "norm_label": "test_full_pipeline_mock()",
       "id": "tests_test_smoke_test_full_pipeline_mock"
     },
@@ -3581,7 +3797,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L152",
-      "community": 24,
+      "community": 27,
       "norm_label": "test_html_audit_report()",
       "id": "tests_test_smoke_test_html_audit_report"
     },
@@ -3590,7 +3806,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L174",
-      "community": 24,
+      "community": 41,
       "norm_label": "test_html_qa_template()",
       "id": "tests_test_smoke_test_html_qa_template"
     },
@@ -3617,7 +3833,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L216",
-      "community": 24,
+      "community": 27,
       "norm_label": "_run_async_tests()",
       "id": "tests_test_smoke_run_async_tests"
     },
@@ -3626,7 +3842,7 @@
       "file_type": "code",
       "source_file": "tests/test_smoke.py",
       "source_location": "L220",
-      "community": 24,
+      "community": 27,
       "norm_label": "run_all()",
       "id": "tests_test_smoke_run_all"
     },
@@ -3635,7 +3851,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L1",
-      "community": 24,
+      "community": 27,
       "norm_label": "smoke test base \u2014 verifica che il wiring del codice funzioni senza llm reale.  u",
       "id": "tests_test_smoke_rationale_1"
     },
@@ -3644,7 +3860,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L37",
-      "community": 24,
+      "community": 38,
       "norm_label": "18 personas devono essere presenti.",
       "id": "tests_test_smoke_rationale_37"
     },
@@ -3653,7 +3869,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L45",
-      "community": 24,
+      "community": 27,
       "norm_label": "alcune polarity pairs chiave devono esistere.",
       "id": "tests_test_smoke_rationale_45"
     },
@@ -3662,7 +3878,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L53",
-      "community": 24,
+      "community": 27,
       "norm_label": "lookup case-insensitive.",
       "id": "tests_test_smoke_rationale_53"
     },
@@ -3671,7 +3887,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L60",
-      "community": 24,
+      "community": 27,
       "norm_label": "rimuove/ marca injection markers.",
       "id": "tests_test_smoke_rationale_60"
     },
@@ -3698,7 +3914,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L92",
-      "community": 4,
+      "community": 27,
       "norm_label": "pii redaction per free_api tier.",
       "id": "tests_test_smoke_rationale_92"
     },
@@ -3725,7 +3941,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L122",
-      "community": 24,
+      "community": 27,
       "norm_label": "pipeline completa end-to-end con mockprovider.",
       "id": "tests_test_smoke_rationale_122"
     },
@@ -3734,7 +3950,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L153",
-      "community": 24,
+      "community": 27,
       "norm_label": "genera html audit report valido.",
       "id": "tests_test_smoke_rationale_153"
     },
@@ -3743,7 +3959,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L175",
-      "community": 24,
+      "community": 41,
       "norm_label": "genera html q&a compilabile.",
       "id": "tests_test_smoke_rationale_175"
     },
@@ -3761,7 +3977,7 @@
       "file_type": "rationale",
       "source_file": "tests/test_smoke.py",
       "source_location": "L221",
-      "community": 24,
+      "community": 27,
       "norm_label": "esegue tutti i test in sequenza.",
       "id": "tests_test_smoke_rationale_221"
     },
@@ -3941,7 +4157,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/prompts.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 26,
       "norm_label": "prompts.py",
       "id": "tavolarotonda_prompts_py"
     },
@@ -3950,7 +4166,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/prompts.py",
       "source_location": "L190",
-      "community": 0,
+      "community": 27,
       "norm_label": "str",
       "id": "tavolarotonda_prompts_py_str"
     },
@@ -3959,7 +4175,7 @@
       "file_type": "code",
       "source_file": "tavolarotonda/prompts.py",
       "source_location": "L190",
-      "community": 0,
+      "community": 27,
       "norm_label": "int",
       "id": "tavolarotonda_prompts_py_int"
     },
@@ -4022,7 +4238,7 @@
       "file_type": "code",
       "source_file": "gui/app.py",
       "source_location": "L131",
-      "community": 4,
+      "community": 8,
       "norm_label": "multiprovider",
       "id": "gui_app_multiprovider"
     },
@@ -4031,7 +4247,7 @@
       "file_type": "code",
       "source_file": "",
       "source_location": "",
-      "community": 4,
+      "community": 8,
       "norm_label": "llmprovider",
       "id": "llmprovider"
     },
@@ -4040,7 +4256,7 @@
       "file_type": "code",
       "source_file": "gui/app.py",
       "source_location": "L134",
-      "community": 4,
+      "community": 8,
       "norm_label": ".__init__()",
       "id": "gui_app_multiprovider_init"
     },
@@ -4076,7 +4292,7 @@
       "file_type": "code",
       "source_file": "gui/app.py",
       "source_location": "L199",
-      "community": 4,
+      "community": 8,
       "norm_label": "_build_provider()",
       "id": "gui_app_build_provider"
     },
@@ -4310,7 +4526,7 @@
       "file_type": "rationale",
       "source_file": "gui/app.py",
       "source_location": "L132",
-      "community": 4,
+      "community": 8,
       "norm_label": "provider che instrada ogni chiamata al sub-provider giusto in base all'agent_key",
       "id": "gui_app_rationale_132"
     },
@@ -4328,7 +4544,7 @@
       "file_type": "rationale",
       "source_file": "gui/app.py",
       "source_location": "L200",
-      "community": 4,
+      "community": 8,
       "norm_label": "istanzia il provider giusto per la scelta utente, con fallback automatico.",
       "id": "gui_app_rationale_200"
     },
@@ -7604,7 +7820,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 35,
       "norm_label": "director.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_director_py"
     },
@@ -7613,7 +7829,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L20",
-      "community": 4,
+      "community": 26,
       "norm_label": "str",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_director_py_str"
     },
@@ -7622,7 +7838,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L48",
-      "community": 4,
+      "community": 26,
       "norm_label": "llmprovider",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_director_py_llmprovider"
     },
@@ -7631,7 +7847,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/director.py",
       "source_location": "L52",
-      "community": 4,
+      "community": 26,
       "norm_label": "int",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_director_py_int"
     },
@@ -7640,7 +7856,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/prompts.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 35,
       "norm_label": "prompts.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_prompts_py"
     },
@@ -7649,7 +7865,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/prompts.py",
       "source_location": "L190",
-      "community": 0,
+      "community": 27,
       "norm_label": "str",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_prompts_py_str"
     },
@@ -7658,7 +7874,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/prompts.py",
       "source_location": "L190",
-      "community": 0,
+      "community": 27,
       "norm_label": "int",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_prompts_py_int"
     },
@@ -7739,7 +7955,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/phases.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 35,
       "norm_label": "phases.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_phases_py"
     },
@@ -7748,7 +7964,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/phases.py",
       "source_location": "L44",
-      "community": 0,
+      "community": 34,
       "norm_label": "memorypalace",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_phases_py_memorypalace"
     },
@@ -7766,7 +7982,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/phases.py",
       "source_location": "L58",
-      "community": 0,
+      "community": 34,
       "norm_label": "llmprovider",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_phases_py_llmprovider"
     },
@@ -7775,7 +7991,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/phases.py",
       "source_location": "L325",
-      "community": 0,
+      "community": 40,
       "norm_label": "str",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_phases_py_str"
     },
@@ -7793,7 +8009,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/secretary.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 35,
       "norm_label": "secretary.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_secretary_py"
     },
@@ -7838,7 +8054,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L1",
-      "community": 24,
+      "community": 38,
       "norm_label": "agents.py",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_agents_py"
     },
@@ -7847,7 +8063,7 @@
       "file_type": "code",
       "source_file": "/mnt/backup/PROGETTI/tavolarotonda/tavolarotonda/agents.py",
       "source_location": "L228",
-      "community": 24,
+      "community": 38,
       "norm_label": "str",
       "id": "mnt_backup_progetti_tavolarotonda_tavolarotonda_agents_py_str"
     },
@@ -7946,7 +8162,7 @@
       "file_type": "rationale",
       "source_file": "providers.py",
       "source_location": "L83",
-      "community": 4,
+      "community": 26,
       "norm_label": "provider unificato. internamente switch su ollama / openai-compat / claude.",
       "id": "tavolarotonda_providers_rationale_83"
     },
@@ -7985,15 +8201,6 @@
       "community": 1,
       "norm_label": "chiama ollama /api/generate.",
       "id": "tavolarotonda_providers_rationale_182"
-    },
-    {
-      "label": "Chiama API OpenAI-compat (LiteLLM proxy, OpenRouter, ecc.).",
-      "file_type": "rationale",
-      "source_file": "providers.py",
-      "source_location": "L210",
-      "community": 1,
-      "norm_label": "chiama api openai-compat (litellm proxy, openrouter, ecc.).",
-      "id": "tavolarotonda_providers_rationale_210"
     },
     {
       "label": "Chiama Claude API (Anthropic). Per ora solleva: usare SDK Anthropic o mock.",
@@ -8157,22 +8364,22 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L28",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L36",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
+      "source": "tavolarotonda_main_py",
       "target": "tavolarotonda_reports_render_audit_report"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L36",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L28",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_main_py",
+      "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_reports_render_audit_report"
     },
     {
@@ -8340,22 +8547,22 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L28",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L36",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
+      "source": "tavolarotonda_main_py",
       "target": "tavolarotonda_reports_render_qa_template"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L36",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L28",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_main_py",
+      "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_reports_render_qa_template"
     },
     {
@@ -8556,22 +8763,22 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L28",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L36",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
+      "source": "tavolarotonda_main_py",
       "target": "tavolarotonda_reports_audit_report_from_palace"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L36",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L28",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_main_py",
+      "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_reports_audit_report_from_palace"
     },
     {
@@ -8943,9 +9150,9 @@
       "source_file": "__init__.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "init_py",
-      "target": "obsidian_vault_py",
-      "confidence_score": 1.0
+      "target": "obsidian_vault_py"
     },
     {
       "relation": "re_exports",
@@ -9030,9 +9237,9 @@
       "source_file": "__init__.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "init_py",
-      "target": "tavolarotonda_obsidian_vault_read_topic",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_obsidian_vault_read_topic"
     },
     {
       "relation": "imports",
@@ -9041,9 +9248,9 @@
       "source_file": "__init__.py",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "init_py",
-      "target": "tavolarotonda_obsidian_vault_save_session",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_obsidian_vault_save_session"
     },
     {
       "relation": "imports",
@@ -10009,10 +10216,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L95",
+      "source_location": "L96",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_95",
+      "source": "tavolarotonda_providers_rationale_96",
       "target": "tavolarotonda_providers_llmprovider"
     },
     {
@@ -10304,17 +10511,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
-      "target": "tavolarotonda_providers_llmprovider"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/__main__.py",
       "source_location": "L35",
       "weight": 1.0,
@@ -10431,6 +10627,27 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_py",
+      "target": "tavolarotonda_providers_llmprovider"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_95",
+      "target": "tavolarotonda_providers_llmprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_providers_llmprovider"
     },
     {
@@ -10637,11 +10854,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L87",
+      "source_location": "L98",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_init",
-      "target": "tavolarotonda_providers_py_float"
+      "target": "float"
     },
     {
       "relation": "references",
@@ -10735,10 +10952,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L119",
+      "source_location": "L120",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_119",
+      "source": "tavolarotonda_providers_rationale_120",
       "target": "tavolarotonda_providers_llmprovider_kind_for"
     },
     {
@@ -10751,6 +10968,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_kind_for",
       "target": "tavolarotonda_providers_py_str"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L119",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_119",
+      "target": "tavolarotonda_providers_llmprovider_kind_for"
     },
     {
       "relation": "rationale_for",
@@ -10831,10 +11058,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L133",
+      "source_location": "L134",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_133",
+      "source": "tavolarotonda_providers_rationale_134",
       "target": "tavolarotonda_providers_llmprovider_redact_for_privacy"
     },
     {
@@ -10847,6 +11074,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_redact_for_privacy",
       "target": "tavolarotonda_providers_py_str"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L133",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_133",
+      "target": "tavolarotonda_providers_llmprovider_redact_for_privacy"
     },
     {
       "relation": "rationale_for",
@@ -10949,10 +11186,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L162",
+      "source_location": "L163",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_162",
+      "source": "tavolarotonda_providers_rationale_163",
       "target": "tavolarotonda_providers_llmprovider_complete"
     },
     {
@@ -10971,11 +11208,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L140",
+      "source_location": "L151",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_complete",
-      "target": "tavolarotonda_providers_py_float"
+      "target": "float"
     },
     {
       "relation": "calls",
@@ -10987,6 +11224,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_complete",
       "target": "tavolarotonda_providers_py_int"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L162",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_162",
+      "target": "tavolarotonda_providers_llmprovider_complete"
     },
     {
       "relation": "rationale_for",
@@ -11067,10 +11314,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L209",
+      "source_location": "L210",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_209",
+      "source": "tavolarotonda_providers_rationale_210",
       "target": "tavolarotonda_providers_llmprovider_ollama"
     },
     {
@@ -11089,11 +11336,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L190",
+      "source_location": "L209",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_ollama",
-      "target": "tavolarotonda_providers_py_float"
+      "target": "float"
     },
     {
       "relation": "references",
@@ -11105,6 +11352,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_ollama",
       "target": "tavolarotonda_providers_py_int"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_209",
+      "target": "tavolarotonda_providers_llmprovider_ollama"
     },
     {
       "relation": "rationale_for",
@@ -11130,10 +11387,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L237",
+      "source_location": "L238",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_237",
+      "source": "tavolarotonda_providers_rationale_238",
       "target": "tavolarotonda_providers_llmprovider_openai_compat"
     },
     {
@@ -11152,11 +11409,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L218",
+      "source_location": "L237",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_openai_compat",
-      "target": "tavolarotonda_providers_py_float"
+      "target": "float"
     },
     {
       "relation": "references",
@@ -11168,6 +11425,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_openai_compat",
       "target": "tavolarotonda_providers_py_int"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L237",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_237",
+      "target": "tavolarotonda_providers_llmprovider_openai_compat"
     },
     {
       "relation": "rationale_for",
@@ -11193,10 +11460,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L273",
+      "source_location": "L274",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_273",
+      "source": "tavolarotonda_providers_rationale_274",
       "target": "tavolarotonda_providers_llmprovider_claude"
     },
     {
@@ -11215,11 +11482,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L254",
+      "source_location": "L273",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_claude",
-      "target": "tavolarotonda_providers_py_float"
+      "target": "float"
     },
     {
       "relation": "references",
@@ -11231,6 +11498,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_claude",
       "target": "tavolarotonda_providers_py_int"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L273",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_273",
+      "target": "tavolarotonda_providers_llmprovider_claude"
     },
     {
       "relation": "rationale_for",
@@ -11256,10 +11533,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L308",
+      "source_location": "L309",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_308",
+      "source": "tavolarotonda_providers_rationale_309",
       "target": "tavolarotonda_providers_llmprovider_anthropic_compat"
     },
     {
@@ -11278,11 +11555,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L289",
+      "source_location": "L308",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_anthropic_compat",
-      "target": "tavolarotonda_providers_py_float"
+      "target": "float"
     },
     {
       "relation": "references",
@@ -11294,6 +11571,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_llmprovider_anthropic_compat",
       "target": "tavolarotonda_providers_py_int"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L308",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_308",
+      "target": "tavolarotonda_providers_llmprovider_anthropic_compat"
     },
     {
       "relation": "rationale_for",
@@ -11329,10 +11616,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L344",
+      "source_location": "L345",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_344",
+      "source": "tavolarotonda_providers_rationale_345",
       "target": "tavolarotonda_providers_mockprovider"
     },
     {
@@ -11411,17 +11698,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
-      "target": "tavolarotonda_providers_mockprovider"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/__main__.py",
       "source_location": "L35",
       "weight": 1.0,
@@ -11477,6 +11753,27 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_py",
+      "target": "tavolarotonda_providers_mockprovider"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L344",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_344",
+      "target": "tavolarotonda_providers_mockprovider"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_providers_mockprovider"
     },
     {
@@ -11620,10 +11917,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L367",
+      "source_location": "L368",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_rationale_367",
+      "source": "tavolarotonda_providers_rationale_368",
       "target": "tavolarotonda_providers_anthropiccompatprovider"
     },
     {
@@ -11644,9 +11941,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L130",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_providers_anthropiccompatprovider",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_providers_anthropiccompatprovider"
     },
     {
       "relation": "calls",
@@ -11756,9 +12053,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L130",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "mcp_server_py_str",
-      "target": "tavolarotonda_providers_anthropiccompatprovider",
-      "confidence_score": 0.5
+      "target": "tavolarotonda_providers_anthropiccompatprovider"
     },
     {
       "relation": "imports",
@@ -11812,6 +12109,26 @@
       "target": "tavolarotonda_providers_anthropiccompatprovider"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L307",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_py",
+      "target": "tavolarotonda_providers_anthropiccompatprovider"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/providers.py",
+      "source_location": "L367",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_providers_rationale_367",
+      "target": "tavolarotonda_providers_anthropiccompatprovider"
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -11830,16 +12147,6 @@
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "tavolarotonda_mcp_server_py_str",
-      "target": "tavolarotonda_providers_anthropiccompatprovider"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/providers.py",
-      "source_location": "L307",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_providers_py",
       "target": "tavolarotonda_providers_anthropiccompatprovider"
     },
     {
@@ -11960,11 +12267,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L355",
+      "source_location": "L374",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_anthropiccompatprovider_init",
-      "target": "tavolarotonda_providers_py_float"
+      "target": "float"
     },
     {
       "relation": "references",
@@ -11993,11 +12300,11 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/providers.py",
-      "source_location": "L374",
+      "source_location": "L393",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_providers_anthropiccompatprovider_complete",
-      "target": "tavolarotonda_providers_py_float"
+      "target": "float"
     },
     {
       "relation": "calls",
@@ -12027,9 +12334,9 @@
       "source_file": "serve.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "mcp_server_py",
-      "confidence_score": 1.0
+      "target": "mcp_server_py"
     },
     {
       "relation": "imports_from",
@@ -12038,9 +12345,9 @@
       "source_file": "serve.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "obsidian_vault_py",
-      "confidence_score": 1.0
+      "target": "obsidian_vault_py"
     },
     {
       "relation": "contains",
@@ -12048,9 +12355,9 @@
       "source_file": "serve.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "tavolarotonda_serve_mcp_endpoint",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_serve_mcp_endpoint"
     },
     {
       "relation": "contains",
@@ -12058,9 +12365,9 @@
       "source_file": "serve.py",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "tavolarotonda_serve_health",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_serve_health"
     },
     {
       "relation": "contains",
@@ -12068,9 +12375,9 @@
       "source_file": "serve.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "tavolarotonda_serve_obsidian_topic",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_serve_obsidian_topic"
     },
     {
       "relation": "contains",
@@ -12078,9 +12385,9 @@
       "source_file": "serve.py",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "tavolarotonda_serve_obsidian_save",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_serve_obsidian_save"
     },
     {
       "relation": "contains",
@@ -12088,9 +12395,9 @@
       "source_file": "serve.py",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "tavolarotonda_serve_build_app",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_serve_build_app"
     },
     {
       "relation": "contains",
@@ -12098,9 +12405,9 @@
       "source_file": "serve.py",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "tavolarotonda_serve_run",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_serve_run"
     },
     {
       "relation": "rationale_for",
@@ -12108,9 +12415,9 @@
       "source_file": "serve.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_serve_rationale_1",
-      "target": "serve_py",
-      "confidence_score": 1.0
+      "target": "serve_py"
     },
     {
       "relation": "imports",
@@ -12119,9 +12426,9 @@
       "source_file": "serve.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "tavolarotonda_mcp_server_handle_mcp_request",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_handle_mcp_request"
     },
     {
       "relation": "imports",
@@ -12130,9 +12437,9 @@
       "source_file": "serve.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "tavolarotonda_obsidian_vault_read_topic",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_obsidian_vault_read_topic"
     },
     {
       "relation": "imports",
@@ -12141,9 +12448,9 @@
       "source_file": "serve.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "serve_py",
-      "target": "tavolarotonda_obsidian_vault_save_session",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_obsidian_vault_save_session"
     },
     {
       "relation": "rationale_for",
@@ -12193,9 +12500,9 @@
       "source_file": "serve.py",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_serve_obsidian_topic",
-      "target": "serve_py_str",
-      "confidence_score": 1.0
+      "target": "serve_py_str"
     },
     {
       "relation": "calls",
@@ -12247,9 +12554,9 @@
       "source_file": "serve.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_serve_obsidian_save",
-      "target": "serve_py_str",
-      "confidence_score": 1.0
+      "target": "serve_py_str"
     },
     {
       "relation": "rationale_for",
@@ -12311,9 +12618,9 @@
       "source_file": "serve.py",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_serve_build_app",
-      "target": "serve_py_str",
-      "confidence_score": 1.0
+      "target": "serve_py_str"
     },
     {
       "relation": "calls",
@@ -12398,9 +12705,9 @@
       "source_file": "serve.py",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_serve_run",
-      "target": "serve_py_str",
-      "confidence_score": 1.0
+      "target": "serve_py_str"
     },
     {
       "relation": "references",
@@ -12409,9 +12716,9 @@
       "source_file": "serve.py",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_serve_run",
-      "target": "serve_py_int",
-      "confidence_score": 1.0
+      "target": "serve_py_int"
     },
     {
       "relation": "contains",
@@ -12688,9 +12995,9 @@
       "source_file": "phases.py",
       "source_location": "L30",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "any",
-      "target": "tavolarotonda_secretary_secretary",
-      "confidence_score": 0.5
+      "target": "tavolarotonda_secretary_secretary"
     },
     {
       "relation": "uses",
@@ -13573,9 +13880,9 @@
       "source_file": "obsidian_vault.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "obsidian_vault_py",
-      "target": "tavolarotonda_obsidian_vault_read_topic",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_obsidian_vault_read_topic"
     },
     {
       "relation": "contains",
@@ -13583,9 +13890,9 @@
       "source_file": "obsidian_vault.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "obsidian_vault_py",
-      "target": "tavolarotonda_obsidian_vault_save_session",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_obsidian_vault_save_session"
     },
     {
       "relation": "rationale_for",
@@ -13593,9 +13900,9 @@
       "source_file": "obsidian_vault.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_obsidian_vault_rationale_1",
-      "target": "obsidian_vault_py",
-      "confidence_score": 1.0
+      "target": "obsidian_vault_py"
     },
     {
       "relation": "references",
@@ -13604,9 +13911,9 @@
       "source_file": "obsidian_vault.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_obsidian_vault_read_topic",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -13615,9 +13922,9 @@
       "source_file": "obsidian_vault.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_obsidian_vault_read_topic",
-      "target": "obsidian_vault_py_str",
-      "confidence_score": 1.0
+      "target": "obsidian_vault_py_str"
     },
     {
       "relation": "rationale_for",
@@ -13723,9 +14030,9 @@
       "source_file": "obsidian_vault.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_obsidian_vault_save_session",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "calls",
@@ -13844,9 +14151,9 @@
       "source_file": "obsidian_vault.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_obsidian_vault_save_session",
-      "target": "obsidian_vault_py_str",
-      "confidence_score": 1.0
+      "target": "obsidian_vault_py_str"
     },
     {
       "relation": "rationale_for",
@@ -14075,9 +14382,9 @@
       "source_file": "phases.py",
       "source_location": "L337",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "phases_py",
-      "target": "tavolarotonda_phases_confer_phase",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_phases_confer_phase"
     },
     {
       "relation": "contains",
@@ -14098,6 +14405,16 @@
       "confidence_score": 1.0,
       "source": "phases_py",
       "target": "tavolarotonda_phases_extract_list_section"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "phases.py",
+      "source_location": "L401",
+      "weight": 1.0,
+      "source": "phases_py",
+      "target": "tavolarotonda_phases_resolve_agent_model",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -14279,9 +14596,9 @@
       "source_file": "__main__.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_py",
-      "target": "tavolarotonda_phases_phaseevent",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_phases_phaseevent"
     },
     {
       "relation": "uses",
@@ -14319,9 +14636,9 @@
       "source_file": "__main__.py",
       "source_location": "L34",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "main_py_str",
-      "target": "tavolarotonda_phases_phaseevent",
-      "confidence_score": 0.5
+      "target": "tavolarotonda_phases_phaseevent"
     },
     {
       "relation": "uses",
@@ -14339,9 +14656,9 @@
       "source_file": "__main__.py",
       "source_location": "L34",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "main_py_llmprovider",
-      "target": "tavolarotonda_phases_phaseevent",
-      "confidence_score": 0.5
+      "target": "tavolarotonda_phases_phaseevent"
     },
     {
       "relation": "uses",
@@ -14349,9 +14666,9 @@
       "source_file": "__main__.py",
       "source_location": "L34",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "main_py_memorypalace",
-      "target": "tavolarotonda_phases_phaseevent",
-      "confidence_score": 0.5
+      "target": "tavolarotonda_phases_phaseevent"
     },
     {
       "relation": "uses",
@@ -14359,9 +14676,9 @@
       "source_file": "__main__.py",
       "source_location": "L34",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "main_py_int",
-      "target": "tavolarotonda_phases_phaseevent",
-      "confidence_score": 0.5
+      "target": "tavolarotonda_phases_phaseevent"
     },
     {
       "relation": "imports",
@@ -14645,9 +14962,9 @@
       "source_file": "phases.py",
       "source_location": "L337",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_phases_confer_phase",
-      "target": "phases_py_memorypalace",
-      "confidence_score": 1.0
+      "target": "phases_py_memorypalace"
     },
     {
       "relation": "references",
@@ -15006,9 +15323,9 @@
       "source_file": "phases.py",
       "source_location": "L337",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_phases_confer_phase",
-      "target": "phases_py_llmprovider",
-      "confidence_score": 1.0
+      "target": "phases_py_llmprovider"
     },
     {
       "relation": "references",
@@ -15088,6 +15405,17 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L161",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_phase_brainstorm",
+      "target": "tavolarotonda_phases_resolve_agent_model"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
       "source_file": "phases.py",
       "source_location": "L379",
       "weight": 1.0,
@@ -15099,10 +15427,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
-      "source_location": "L111",
+      "source_location": "L112",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_rationale_111",
+      "source": "tavolarotonda_phases_rationale_112",
       "target": "tavolarotonda_phases_phase_brainstorm"
     },
     {
@@ -15158,6 +15486,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_phases_phase_brainstorm",
       "target": "tavolarotonda_phases_py_str"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L111",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_rationale_111",
+      "target": "tavolarotonda_phases_phase_brainstorm"
     },
     {
       "relation": "rationale_for",
@@ -15317,6 +15655,113 @@
       "target": "tavolarotonda_memory_palace_memorypalace"
     },
     {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "phases.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "source": "tavolarotonda_phases_phase_critique",
+      "target": "phases_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "phases.py",
+      "source_location": "L337",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_confer_phase",
+      "target": "phases_py_str"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "phases.py",
+      "source_location": "L325",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_extract_section",
+      "target": "phases_py_str"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "phases.py",
+      "source_location": "L333",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_extract_list_section",
+      "target": "phases_py_str"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "phases.py",
+      "source_location": "L401",
+      "weight": 1.0,
+      "source": "tavolarotonda_phases_resolve_agent_model",
+      "target": "phases_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "phases.py",
+      "source_location": "L350",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_run_full_council",
+      "target": "phases_py_str"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "phases.py",
+      "source_location": "L16",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "phases_py_str",
+      "target": "tavolarotonda_agents_agent"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "phases.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "phases_py_str",
+      "target": "tavolarotonda_director_director"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "phases.py",
+      "source_location": "L19",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "phases_py_str",
+      "target": "tavolarotonda_memory_palace_memorypalace"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L219",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_phase_critique",
+      "target": "tavolarotonda_phases_resolve_agent_model"
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -15331,10 +15776,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
-      "source_location": "L188",
+      "source_location": "L192",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_rationale_188",
+      "source": "tavolarotonda_phases_rationale_192",
       "target": "tavolarotonda_phases_phase_critique"
     },
     {
@@ -15368,6 +15813,27 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_phases_phase_critique",
       "target": "tavolarotonda_phases_py_llmprovider"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_phase_critique",
+      "target": "tavolarotonda_phases_py_str"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L188",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_rationale_188",
+      "target": "tavolarotonda_phases_phase_critique"
     },
     {
       "relation": "rationale_for",
@@ -15459,10 +15925,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
-      "source_location": "L240",
+      "source_location": "L246",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_rationale_240",
+      "source": "tavolarotonda_phases_rationale_246",
       "target": "tavolarotonda_phases_phase_synthesis"
     },
     {
@@ -15496,6 +15962,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_phases_phase_synthesis",
       "target": "tavolarotonda_phases_py_llmprovider"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L240",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_rationale_240",
+      "target": "tavolarotonda_phases_phase_synthesis"
     },
     {
       "relation": "rationale_for",
@@ -15565,10 +16041,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
-      "source_location": "L287",
+      "source_location": "L293",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_rationale_287",
+      "source": "tavolarotonda_phases_rationale_293",
       "target": "tavolarotonda_phases_phase_verdict"
     },
     {
@@ -15613,6 +16089,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_phases_phase_verdict",
       "target": "tavolarotonda_phases_py_llmprovider"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L287",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_rationale_287",
+      "target": "tavolarotonda_phases_phase_verdict"
     },
     {
       "relation": "rationale_for",
@@ -15671,17 +16157,6 @@
       "relation": "references",
       "context": "generic_arg",
       "confidence": "EXTRACTED",
-      "source_file": "phases.py",
-      "source_location": "L337",
-      "weight": 1.0,
-      "source": "tavolarotonda_phases_confer_phase",
-      "target": "phases_py_str",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
       "source_location": "L337",
       "weight": 1.0,
@@ -15704,10 +16179,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
-      "source_location": "L341",
+      "source_location": "L347",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_rationale_341",
+      "source": "tavolarotonda_phases_rationale_347",
       "target": "tavolarotonda_phases_confer_phase"
     },
     {
@@ -15754,67 +16229,14 @@
       "target": "tavolarotonda_phases_py_str"
     },
     {
-      "relation": "references",
-      "context": "return_type",
+      "relation": "rationale_for",
       "confidence": "EXTRACTED",
-      "source_file": "phases.py",
-      "source_location": "L325",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L341",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_extract_section",
-      "target": "phases_py_str"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "phases.py",
-      "source_location": "L333",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_extract_list_section",
-      "target": "phases_py_str"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "phases.py",
-      "source_location": "L350",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_run_full_council",
-      "target": "phases_py_str"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "phases.py",
-      "source_location": "L16",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "phases_py_str",
-      "target": "tavolarotonda_agents_agent"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "phases.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "phases_py_str",
-      "target": "tavolarotonda_director_director"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "phases.py",
-      "source_location": "L19",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "phases_py_str",
-      "target": "tavolarotonda_memory_palace_memorypalace"
+      "source": "tavolarotonda_phases_rationale_341",
+      "target": "tavolarotonda_phases_confer_phase"
     },
     {
       "relation": "uses",
@@ -15822,9 +16244,9 @@
       "source_file": "phases.py",
       "source_location": "L18",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "any",
-      "target": "tavolarotonda_agents_agent",
-      "confidence_score": 0.5
+      "target": "tavolarotonda_agents_agent"
     },
     {
       "relation": "uses",
@@ -15832,9 +16254,9 @@
       "source_file": "phases.py",
       "source_location": "L19",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "any",
-      "target": "tavolarotonda_director_director",
-      "confidence_score": 0.5
+      "target": "tavolarotonda_director_director"
     },
     {
       "relation": "uses",
@@ -15861,10 +16283,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
-      "source_location": "L372",
+      "source_location": "L378",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_rationale_372",
+      "source": "tavolarotonda_phases_rationale_378",
       "target": "tavolarotonda_phases_extract_section"
     },
     {
@@ -15887,6 +16309,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_phases_extract_section",
       "target": "tavolarotonda_phases_py_str"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L372",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_rationale_372",
+      "target": "tavolarotonda_phases_extract_section"
     },
     {
       "relation": "rationale_for",
@@ -15923,10 +16355,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
-      "source_location": "L380",
+      "source_location": "L386",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_rationale_380",
+      "source": "tavolarotonda_phases_rationale_386",
       "target": "tavolarotonda_phases_extract_list_section"
     },
     {
@@ -15949,6 +16381,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_phases_extract_list_section",
       "target": "tavolarotonda_phases_py_str"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L380",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_rationale_380",
+      "target": "tavolarotonda_phases_extract_list_section"
     },
     {
       "relation": "rationale_for",
@@ -15993,6 +16435,37 @@
       "target": "mnt_backup_progetti_tavolarotonda_tavolarotonda_phases_py_str"
     },
     {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L402",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_rationale_402",
+      "target": "tavolarotonda_phases_resolve_agent_model"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L401",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_py",
+      "target": "tavolarotonda_phases_resolve_agent_model"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L401",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_resolve_agent_model",
+      "target": "tavolarotonda_phases_py_str"
+    },
+    {
       "relation": "references",
       "context": "parameter_type",
       "confidence": "EXTRACTED",
@@ -16007,10 +16480,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
-      "source_location": "L410",
+      "source_location": "L436",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_rationale_410",
+      "source": "tavolarotonda_phases_rationale_436",
       "target": "tavolarotonda_phases_run_full_council"
     },
     {
@@ -16031,9 +16504,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_phases_run_full_council",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_phases_run_full_council"
     },
     {
       "relation": "calls",
@@ -16094,33 +16567,11 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
-      "target": "tavolarotonda_phases_run_full_council"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/__main__.py",
       "source_location": "L34",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_main_py",
-      "target": "tavolarotonda_phases_run_full_council"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/mcp_server.py",
-      "source_location": "L129",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_mcp_server_py",
       "target": "tavolarotonda_phases_run_full_council"
     },
     {
@@ -16187,6 +16638,38 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_phases_run_full_council",
       "target": "tavolarotonda_phases_py_bool"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L410",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_rationale_410",
+      "target": "tavolarotonda_phases_run_full_council"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_init_py",
+      "target": "tavolarotonda_phases_run_full_council"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/mcp_server.py",
+      "source_location": "L129",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_mcp_server_py",
+      "target": "tavolarotonda_phases_run_full_council"
     },
     {
       "relation": "rationale_for",
@@ -16425,9 +16908,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "memory_palace_py",
-      "confidence_score": 1.0
+      "target": "memory_palace_py"
     },
     {
       "relation": "method",
@@ -16570,9 +17053,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_memory_palace_memorypalace",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_memory_palace_memorypalace"
     },
     {
       "relation": "calls",
@@ -16715,19 +17198,8 @@
       "source_file": "mcp_server.py",
       "source_location": "L10",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "mcp_server_py_str",
-      "target": "tavolarotonda_memory_palace_memorypalace",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_memory_palace_memorypalace"
     },
     {
@@ -16779,37 +17251,6 @@
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "tavolarotonda_main_py_int",
-      "target": "tavolarotonda_memory_palace_memorypalace"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/mcp_server.py",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_mcp_server_py",
-      "target": "tavolarotonda_memory_palace_memorypalace"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "tavolarotonda/mcp_server.py",
-      "source_location": "L10",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "tavolarotonda_mcp_server_py_str",
-      "target": "tavolarotonda_memory_palace_memorypalace"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/memory_palace.py",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_memory_palace_py",
       "target": "tavolarotonda_memory_palace_memorypalace"
     },
     {
@@ -16871,6 +17312,48 @@
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "tavolarotonda_phases_py_bool",
+      "target": "tavolarotonda_memory_palace_memorypalace"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_init_py",
+      "target": "tavolarotonda_memory_palace_memorypalace"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/mcp_server.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_mcp_server_py",
+      "target": "tavolarotonda_memory_palace_memorypalace"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tavolarotonda/mcp_server.py",
+      "source_location": "L10",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "tavolarotonda_mcp_server_py_str",
+      "target": "tavolarotonda_memory_palace_memorypalace"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/memory_palace.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_memory_palace_py",
       "target": "tavolarotonda_memory_palace_memorypalace"
     },
     {
@@ -17558,9 +18041,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_memory_palace_transcript_markdown",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_memory_palace_transcript_markdown"
     },
     {
       "relation": "calls",
@@ -17588,22 +18071,22 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L25",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L33",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
+      "source": "tavolarotonda_main_py",
       "target": "tavolarotonda_memory_palace_transcript_markdown"
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L33",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L25",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_main_py",
+      "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_memory_palace_transcript_markdown"
     },
     {
@@ -17797,17 +18280,6 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L24",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
-      "target": "tavolarotonda_agents_agent"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/phases.py",
       "source_location": "L16",
       "weight": 1.0,
@@ -17863,6 +18335,17 @@
       "weight": 0.8,
       "confidence_score": 0.5,
       "source": "tavolarotonda_phases_py_bool",
+      "target": "tavolarotonda_agents_agent"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_agents_agent"
     },
     {
@@ -17924,9 +18407,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_agents_agent_by_name",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_agents_agent_by_name"
     },
     {
       "relation": "calls",
@@ -17935,9 +18418,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_mcp_server_handle_tools_call",
-      "target": "tavolarotonda_agents_agent_by_name",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_agents_agent_by_name"
     },
     {
       "relation": "contains",
@@ -18053,9 +18536,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L128",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_agents_default_council",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_agents_default_council"
     },
     {
       "relation": "calls",
@@ -18075,19 +18558,8 @@
       "source_file": "mcp_server.py",
       "source_location": "L136",
       "weight": 1.0,
-      "source": "tavolarotonda_mcp_server_handle_tools_call",
-      "target": "tavolarotonda_agents_default_council",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L24",
-      "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
+      "source": "tavolarotonda_mcp_server_handle_tools_call",
       "target": "tavolarotonda_agents_default_council"
     },
     {
@@ -18099,6 +18571,17 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_main_py",
+      "target": "tavolarotonda_agents_default_council"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_agents_default_council"
     },
     {
@@ -18688,10 +19171,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L108",
+      "source_location": "L111",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_main_rationale_108",
+      "source": "tavolarotonda_main_rationale_111",
       "target": "tavolarotonda_main_emit_event"
     },
     {
@@ -18702,6 +19185,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tavolarotonda_main_py",
+      "target": "tavolarotonda_main_emit_event"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_main_rationale_108",
       "target": "tavolarotonda_main_emit_event"
     },
     {
@@ -18760,10 +19253,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L120",
+      "source_location": "L123",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_main_rationale_120",
+      "source": "tavolarotonda_main_rationale_123",
       "target": "tavolarotonda_main_run_topic"
     },
     {
@@ -18797,6 +19290,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_main_run_topic",
       "target": "tavolarotonda_main_py_memorypalace"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_main_rationale_120",
+      "target": "tavolarotonda_main_run_topic"
     },
     {
       "relation": "rationale_for",
@@ -18887,10 +19390,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L147",
+      "source_location": "L151",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_main_rationale_147",
+      "source": "tavolarotonda_main_rationale_151",
       "target": "tavolarotonda_main_run_audit"
     },
     {
@@ -18924,6 +19427,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_main_run_audit",
       "target": "tavolarotonda_main_py_memorypalace"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_main_rationale_147",
+      "target": "tavolarotonda_main_run_audit"
     },
     {
       "relation": "rationale_for",
@@ -18992,10 +19505,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L190",
+      "source_location": "L195",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "tavolarotonda_main_rationale_190",
+      "source": "tavolarotonda_main_rationale_195",
       "target": "tavolarotonda_main_run_qa"
     },
     {
@@ -19029,6 +19542,16 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_main_run_qa",
       "target": "tavolarotonda_main_py_memorypalace"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L190",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_main_rationale_190",
+      "target": "tavolarotonda_main_run_qa"
     },
     {
       "relation": "rationale_for",
@@ -19183,9 +19706,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_mcprequest",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_mcprequest"
     },
     {
       "relation": "contains",
@@ -19193,9 +19716,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_mcpresponse",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_mcpresponse"
     },
     {
       "relation": "contains",
@@ -19203,9 +19726,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_session",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_session"
     },
     {
       "relation": "contains",
@@ -19213,9 +19736,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_get_or_create_session",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_get_or_create_session"
     },
     {
       "relation": "contains",
@@ -19223,9 +19746,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_cleanup_loop",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_cleanup_loop"
     },
     {
       "relation": "contains",
@@ -19233,9 +19756,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_start_cleanup",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_start_cleanup"
     },
     {
       "relation": "contains",
@@ -19243,9 +19766,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_handle_initialize",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_handle_initialize"
     },
     {
       "relation": "contains",
@@ -19253,9 +19776,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_handle_tools_list",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_handle_tools_list"
     },
     {
       "relation": "contains",
@@ -19263,9 +19786,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_handle_tools_call",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_handle_tools_call"
     },
     {
       "relation": "contains",
@@ -19273,9 +19796,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L170",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "mcp_server_py",
-      "target": "tavolarotonda_mcp_server_handle_mcp_request",
-      "confidence_score": 1.0
+      "target": "tavolarotonda_mcp_server_handle_mcp_request"
     },
     {
       "relation": "rationale_for",
@@ -19283,9 +19806,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_mcp_server_rationale_1",
-      "target": "mcp_server_py",
-      "confidence_score": 1.0
+      "target": "mcp_server_py"
     },
     {
       "relation": "calls",
@@ -19357,9 +19880,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_mcp_server_get_or_create_session",
-      "target": "mcp_server_py_str",
-      "confidence_score": 1.0
+      "target": "mcp_server_py_str"
     },
     {
       "relation": "calls",
@@ -19400,9 +19923,9 @@
       "source_file": "mcp_server.py",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tavolarotonda_mcp_server_handle_tools_call",
-      "target": "mcp_server_py_str",
-      "confidence_score": 1.0
+      "target": "mcp_server_py_str"
     },
     {
       "relation": "calls",
@@ -20231,6 +20754,17 @@
       "target": "tavolarotonda_evidence_adversarial_research"
     },
     {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_py",
+      "target": "tavolarotonda_evidence_adversarial_research"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/evidence.py",
@@ -20261,17 +20795,6 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_evidence_adversarial_research",
       "target": "tavolarotonda_evidence_py_int"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_py",
-      "target": "tavolarotonda_evidence_adversarial_research"
     },
     {
       "relation": "rationale_for",
@@ -21130,6 +21653,182 @@
       "target": "mnt_backup_progetti_tavolarotonda_tavolarotonda_director_py"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_main_py",
+      "target": "tavolarotonda_phases_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_main_py",
+      "target": "tavolarotonda_providers_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_main_py",
+      "target": "tavolarotonda_memory_palace_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_main_py",
+      "target": "tavolarotonda_agents_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__main__.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_main_py",
+      "target": "tavolarotonda_reports_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_py",
+      "target": "tavolarotonda_providers_py"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_init_py",
+      "target": "tavolarotonda_phases_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_py",
+      "target": "tavolarotonda_evidence_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_py",
+      "target": "tavolarotonda_memory_palace_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_py",
+      "target": "tavolarotonda_agents_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_py",
+      "target": "tavolarotonda_director_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_py",
+      "target": "tavolarotonda_secretary_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/phases.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_phases_py",
+      "target": "tavolarotonda_prompts_py"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/__init__.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_init_py",
+      "target": "tavolarotonda_providers_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/director.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_director_py",
+      "target": "tavolarotonda_providers_py"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tavolarotonda/secretary.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "tavolarotonda_secretary_py",
+      "target": "tavolarotonda_providers_py"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "_INDEX.md",
@@ -21486,28 +22185,6 @@
       "context": "export",
       "confidence": "EXTRACTED",
       "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
-      "target": "tavolarotonda_phases_py"
-    },
-    {
-      "relation": "re_exports",
-      "context": "export",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_init_py",
-      "target": "tavolarotonda_providers_py"
-    },
-    {
-      "relation": "re_exports",
-      "context": "export",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__init__.py",
       "source_location": "L24",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -21524,72 +22201,6 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_init_py",
       "target": "tavolarotonda_reports_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_main_py",
-      "target": "tavolarotonda_memory_palace_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_main_py",
-      "target": "tavolarotonda_phases_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L35",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_main_py",
-      "target": "tavolarotonda_providers_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L32",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_main_py",
-      "target": "tavolarotonda_agents_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/__main__.py",
-      "source_location": "L36",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_main_py",
-      "target": "tavolarotonda_reports_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_py",
-      "target": "tavolarotonda_evidence_py"
     },
     {
       "relation": "imports_from",
@@ -21612,17 +22223,6 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_serve_py",
       "target": "tavolarotonda_mcp_server_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L19",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_py",
-      "target": "tavolarotonda_memory_palace_py"
     },
     {
       "relation": "imports_from",
@@ -21656,83 +22256,6 @@
       "confidence_score": 1.0,
       "source": "tavolarotonda_serve_py",
       "target": "tavolarotonda_obsidian_vault_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_py",
-      "target": "tavolarotonda_providers_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_py",
-      "target": "tavolarotonda_agents_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_py",
-      "target": "tavolarotonda_director_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L29",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_py",
-      "target": "tavolarotonda_secretary_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/phases.py",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_phases_py",
-      "target": "tavolarotonda_prompts_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/director.py",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_director_py",
-      "target": "tavolarotonda_providers_py"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "tavolarotonda/secretary.py",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "tavolarotonda_secretary_py",
-      "target": "tavolarotonda_providers_py"
     },
     {
       "relation": "contains",
@@ -27361,5 +27884,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "15e62e93048f45ec36cca31acf518d480eec92a9"
+  "built_at_commit": "4b3f7c239ad2e1295f79f890aae87c9de2921a71"
 }

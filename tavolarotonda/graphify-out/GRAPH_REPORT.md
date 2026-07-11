@@ -1,16 +1,16 @@
 # Graph Report - tavolarotonda  (2026-07-11)
 
 ## Corpus Check
-- 15 files · ~10,994 words
+- 15 files · ~11,135 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 890 nodes · 1852 edges · 33 communities (31 shown, 2 thin omitted)
+- 913 nodes · 1883 edges · 42 communities (39 shown, 3 thin omitted)
 - Extraction: 90% EXTRACTED · 10% INFERRED · 0% AMBIGUOUS · INFERRED: 184 edges (avg confidence: 0.51)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `15e62e93`
+- Built from commit: `4b3f7c23`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -41,25 +41,34 @@
 - [[_COMMUNITY_Community 23|Community 23]]
 - [[_COMMUNITY_Community 24|Community 24]]
 - [[_COMMUNITY_Community 25|Community 25]]
+- [[_COMMUNITY_Community 26|Community 26]]
+- [[_COMMUNITY_Community 27|Community 27]]
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
 - [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
+- [[_COMMUNITY_Community 34|Community 34]]
+- [[_COMMUNITY_Community 35|Community 35]]
+- [[_COMMUNITY_Community 36|Community 36]]
 - [[_COMMUNITY_Community 37|Community 37]]
+- [[_COMMUNITY_Community 38|Community 38]]
+- [[_COMMUNITY_Community 39|Community 39]]
+- [[_COMMUNITY_Community 40|Community 40]]
+- [[_COMMUNITY_Community 41|Community 41]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `MemoryPalace` - 81 edges
-2. `LLMProvider` - 71 edges
-3. `run_full_council()` - 47 edges
-4. `AnthropicCompatProvider` - 37 edges
-5. `Secretary` - 28 edges
-6. `PhaseEvent` - 28 edges
-7. `MockProvider` - 27 edges
+2. `LLMProvider` - 72 edges
+3. `run_full_council()` - 48 edges
+4. `AnthropicCompatProvider` - 38 edges
+5. `MockProvider` - 28 edges
+6. `Secretary` - 28 edges
+7. `PhaseEvent` - 28 edges
 8. `Director` - 26 edges
-9. `Agent` - 25 edges
-10. `phase_brainstorm()` - 23 edges
+9. `phase_brainstorm()` - 25 edges
+10. `Agent` - 25 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `int` --uses--> `MemoryPalace`  [INFERRED]
@@ -73,15 +82,15 @@
 - `bool` --uses--> `ProviderResult`  [INFERRED]
   gui/app.py → providers.py
 
-## Communities (33 total, 2 thin omitted)
+## Communities (42 total, 3 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.07
-Nodes (72): Agent, Any, Director, bool, int, LLMProvider, MemoryPalace, str (+64 more)
+Cohesion: 0.16
+Nodes (35): Agent, Any, Director, bool, int, bool, int, LLMProvider (+27 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.08
-Nodes (41): ProviderKind, ProviderResult, bool, float, int, str, CircuitBreaker, ProviderResult (+33 more)
+Cohesion: 0.07
+Nodes (47): float, ProviderKind, ProviderResult, bool, float, int, str, CircuitBreaker (+39 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.21
@@ -92,8 +101,8 @@ Cohesion: 0.08
 Nodes (44): str, int, str, Starlette, handle_mcp_request(), Processa una richiesta MCP JSON-RPC 2.0., Path, str (+36 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.07
-Nodes (61): int, LLMProvider, str, _build_provider(), MultiProvider, Provider che instrada ogni chiamata al sub-provider giusto in base all'agent_key, Istanzia il provider giusto per la scelta utente, con fallback automatico., LLMProvider (+53 more)
+Cohesion: 0.10
+Nodes (43): int, LLMProvider, MemoryPalace, str, int, LLMProvider, MemoryPalace, str (+35 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.17
@@ -108,8 +117,8 @@ Cohesion: 0.16
 Nodes (20): appendEvent(), clearStream(), connectStream(), escapeHtml(), formatResearch(), formatText(), handleEvent(), loadCouncilPresets() (+12 more)
 
 ### Community 8 - "Community 8"
-Cohesion: 0.06
-Nodes (67): float, str, api_agents(), api_council_presets(), api_models(), api_palace(), api_report(), api_run() (+59 more)
+Cohesion: 0.05
+Nodes (72): float, str, api_agents(), api_council_presets(), api_models(), api_palace(), api_report(), api_run() (+64 more)
 
 ### Community 9 - "Community 9"
 Cohesion: 0.10
@@ -172,8 +181,16 @@ Cohesion: 0.11
 Nodes (13): calculate_discount(), get_db_connection(), get_user(), parse_config(), float, str, Esempio di codice da audire — contiene pattern realistici con criticità intenzio, Get user by username — INSECURE! (+5 more)
 
 ### Community 24 - "Community 24"
-Cohesion: 0.06
-Nodes (71): str, str, str, int, MemoryPalace, str, int, MemoryPalace (+63 more)
+Cohesion: 0.13
+Nodes (29): int, MemoryPalace, str, int, MemoryPalace, str, tavolarotonda — Council multi-agente per decisioni reali e concrete.  Package: 1, from_dict() (+21 more)
+
+### Community 26 - "Community 26"
+Cohesion: 0.15
+Nodes (18): int, LLMProvider, str, int, LLMProvider, str, _extract_json(), int (+10 more)
+
+### Community 27 - "Community 27"
+Cohesion: 0.09
+Nodes (24): int, str, int, str, int, str, Rimuove marker di prompt injection, tronca a max_length.      NON è una garanzia, sanitize_directive() (+16 more)
 
 ### Community 28 - "Community 28"
 Cohesion: 0.18
@@ -195,29 +212,53 @@ Nodes (6): Chiusure, Commit, TR-042 — Top 5 modelli AQ in GUI, TR-046/042/047 
 Cohesion: 0.19
 Nodes (11): LLMProvider, MemoryPalace, str, LLMProvider, MemoryPalace, str, LLMProvider, MemoryPalace (+3 more)
 
+### Community 34 - "Community 34"
+Cohesion: 0.20
+Nodes (12): LLMProvider, MemoryPalace, phase_restate(), phase_verdict(), PhaseEvent, Ogni agente vota 0-10 sulla proposta finale (feasibility, impact, risk_safety)., Ogni agente vota 0-10 sulla proposta finale (feasibility, impact, risk_safety)., Ogni agente vota 0-10 sulla proposta finale (feasibility, impact, risk_safety). (+4 more)
+
+### Community 35 - "Community 35"
+Cohesion: 0.30
+Nodes (4): Director / Regista — per ogni round fissa il focus e assegna chi confuta chi.  P, Pipeline principale del council: Research → Restate → Brainstorm → Critique → Sy, Template di prompt centralizzati — anti-duplicazione (regola modularità KING)., Secretary / Segretario — consolida la strategia live dopo ogni turn.  Output JSO
+
+### Community 36 - "Community 36"
+Cohesion: 0.23
+Nodes (17): str, _cleanup_loop(), _get_or_create_session(), handle_initialize(), handle_tools_call(), handle_tools_list(), MCPRequest, MCPResponse (+9 more)
+
 ### Community 37 - "Community 37"
 Cohesion: 0.20
 Nodes (9): Commit, Config progetto (`pyproject.toml`), Cosa fatto, GitHub Actions CI (`.github/workflows/ci.yml`), Goal, Next, Ruff auto-fix (14 file), Test result (+1 more)
 
+### Community 38 - "Community 38"
+Cohesion: 0.25
+Nodes (12): str, str, agent_by_name(), default_council(), polarities_for(), str, 18 personas fisse con polarity pairs (Council of High Intelligence pattern).  Og, Cerca un agente per key (case-insensitive). Ritorna None se non trovato. (+4 more)
+
+### Community 39 - "Community 39"
+Cohesion: 0.33
+Nodes (7): phase_critique(), str, Ogni agente critica SPECIFICAMENTE un altro agente (cross-examination).      Mir, Ogni agente critica SPECIFICAMENTE un altro agente (cross-examination).      Mir, Ogni agente critica SPECIFICAMENTE un altro agente (cross-examination).      Mir, Resolve model + optional tier for an agent.      When agent.default_model == "au, _resolve_agent_model()
+
+### Community 40 - "Community 40"
+Cohesion: 0.18
+Nodes (13): str, _extract_list_section(), _extract_section(), phase_synthesis(), Sintetizzatore finale: decisione + minority report + open questions + next steps, Sintetizzatore finale: decisione + minority report + open questions + next steps, Sintetizzatore finale: decisione + minority report + open questions + next steps, Estrae una sezione markdown fino al prossimo header ## o fine testo. (+5 more)
+
 ## Knowledge Gaps
 - **289 isolated node(s):** `str`, `int`, `bool`, `int`, `float` (+284 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `LLMProvider` connect `Community 4` to `Community 32`, `Community 1`, `Community 0`, `Community 8`, `Community 24`?**
-  _High betweenness centrality (0.062) - this node is a cross-community bridge._
-- **Why does `MemoryPalace` connect `Community 24` to `Community 0`, `Community 32`, `Community 2`, `Community 4`, `Community 8`?**
+- **Why does `LLMProvider` connect `Community 26` to `Community 0`, `Community 1`, `Community 32`, `Community 35`, `Community 4`, `Community 36`, `Community 34`, `Community 39`, `Community 8`, `Community 24`, `Community 27`?**
+  _High betweenness centrality (0.069) - this node is a cross-community bridge._
+- **Why does `MemoryPalace` connect `Community 24` to `Community 0`, `Community 32`, `Community 2`, `Community 35`, `Community 4`, `Community 36`, `Community 34`, `Community 39`, `Community 8`, `Community 26`, `Community 27`?**
   _High betweenness centrality (0.058) - this node is a cross-community bridge._
-- **Why does `run_full_council()` connect `Community 0` to `Community 24`, `Community 8`, `Community 4`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **Why does `run_full_council()` connect `Community 0` to `Community 34`, `Community 35`, `Community 4`, `Community 36`, `Community 39`, `Community 40`, `Community 8`, `Community 24`, `Community 26`, `Community 27`?**
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
 - **Are the 42 inferred relationships involving `MemoryPalace` (e.g. with `str` and `int`) actually correct?**
   _`MemoryPalace` has 42 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 39 inferred relationships involving `LLMProvider` (e.g. with `Secretary` and `LLMProvider`) actually correct?**
   _`LLMProvider` has 39 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 21 inferred relationships involving `AnthropicCompatProvider` (e.g. with `str` and `Namespace`) actually correct?**
   _`AnthropicCompatProvider` has 21 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 17 inferred relationships involving `Secretary` (e.g. with `MemoryPalace` and `LLMProvider`) actually correct?**
-  _`Secretary` has 17 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 11 inferred relationships involving `MockProvider` (e.g. with `str` and `Namespace`) actually correct?**
+  _`MockProvider` has 11 INFERRED edges - model-reasoned connections that need verification._
