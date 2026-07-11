@@ -8,7 +8,7 @@
 
 An open-source council of specialized AI agents that debates your questions through structured phases before delivering actionable verdicts. Each agent represents a distinct persona with a specific angle (advocate, skeptic, analyst, creative) and polarity pairs to prevent groupthink. The system runs locally via Ollama by default, with optional cloud models for increased reasoning power.
 
-Inspired by proven patterns from [0xNyk/council-of-high-intelligence](https://github.com/0xNyk/council-of-high-intelligence) (982 stars), [Detrol/quorum-cli](https://github.com/Detrol/quorum-cli) (106 stars), and specialized models from [HuggingFace](https://huggingface.co): `RecursiveMAS/Deliberation-Toolcaller-Qwen3.5-4B`, `RecursiveMAS/Deliberation-Reflector-Qwen3.5-4B`, `flowaicom/Flow-Judge-v0.1`. Based on Manus `services/agent-core/app/roundtable.py` (analyzed and improved).
+Inspired by proven open-source patterns: [0xNyk/council-of-high-intelligence](https://github.com/0xNyk/council-of-high-intelligence), [Detrol/quorum-cli](https://github.com/Detrol/quorum-cli), [geek-alt/LLM-Council](https://github.com/geek-alt/LLM-Council). Uses specialized models from [HuggingFace](https://huggingface.co): `RecursiveMAS/Deliberation-Toolcaller-Qwen3.5-4B`, `RecursiveMAS/Deliberation-Reflector-Qwen3.5-4B`, `flowaicom/Flow-Judge-v0.1`.
 
 ---
 
@@ -169,23 +169,6 @@ python tests/test_smoke.py
 | 3 | OCR/screenshots not supported | Roadmap v0.2 |
 | 4 | No MCP server (vs quorum-cli) | Roadmap v0.2 |
 | 5 | Voting scores are mock in `--mock` mode | Real with active LLM |
-
----
-
-## Bugs Fixed from Original Manus Code
-
-| # | Original Manus Bug | Fix in tavolarotonda |
-|---|---|---|
-| 1 | Prompt injection via user directives | `sanitize_directive` removes/marks markers |
-| 2 | No explicit timeout for `_say` | Timeout 120s + retry 3x |
-| 3 | `_injections` in-memory not persistent | Persistent Memory Palace JSON |
-| 4 | Privacy leak to Groq/Cerebras | PII redaction + explicit tier |
-| 5 | No rate limit per round | `MAX_ROUNDS` env-config + early-stop on converged |
-| 6 | No remote retry/backoff | 3 attempts with exponential backoff |
-| 7 | `_project_tree` with `os.walk` depth 2 | Replaceable with `git ls-files` (TODO) |
-| 8 | `_extract_json_obj` naive depth | Improved regex + try/except everywhere |
-| 9 | `MAX_ROUNDS = 20` hardcoded | Env var + configurable |
-| 10 | Temperature 0.85 hardcoded | Per-agent configurable |
 
 ---
 

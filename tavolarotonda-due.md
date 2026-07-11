@@ -21,7 +21,7 @@ Software Python ispirato a 5 reference consolidati:
 - [Detrol/quorum-cli](https://github.com/Detrol/quorum-cli) (⭐106) — CLI dibattiti strutturati + MCP
 - [geek-alt/LLM-Council](https://github.com/geek-alt/LLM-Council) — Memory Palace + Sequential MoA + adversarial evidence + minority report
 - [prefrontalsys/panel-of-experts-awscao](https://github.com/prefrontalsys/panel-of-experts-awscao) — Heterogeneous models + profili moderator/pannelist
-- Manus `services/agent-core/app/roundtable.py` (analizzato e migliorato) — Director + Secretary + RE/WHY/DECISION
+- Original implementation: Director + Secretary + RE/WHY/DECISION notation
 
 ## Obiettivo
 
@@ -34,7 +34,7 @@ Decisioni multi-prospettiva con modelli LLM eterogenei, persistenti, anti-groupt
 - **GIT HEAD**: `da1f90b2dde813b00068fb8acad9de0e66f51609` (preservato, branch main)
 - Moduli: `agents.py` (18 personas) · `phases.py` (pipeline 6 fasi) · `director.py` · `secretary.py` · `providers.py` (Ollama/OpenAI/Claude/Mock) · `evidence.py` · `memory_palace.py` · `prompts.py` · `reports.py` (HTML audit+Q&A)
 - Privacy tier: `local_only` (default Ollama) / `cloud_ok` (Claude+OpenAI) / `free_api_ok` (Groq+Cerebras con PII redaction)
-- Bug Manus fixati: 10 (prompt injection, timeout, persistence, privacy leak, rate limit, retry/backoff, project tree depth, json extract, MAX_ROUNDS hardcoded, temperature hardcoded)
+- Hardening: 10 improvements (prompt injection, timeout, persistence, privacy, rate limit, retry/backoff, project tree depth, json extract, MAX_ROUNDS configurable, temperature configurable)
 
 ## Architettura / componenti
 
@@ -78,7 +78,7 @@ python gui/app.py  # http://localhost:5000
 - [2026-06-21] Architettura a 9 moduli indipendenti (modularità KING — zero duplicazione)
 - [2026-06-21] Privacy tier esplicito + PII redaction automatica per free tier
 - [2026-06-21] Prompt injection mitigation via `sanitize_directive()` + topic isolation
-- [2026-06-21] Bug Manus analizzati: 10 problemi critici identificati e fixati
+- [2026-06-21] 10 hardening improvements identified and implemented
 - [2026-06-21] **Repo GitHub privato** → `github.com/eroslifestyle/tavolarotonda` (commit `c882083`, branch `main`)
 - [2026-06-21] **LICENSE MIT** aggiunto (Copyright 2026 Eros De Grande)
 - [2026-06-21] **Wiring operativo skill Pi** → adapter `bin/war-room-tavolarotonda` + symlink `/usr/local/bin/` (test E2E con 12 personas OK)

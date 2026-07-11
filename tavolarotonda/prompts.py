@@ -1,13 +1,13 @@
-"""Template di prompt centralizzati — anti-duplicazione (regola modularità KING).
+"""Centralized prompt templates — anti-duplication (KING modularity rule).
 
-Tutti i prompt usati dal council vivono qui. Modificare un prompt = un solo posto.
-I prompt rispettano i pattern consolidati:
-- Notazione RE/WHY/DECISION (Manus)
+All council prompts live here. Change once = applied everywhere.
+Patterns:
+- RE/WHY/DECISION notation
 - Problem Restate Gate (0xNyk)
-- Verdict strutturato con Open Questions in cima (0xNyk)
-- Adversarial evidence context (geek-alt)
-- Anti-monologo: forced cross-references
-- Notazione ultra-sintetica: max righe, no prosa
+- Structured Verdict with Open Questions at top (0xNyk)
+- Adversarial evidence context (geek-alt/LLM-Council)
+- Anti-monologue: forced cross-references
+- Ultra-synthetic notation: max lines, no prose
 """
 
 from __future__ import annotations
@@ -21,7 +21,7 @@ import re
 PROBLEM_RESTATE_PROMPT = """Riformula il seguente problema nel TUO angolo (una frase, max 25 parole).
 NON rispondere, riformula SOLO. La tua riformulazione deve riflettere la tua polarità.
 
-Problema originale: {topic}
+Original problem: {topic}
 
 Riformulazione (dal tuo angolo):"""
 

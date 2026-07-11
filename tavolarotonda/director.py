@@ -1,6 +1,5 @@
-"""Director / Regista — per ogni round fissa il focus e assegna chi confuta chi.
+"""Director — sets focus and assigns cross-examination for each round.
 
-Pattern Manus roundtable._director_agenda + 0xNyk polarity pairs.
 Output JSON: {focus, assignments{agent: instruction}, converged}.
 """
 

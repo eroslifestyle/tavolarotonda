@@ -1,9 +1,8 @@
-"""Pipeline principale del council: Research → Restate → Brainstorm → Critique → Synthesis → Vote.
+"""Main council pipeline: Research → Restate → Brainstorm → Critique → Synthesis → Vote.
 
-Pattern geek-alt/LLM-Council (phases) + 0xNyk (Problem Restate Gate + Verdict strutturato)
-+ Manus (Director + Secretary + RE/WHY/DECISION) + geek-alt (Adversarial evidence + Minority report).
+Patterns: 0xNyk (Problem Restate Gate + Structured Verdict), geek-alt/LLM-Council (phases + Adversarial evidence + Minority report), 0xNyk quorum-cli (structured debates + MCP).
 
-Modulare: ogni phase è una funzione async che prende palace e ritorna evento.
+Modular: each phase is an async function that takes palace and returns an event.
 """
 
 from __future__ import annotations
