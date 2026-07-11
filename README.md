@@ -1,7 +1,6 @@
-# tavolarotonda 🥽 / AI Round Table
+# tavolarotonda
 
 **Multi-agent council for real, concrete decisions.** Zero theory, only practice.
-**Consiglio multi-agente per decisioni reali e concrete.** Zero teoria, solo pratica.
 
 ---
 
@@ -9,47 +8,39 @@
 
 An open-source council of specialized AI agents that debates your questions through structured phases before delivering actionable verdicts. Each agent represents a distinct persona with a specific angle (advocate, skeptic, analyst, creative) and polarity pairs to prevent groupthink. The system runs locally via Ollama by default, with optional cloud models for increased reasoning power.
 
-Inspired by proven patterns from [0xNyk/council-of-high-intelligence](https://github.com/0xNyk/council-of-high-intelligence) (⭐982), [Detrol/quorum-cli](https://github.com/Detrol/quorum-cli) (⭐106), and specialized models from [HuggingFace](https://huggingface.co): `RecursiveMAS/Deliberation-Toolcaller-Qwen3.5-4B`, `RecursiveMAS/Deliberation-Reflector-Qwen3.5-4B`, `flowaicom/Flow-Judge-v0.1`. Based on Manus `services/agent-core/app/roundtable.py` (analyzed and improved).
+Inspired by proven patterns from [0xNyk/council-of-high-intelligence](https://github.com/0xNyk/council-of-high-intelligence) (982 stars), [Detrol/quorum-cli](https://github.com/Detrol/quorum-cli) (106 stars), and specialized models from [HuggingFace](https://huggingface.co): `RecursiveMAS/Deliberation-Toolcaller-Qwen3.5-4B`, `RecursiveMAS/Deliberation-Reflector-Qwen3.5-4B`, `flowaicom/Flow-Judge-v0.1`. Based on Manus `services/agent-core/app/roundtable.py` (analyzed and improved).
 
 ---
 
-## Concept / Concetto
-
-Un council open-source di agenti AI specializzati che dibattono le tue domande attraverso fasi strutturate prima di fornire verdetti actionable. Ogni agente rappresenta una persona distinta con un angolo specifico (avvocato, scettico, analista, creativo) e coppie di polarità per prevenire il groupthink. Il sistema gira localmente via Ollama di default, con modelli cloud opzionali per maggiore potenza di ragionamento.
-
-Ispirato a pattern consolidati da [0xNyk/council-of-high-intelligence](https://github.com/0xNyk/council-of-high-intelligence) (⭐982), [Detrol/quorum-cli](https://github.com/Detrol/quorum-cli) (⭐106), e modelli specializzati da [HuggingFace](https://huggingface.co). Basato su Manus `services/agent-core/app/roundtable.py` (analizzato e migliorato).
-
----
-
-## Features / Funzionalità
+## Features
 
 | Pattern | Implemented |
 |---|---|
-| 18 personas with polarity pairs | ✅ `agents.py` |
-| Problem Restate Gate | ✅ `phase_restate` |
-| Adversarial evidence (sup vs counter) | ✅ `evidence.py` |
-| Sequential Mixture-of-Agents | ✅ (load/unload via Ollama) |
-| Persistent Memory Palace | ✅ `memory_palace.py` |
-| Director (focus + assignments) | ✅ `director.py` |
-| Secretary (live strategy) | ✅ `secretary.py` |
-| RE/WHY/DECISION notation | ✅ `prompts.py` |
-| Anti-groupthink (dissent quota) | ✅ via rotation pairs |
-| Always minority report | ✅ `phases.phase_synthesis` |
-| Structured verdict (Open Q + Next Steps) | ✅ |
-| Loop until convergence ≥ threshold | ✅ (early-stop on converged) |
-| Explicit privacy tier | ✅ `local_only` / `cloud_ok` / `free_api_ok` |
-| Automatic PII redaction | ✅ only on `free_api_ok` |
-| Prompt injection mitigation | ✅ `sanitize_directive` |
-| Explicit timeout per model | ✅ default 120s |
-| Retry with exponential backoff | ✅ 3 attempts |
-| Circuit breaker | ✅ `CircuitBreaker` |
-| HTML audit report output | ✅ `reports.render_audit_report` |
-| HTML Q&A template output | ✅ `reports.render_qa_template` |
-| KING modularity (zero duplication) | ✅ 9 independent modules |
+| 18 personas with polarity pairs | yes |
+| Problem Restate Gate | yes |
+| Adversarial evidence (support vs counter) | yes |
+| Sequential Mixture-of-Agents | yes |
+| Persistent Memory Palace | yes |
+| Director (focus + assignments) | yes |
+| Secretary (live strategy) | yes |
+| RE/WHY/DECISION notation | yes |
+| Anti-groupthink (dissent quota) | yes |
+| Always minority report | yes |
+| Structured verdict (Open Q + Next Steps) | yes |
+| Loop until convergence threshold | yes |
+| Explicit privacy tier | yes |
+| Automatic PII redaction | yes |
+| Prompt injection mitigation | yes |
+| Explicit timeout per model | yes |
+| Retry with exponential backoff | yes |
+| Circuit breaker | yes |
+| HTML audit report output | yes |
+| HTML Q&A template output | yes |
+| KING modularity (zero duplication) | yes |
 
 ---
 
-## Installation / Installazione
+## Installation
 
 ```bash
 git clone <repo> tavolarotonda
@@ -59,18 +50,12 @@ pip install -r requirements.txt   # only requests + urllib (stdlib)
 
 ---
 
-## Quick Usage / Uso rapido
+## Quick Usage
 
-### Demo (no real LLM, with MockProvider)
+### Demo with mock provider (no real LLM)
 
 ```bash
 python -m tavolarotonda --mock "Should I open-source my agent framework?"
-```
-
-### Demo (no LLM reale, con MockProvider)
-
-```bash
-python -m tavolarotonda --mock "Dovrei aprire-sorgere il mio agent framework?"
 ```
 
 ### With real LLM (local Ollama)
@@ -83,45 +68,21 @@ ollama serve
 python -m tavolarotonda "Should I migrate to Postgres?" --privacy local_only
 ```
 
-### Con LLM reale (Ollama locale)
-
-```bash
-# 1. Avvia Ollama
-ollama serve
-
-# 2. Lancia tavola rotonda
-python -m tavolarotonda "Dovrei migrare a Postgres?" --privacy local_only
-```
-
 ### Code audit
 
 ```bash
 python -m tavolarotonda --audit examples/audit_target.py --mock --output output/audit_report.html
-# Open output/audit_report.html in browser → audit with pros/cons/critiques/advice
-```
-
-### Audit di un file di codice
-
-```bash
-python -m tavolarotonda --audit examples/audit_target.py --mock --output output/audit_report.html
-# Apri output/audit_report.html nel browser → audit con pro/contro/criticità/consigli
+# Open output/audit_report.html in browser for audit with pros/cons/criticisms/advice
 ```
 
 ### Multi-question Q&A
 
 ```bash
 python -m tavolarotonda --qa "What are the risks?" "What alternatives?" --mock --output output/qa.html
-# Open output/qa.html → fillable template + comparative analysis per question
+# Open output/qa.html for fillable template + comparative analysis per question
 ```
 
-### Q&A multi-domanda
-
-```bash
-python -m tavolarotonda --qa "Quali sono i rischi?" "Quali alternative?" --mock --output output/qa.html
-# Apri output/qa.html → template compilabile + analisi comparativa per ogni domanda
-```
-
-### Privacy modes / Modalità privacy
+### Privacy modes
 
 ```bash
 # Only local Ollama models, no cloud, no free-API
@@ -131,13 +92,12 @@ python -m tavolarotonda --privacy local_only "topic..."
 python -m tavolarotonda --privacy cloud_ok "topic..."
 
 # + Groq/Cerebras via LiteLLM (env: OPENAI_BASE_URL, OPENAI_API_KEY)
-# ⚠️ DO NOT send sensitive data to Groq/Cerebras free tier
 python -m tavolarotonda --privacy free_api_ok "topic..."
 ```
 
 ---
 
-## Architecture / Architettura
+## Architecture
 
 ```
 tavolarotonda/
@@ -162,20 +122,20 @@ examples/
 
 ---
 
-## Pipeline (6 phases / 6 fasi)
+## Pipeline (6 phases)
 
-| Phase | EN | IT |
-|---|---|---|
-| 0 | **Research**: parallel supporting + counter evidence retrieval | Ricerca in parallelo di evidenze a supporto e contro |
-| 1 | **Problem Restate**: each agent reformulates from their angle → if they diverge, the question was wrong | Ogni agente riformula dal proprio angolo → se divergono, la domanda era sbagliata |
-| 2 | **Brainstorm**: Director assigns focus + assignments per round, Secretary consolidates | Director assegna focus + compiti per round, Secretary consolida |
-| 3 | **Critique**: cross-examination, each agent refutes another | Cross-examination, ogni agente confuta un altro |
-| 4 | **Synthesis**: decision + minority report + open questions + next steps | Decisione + minority report + domande aperte + prossimi passi |
-| 5 | **Verdict**: votes 0-10 on feasibility/impact/risk_safety | Voti 0-10 su fattibilità/impatto/sicurezza_rischi |
+| Phase | Description |
+|---|---|
+| 0 | **Research**: parallel supporting + counter evidence retrieval |
+| 1 | **Problem Restate**: each agent reformulates from their angle — if they diverge, the question was wrong |
+| 2 | **Brainstorm**: Director assigns focus + assignments per round, Secretary consolidates |
+| 3 | **Critique**: cross-examination, each agent refutes another |
+| 4 | **Synthesis**: decision + minority report + open questions + next steps |
+| 5 | **Verdict**: votes 0-10 on feasibility/impact/risk_safety |
 
 ---
 
-## Privacy & Security / Privacy & Sicurezza
+## Privacy & Security
 
 | Tier | What is sent | Notes |
 |---|---|---|
@@ -190,29 +150,29 @@ examples/
 
 ---
 
-## Testing / Test
+## Testing
 
 ```bash
 cd /tmp/tavolarotonda
 python tests/test_smoke.py
-# Output: ✅ All 14 tests passed
+# Output: All 14 tests passed
 ```
 
 ---
 
-## Limitations & Roadmap / Limitazioni & Roadmap
+## Limitations & Roadmap
 
 | # | Limitation | Workaround |
 |---|---|---|
 | 1 | Claude API requires Anthropic SDK (currently only raw HTTP) | Replace `_claude` with SDK when available |
 | 2 | Brave/SearXNG require user configuration | Automatic Mock fallback |
-| 3 | OCR/screenshots not supported (no Manus-style) | Roadmap v0.2 |
+| 3 | OCR/screenshots not supported | Roadmap v0.2 |
 | 4 | No MCP server (vs quorum-cli) | Roadmap v0.2 |
 | 5 | Voting scores are mock in `--mock` mode | Real with active LLM |
 
 ---
 
-## Bugs Fixed from Original Manus Code / Bug Risolti dal Codice Originale Manus
+## Bugs Fixed from Original Manus Code
 
 | # | Original Manus Bug | Fix in tavolarotonda |
 |---|---|---|
@@ -229,6 +189,6 @@ python tests/test_smoke.py
 
 ---
 
-## License / Licenza
+## License
 
 MIT (see LICENSE).
