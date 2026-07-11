@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from .i18n import t
 from .mcp_server import handle_mcp_request
 from .obsidian_vault import read_topic, save_session
 
@@ -73,7 +74,7 @@ async def obsidian_save(request):  # type: ignore[no-untyped-def]
 
 def build_app(vault_path: str):  # type: ignore[no-untyped-def]
     if not HAS_STARLETTE:
-        raise RuntimeError("starlette non installato. Installa con: pip install starlette")
+        raise RuntimeError(t("error_starlette_missing"))
     app = Starlette(
         routes=[
             Route("/health", health),
@@ -91,17 +92,17 @@ def build_app(vault_path: str):  # type: ignore[no-untyped-def]
 
 def run(vault_path: str, port: int = 8765) -> None:  # type: ignore[no-untyped-def]
     if not HAS_STARLETTE:
-        print("ERRORE: starlette non installato. Installa con: pip install starlette")
+        print(t("error_starlette_missing"))
         return
     if not HAS_UVICORN:
-        print("ERRORE: uvicorn non installato. Installa con: pip install uvicorn")
+        print(t("error_uvicorn_missing"))
         return
     app = build_app(vault_path)
-    print(f"Tavolarotonda serve avviato — http://localhost:{port}")
-    print("  GET  /health             — health check")
-    print("  POST /mcp                — MCP JSON-RPC endpoint")
-    print("  GET  /api/obsidian/topic?topic=X — leggi topic dal vault")
-    print("  POST /api/obsidian/save  — salva sessione nel vault")
+    print(t("server_started", port=port))
+    print(t("route_health"))
+    print(t("route_mcp"))
+    print(t("route_obsidian_read"))
+    print(t("route_obsidian_save"))
     uvicorn.run(app, host="0.0.0.0", port=port, log_level="warning")
 
 

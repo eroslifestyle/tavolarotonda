@@ -30,6 +30,7 @@ import sys
 from pathlib import Path
 
 from .agents import AGENTS, default_council
+from .i18n import set_lang
 from .memory_palace import MemoryPalace, transcript_markdown
 from .phases import PhaseEvent, run_full_council
 from .providers import AnthropicCompatProvider, LLMProvider, MockProvider
@@ -60,6 +61,8 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
                              "Se non specificato usa il default del provider.")
     parser.add_argument("--privacy", choices=["local_only", "cloud_ok", "free_api_ok"],
                         default="cloud_ok", help="Privacy tier (default: cloud_ok)")
+    parser.add_argument("--lang", choices=["en", "it"], default=None,
+                        help="Language for CLI output (default: auto-detect from LANG env)")
     parser.add_argument("--mock", action="store_true", help="Usa MockProvider (no LLM reale)")
     parser.add_argument("--no-research", action="store_true", help="Salta ricerca web")
     parser.add_argument("--no-critique", action="store_true", help="Salta fase critica")
@@ -238,6 +241,8 @@ async def run_qa(args: argparse.Namespace, questions: list[str]) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     args = _parse_args(argv)
+    if args.lang:
+        set_lang(args.lang)
 
     if args.command == "serve":
         from . import serve as _serve

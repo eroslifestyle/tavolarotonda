@@ -25,6 +25,7 @@ Uso CLI:
 __version__ = "0.1.0"
 
 from .agents import AGENTS, POLARITY_PAIRS, Agent, default_council
+from .i18n import detect_lang, get_lang, reset_lang, set_lang, t
 from .memory_palace import MemoryPalace, transcript_markdown
 from .obsidian_vault import read_topic, save_session
 from .phases import run_full_council
@@ -46,4 +47,9 @@ __all__ = [
     "audit_report_from_palace",
     "read_topic",
     "save_session",
+    "t",
+    "set_lang",
+    "get_lang",
+    "detect_lang",
+    "reset_lang",
 ]
