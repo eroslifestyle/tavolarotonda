@@ -88,6 +88,7 @@ MODEL_TIER_MAP: dict[str, str] = {
     "reasoning": "minimax-sonar-pro",  # M3 per pianificazione e analisi complessa
     "standard": "claude-sonnet-5",  # default council
     "fast": "claude-haiku-4",  # risposte rapide, fase restate
+    "ornith": "ornith-35b",  # modello locale default per triade (Ollama)
 }
 
 

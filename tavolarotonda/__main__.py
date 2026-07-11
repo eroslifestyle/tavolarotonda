@@ -53,8 +53,11 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--rounds", type=int, default=3, help="Numero di round (default: 3)")
     parser.add_argument("--council", nargs="+", metavar="AGENT",
                         help="Lista agenti (default: 12 bilanciati)")
-    parser.add_argument("--intensity", choices=["fast", "standard", "reasoning", "critical"],
+    parser.add_argument("--intensity", choices=["fast", "standard", "reasoning", "critical", "ornith"],
                         default="standard", help="Intensita del council (default: standard)")
+    parser.add_argument("--model", default=None,
+                        help="Model override per il council (es. ornith-35b, claude-sonnet-5). "
+                             "Se non specificato usa il default del provider.")
     parser.add_argument("--privacy", choices=["local_only", "cloud_ok", "free_api_ok"],
                         default="cloud_ok", help="Privacy tier (default: cloud_ok)")
     parser.add_argument("--mock", action="store_true", help="Usa MockProvider (no LLM reale)")
@@ -135,6 +138,7 @@ async def run_topic(args: argparse.Namespace, topic: str) -> MemoryPalace:
         provider,
         rounds=args.rounds,
         intensity=args.intensity,
+        council_model=getattr(args, "model", None),
         include_research=not args.no_research,
         include_critique=not args.no_critique,
         include_verdict=True,
@@ -171,6 +175,7 @@ async def run_audit(args: argparse.Namespace, file_path: str) -> str:
         palace, council, provider,
         rounds=args.rounds,
         intensity=args.intensity,
+        council_model=getattr(args, "model", None),
         include_research=False,  # niente web per audit di codice locale
         include_critique=True,
         include_verdict=True,
@@ -207,6 +212,7 @@ async def run_qa(args: argparse.Namespace, questions: list[str]) -> str:
         palace, council, provider,
         rounds=min(args.rounds, 2),  # Q&A più rapido
         intensity=args.intensity,
+        council_model=getattr(args, "model", None),
         include_research=False,
         include_critique=True,
         include_verdict=False,

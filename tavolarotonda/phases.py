@@ -105,6 +105,7 @@ async def phase_brainstorm(
     director: Director,
     secretary: Secretary,
     provider: LLMProvider,
+    council_model: str | None = None,
     *,
     on_event: Callable[[PhaseEvent], Awaitable[None]] | None = None,
 ) -> list[PhaseEvent]:
@@ -157,9 +158,11 @@ async def phase_brainstorm(
             if assignment:
                 prompt += f"\n\n🎯 ASSEGNAMENTO SPECIFICO: {assignment}"
 
+            _resolved_model, _resolved_tier = _resolve_agent_model(agent.default_model, council_model)
             result = await provider.complete(
                 prompt,
-                model=agent.default_model if agent.default_model != "auto" else "mock",
+                model=_resolved_model,
+                model_tier=_resolved_tier,
                 system=agent.system_seed,
                 temperature=0.7,
                 max_tokens=400,
@@ -182,6 +185,7 @@ async def phase_critique(
     palace: MemoryPalace,
     agents: list[Agent],
     provider: LLMProvider,
+    council_model: str | None = None,
     *,
     on_event: Callable[[PhaseEvent], Awaitable[None]] | None = None,
 ) -> list[PhaseEvent]:
@@ -212,9 +216,11 @@ async def phase_critique(
             target_agent=target.name,
             target_claim=target_claim[:300],
         )
+        _resolved_model, _resolved_tier = _resolve_agent_model(agent.default_model, council_model)
         result = await provider.complete(
             prompt,
-            model=agent.default_model if agent.default_model != "auto" else "mock",
+            model=_resolved_model,
+            model_tier=_resolved_tier,
             system=agent.system_seed,
             temperature=0.6,
             max_tokens=200,
@@ -391,6 +397,25 @@ def _extract_list_section(text: str, header: str) -> list[str]:
     return [x for x in items if x]
 
 
+# === Council model resolver ===
+def _resolve_agent_model(agent_default: str, council_model: str | None) -> tuple[str, str | None]:
+    """Resolve model + optional tier for an agent.
+
+    When agent.default_model == "auto", falls back to council_model.
+    If council_model matches a known tier key (e.g. ornith-35b → tier="ornith"),
+    also returns the tier so provider.complete() can resolve it via MODEL_TIER_MAP.
+    """
+    if agent_default != "auto":
+        return agent_default, None
+    if council_model:
+        tier_map = {
+            "ornith-35b": "ornith",
+            "ollama/ornith-35b": "ornith",
+        }
+        return council_model, tier_map.get(council_model)
+    return "mock", None
+
+
 # === ENTRY POINT: full pipeline ===
 
 async def run_full_council(
@@ -405,10 +430,12 @@ async def run_full_council(
     include_verdict: bool = True,
     director_model: str = "auto",
     secretary_model: str = "auto",
+    council_model: str | None = None,
     on_event: Callable[[PhaseEvent], Awaitable[None]] | None = None,
 ) -> list[PhaseEvent]:
     """Esegue l'intera pipeline. Ritorna tutti gli eventi emessi."""
     all_events: list[PhaseEvent] = []
+    _council_model = council_model
 
     # Sostituisci 'auto' con 'mock' se il provider non ha LLM reale
     if director_model == "auto":
@@ -427,10 +454,10 @@ async def run_full_council(
         all_events.extend(await phase_research(palace))
 
     all_events.extend(await phase_restate(palace, agents, provider, on_event=on_event))
-    all_events.extend(await phase_brainstorm(palace, agents, rounds, director, secretary, provider, on_event=on_event))
+    all_events.extend(await phase_brainstorm(palace, agents, rounds, director, secretary, provider, council_model=_council_model, on_event=on_event))
 
     if include_critique:
-        all_events.extend(await phase_critique(palace, agents, provider, on_event=on_event))
+        all_events.extend(await phase_critique(palace, agents, provider, council_model=_council_model, on_event=on_event))
 
     await phase_synthesis(palace, agents, provider, on_event=on_event)
     if include_verdict:
