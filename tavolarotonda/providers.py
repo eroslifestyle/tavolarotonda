@@ -18,11 +18,15 @@ Robustezza:
 from __future__ import annotations
 
 import asyncio
+import gzip as _gzip
+import json as _json
 import os
 import re
 import time
 from dataclasses import dataclass, field
 from typing import Literal
+
+import httpx
 
 ProviderKind = Literal["ollama", "openai_compat", "claude", "mock", "anthropic_compat"]
 
@@ -208,9 +212,6 @@ class LLMProvider:
 
     async def _ollama(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
         """Chiama Ollama /api/generate."""
-        import json as _json
-        import urllib.request
-
         payload = {
             "model": model,
             "prompt": prompt,
@@ -220,27 +221,20 @@ class LLMProvider:
         if system:
             payload["system"] = system
 
-        loop = asyncio.get_event_loop()
-
-        def _do() -> str:
-            req = urllib.request.Request(
+        async with httpx.AsyncClient(timeout=timeout) as client:
+            resp = await client.post(
                 f"{self.ollama_base_url}/api/generate",
-                data=_json.dumps(payload).encode(),
+                json=payload,
                 headers={"Content-Type": "application/json"},
             )
-            with urllib.request.urlopen(req, timeout=timeout) as r:
-                data = _json.loads(r.read().decode())
-                return data.get("response", "")
-
-        return await loop.run_in_executor(None, _do)
+            resp.raise_for_status()
+            data = resp.json()
+            return data.get("response", "")
 
     async def _openai_compat(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
         """Chiama API OpenAI-compat (LiteLLM proxy, OpenRouter, ecc.)."""
         if not self.openai_base_url or not self.openai_api_key:
             raise RuntimeError(f"OPENAI_BASE_URL/OPENAI_API_KEY non configurati per {model}")
-
-        import json as _json
-        import urllib.request
 
         messages = []
         if system:
@@ -253,30 +247,24 @@ class LLMProvider:
             "temperature": temperature,
             "max_tokens": max_tokens,
         }
-        loop = asyncio.get_event_loop()
 
-        def _do() -> str:
-            req = urllib.request.Request(
+        async with httpx.AsyncClient(timeout=timeout) as client:
+            resp = await client.post(
                 f"{self.openai_base_url}/chat/completions",
-                data=_json.dumps(payload).encode(),
+                json=payload,
                 headers={
                     "Content-Type": "application/json",
                     "Authorization": f"Bearer {self.openai_api_key}",
                 },
             )
-            with urllib.request.urlopen(req, timeout=timeout) as r:
-                data = _json.loads(r.read().decode())
-                return data["choices"][0]["message"]["content"]
-
-        return await loop.run_in_executor(None, _do)
+            resp.raise_for_status()
+            data = resp.json()
+            return data["choices"][0]["message"]["content"]
 
     async def _claude(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
         """Chiama Claude API (Anthropic). Per ora solleva: usare SDK Anthropic o mock."""
         if not self.anthropic_api_key:
             raise RuntimeError("ANTHROPIC_API_KEY non configurata")
-
-        import json as _json
-        import urllib.request
 
         payload = {
             "model": model,
@@ -287,40 +275,33 @@ class LLMProvider:
         if system:
             payload["system"] = system
 
-        loop = asyncio.get_event_loop()
-
-        def _do() -> str:
-            req = urllib.request.Request(
+        async with httpx.AsyncClient(timeout=timeout) as client:
+            resp = await client.post(
                 "https://api.anthropic.com/v1/messages",
-                data=_json.dumps(payload).encode(),
+                json=payload,
                 headers={
                     "Content-Type": "application/json",
                     "x-api-key": self.anthropic_api_key or "",
                     "anthropic-version": "2023-06-01",
                 },
             )
-            with urllib.request.urlopen(req, timeout=timeout) as r:
-                data = _json.loads(r.read().decode())
-                return data["content"][0]["text"]
-
-        return await loop.run_in_executor(None, _do)
+            resp.raise_for_status()
+            data = resp.json()
+            return data["content"][0]["text"]
 
     async def _anthropic_compat(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
         """Chiama endpoint Anthropic-compat (ai-router :8787, MiniMax, GLM, ecc.)."""
         base_url = self.anthropic_compat_base_url or os.environ.get("ANTHROPIC_COMPAT_BASE_URL", "http://127.0.0.1:8787")
         api_key = self.anthropic_compat_api_key or os.environ.get("ANTHROPIC_COMPAT_API_KEY", "mock")
-        import gzip
-        import json as _json
-        import urllib.request
         messages = [{"role": "user", "content": prompt}]
         payload = {"model": model, "max_tokens": max_tokens, "temperature": temperature, "messages": messages}
         if system:
             payload["system"] = system
-        loop = asyncio.get_event_loop()
-        def _do() -> str:
-            req = urllib.request.Request(
+
+        async with httpx.AsyncClient(timeout=timeout) as client:
+            resp = await client.post(
                 f"{base_url}/v1/messages",
-                data=_json.dumps(payload).encode(),
+                json=payload,
                 headers={
                     "Content-Type": "application/json",
                     "x-api-key": api_key,
@@ -328,16 +309,15 @@ class LLMProvider:
                     "Accept-Encoding": "gzip, deflate",
                 },
             )
-            with urllib.request.urlopen(req, timeout=timeout) as r:
-                raw = r.read()
-                if r.info().get("Content-Encoding") == "gzip":
-                    raw = gzip.decompress(raw)
-                data = _json.loads(raw.decode("utf-8", errors="replace"))
-                for item in data.get("content", []):
-                    if item.get("type") == "text":
-                        return item["text"]
-                return ""
-        return await loop.run_in_executor(None, _do)
+            resp.raise_for_status()
+            raw = resp.read()
+            if resp.headers.get("content-encoding") == "gzip":
+                raw = _gzip.decompress(raw)
+            data = _json.loads(raw.decode("utf-8", errors="replace"))
+            for item in data.get("content", []):
+                if item.get("type") == "text":
+                    return item["text"]
+            return ""
 
 
 # Mock provider per test/demos offline
