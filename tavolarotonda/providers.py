@@ -306,6 +306,7 @@ class LLMProvider:
                     "Content-Type": "application/json",
                     "Authorization": f"Bearer {api_key}",
                     "x-api-key": api_key,
+                    "X-Api-Key": api_key,
                     "anthropic-version": "2023-06-01",
                     "Accept-Encoding": "gzip, deflate",
                 },

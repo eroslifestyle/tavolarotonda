@@ -62,12 +62,12 @@ models:
     aq_score: 8.0
 
   MiniMax-M3:
-    label: "MiniMax M3 (via ai-router :8787)"
-    description: "MiniMax-M3 via ai-router :8787 (Anthropic-compat /v1/messages). Richiede MiniMax_API_KEY."
+    label: "MiniMax M3 (direct)"
+    description: "MiniMax-M3 via api.minimax.io/anthropic (Anthropic-compat /v1/messages). Richiede MiniMax_API_KEY."
     provider_kind: "anthropic_compat"
     env_required: ["MiniMax_API_KEY"]
-    default_model: "MiniMax/MiniMax-M3"
-    default_base_url: "http://127.0.0.1:8787"
+    default_model: "MiniMax-M3"
+    default_base_url: "https://api.minimax.io/anthropic"
     icon: "🌊"
     aq_score: 7.5
 
@@ -156,7 +156,7 @@ council_presets:
 model_for_provider:
   mock: "mock"
   opus-4.8: "claude-opus-4-8"
-  MiniMax-M3: "MiniMax/MiniMax-M3"
+  MiniMax-M3: "MiniMax-M3"
   ollama-auto: "auto"
   opus-local: "qwen3.6-opus-abliterated:35b"
   glm-4.7: "glm-4.7"
