@@ -101,8 +101,8 @@ council_presets:
     routing: null
 
   triade:
-    label: "Triade bilanciata (3 LLM)"
-    description: "Razionali/analitici → Opus · Creativi/dialogo → MiniMax · Pratici/tecnici → Opus locale"
+    label: "Triade Cloud (3 LLM cloud)"
+    description: "Analitici → Opus 4.8 · Creativi → GLM-5.2 · Pratici → MiniMax-M3"
     icon: "🔱"
     routing:
       # Gruppo A → Opus 4.8 (ragionamento forte)
@@ -112,44 +112,71 @@ council_presets:
       karpathy: "opus-4.8"
       kahneman: "opus-4.8"
       sutskever: "opus-4.8"
-      # Gruppo B → MiniMax-M3 (creatività + dialogo)
-      sun_tzu: "MiniMax-M3"
-      ada: "MiniMax-M3"
-      aurelius: "MiniMax-M3"
-      machiavelli: "MiniMax-M3"
-      lao_tzu: "MiniMax-M3"
-      watts: "MiniMax-M3"
-      # Gruppo C → Opus locale (pratico + veloce)
-      torvalds: "opus-local"
-      musashi: "opus-local"
-      meadows: "opus-local"
-      munger: "opus-local"
-      taleb: "opus-local"
-      rams: "opus-local"
+      # Gruppo B → GLM-5.2 (creatività + pensiero strategico)
+      sun_tzu: "glm-5.2"
+      ada: "glm-5.2"
+      aurelius: "glm-5.2"
+      machiavelli: "glm-5.2"
+      lao_tzu: "glm-5.2"
+      watts: "glm-5.2"
+      # Gruppo C → MiniMax-M3 (pratico + veloce)
+      torvalds: "MiniMax-M3"
+      musashi: "MiniMax-M3"
+      meadows: "MiniMax-M3"
+      munger: "MiniMax-M3"
+      taleb: "MiniMax-M3"
+      rams: "MiniMax-M3"
+
+  trilogy:
+    label: "Trilogy Top (3 LLM premium)"
+    description: "Analitici → Opus 4.8 · Creativi → GLM-5.2 · Pratici → MiniMax-M3"
+    icon: "⚡"
+    routing:
+      # Gruppo A → Opus 4.8
+      aristotle: "opus-4.8"
+      socrates: "opus-4.8"
+      feynman: "opus-4.8"
+      karpathy: "opus-4.8"
+      kahneman: "opus-4.8"
+      sutskever: "opus-4.8"
+      # Gruppo B → GLM-5.2
+      sun_tzu: "glm-5.2"
+      ada: "glm-5.2"
+      aurelius: "glm-5.2"
+      machiavelli: "glm-5.2"
+      lao_tzu: "glm-5.2"
+      watts: "glm-5.2"
+      # Gruppo C → MiniMax-M3
+      torvalds: "MiniMax-M3"
+      musashi: "MiniMax-M3"
+      meadows: "MiniMax-M3"
+      munger: "MiniMax-M3"
+      taleb: "MiniMax-M3"
+      rams: "MiniMax-M3"
 
   alternating:
-    label: "Round-robin alternato"
-    description: "Cicla Opus 4.8 → MiniMax → Opus locale → Opus 4.8 → ..."
+    label: "Round-robin cloud (4 LLM)"
+    description: "Cicla Opus 4.8 → GLM-5.2 → MiniMax-M3 → Opus 4.8 → ..."
     icon: "🔄"
     routing:
       aristotle: "opus-4.8"
       socrates: "MiniMax-M3"
-      feynman: "opus-local"
+      feynman: "glm-5.2"
       karpathy: "opus-4.8"
       kahneman: "MiniMax-M3"
-      sutskever: "opus-local"
+      sutskever: "glm-5.2"
       sun_tzu: "opus-4.8"
       ada: "MiniMax-M3"
-      aurelius: "opus-local"
+      aurelius: "glm-5.2"
       machiavelli: "opus-4.8"
       lao_tzu: "MiniMax-M3"
-      watts: "opus-local"
+      watts: "glm-5.2"
       torvalds: "opus-4.8"
       musashi: "MiniMax-M3"
-      meadows: "opus-local"
+      meadows: "glm-5.2"
       munger: "opus-4.8"
       taleb: "MiniMax-M3"
-      rams: "opus-local"
+      rams: "glm-5.2"
 
 # ── Modello concreto per ogni provider key ────────────────────────────────────
 # Mappa: provider_key → model name passato a complete(model=...)
