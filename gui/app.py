@@ -717,6 +717,27 @@ def api_export(session_id, fmt):
     return resp
 
 
+@app.route("/api/research-config", methods=["GET"])
+def api_research_config():
+    """Ritorna la config research corrente."""
+    from tavolarotonda.research_config import get_config
+    return jsonify(get_config())
+
+
+@app.route("/api/research-config", methods=["POST"])
+def api_set_research_config():
+    """Aggiorna la config research (globale, per-agente, provider)."""
+    from tavolarotonda.research_config import set_global, set_agent, set_provider, get_config
+    data = request.get_json() or {}
+    if "global_enabled" in data:
+        set_global(bool(data["global_enabled"]))
+    if "agent_key" in data and "enabled" in data:
+        set_agent(data["agent_key"], bool(data["enabled"]))
+    if "provider" in data:
+        set_provider(data["provider"])
+    return jsonify(get_config())
+
+
 @app.route("/api/models", methods=["GET"])
 def api_models():
     """Lista i modelli LLM disponibili con stato corrente (env / ollama)."""
