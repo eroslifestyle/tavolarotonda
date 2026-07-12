@@ -738,6 +738,24 @@ def api_set_research_config():
     return jsonify(get_config())
 
 
+@app.route("/api/voting/<session_id>", methods=["GET"])
+def api_voting(session_id):
+    """Ritorna scorecard + heatmap + outliers per una sessione."""
+    from tavolarotonda.voting import build_scorecard, build_heatmap, find_outliers
+    from tavolarotonda.memory_palace import MemoryPalace
+    safe_id = session_id.replace("/", "").replace("..", "")
+    palace_file = ROOT / "output" / f"palace_{safe_id}.json"
+    if not palace_file.exists():
+        return jsonify({"error": "sessione non trovata"}), 404
+    palace = MemoryPalace.load(str(palace_file))
+    return jsonify({
+        "session_id": session_id,
+        "scorecard": build_scorecard(palace),
+        "heatmap": build_heatmap(palace),
+        "outliers": find_outliers(palace),
+    })
+
+
 @app.route("/api/models", methods=["GET"])
 def api_models():
     """Lista i modelli LLM disponibili con stato corrente (env / ollama)."""
