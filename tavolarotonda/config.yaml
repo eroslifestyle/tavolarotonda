@@ -79,7 +79,7 @@ models:
     default_model: "glm-4.7"
     default_base_url: "https://api.z.ai/api/anthropic"
     icon: "🔮"
-    aq_score: 0
+    aq_score: 7.0
 
   glm-5.2:
     label: "GLM-5.2 (via z.ai)"
@@ -89,7 +89,7 @@ models:
     default_model: "glm-5.2"
     default_base_url: "https://api.z.ai/api/anthropic"
     icon: "🔮"
-    aq_score: 0
+    aq_score: 7.5
 
 # ── Council presets ───────────────────────────────────────────────────────────
 # routing: dict[agent_key → provider_key] — null = monolithic (nessun routing)

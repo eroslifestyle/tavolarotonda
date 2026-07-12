@@ -580,7 +580,7 @@ def api_models():
                     status = {"state": "ok",
                               "reason": f"Ollama attivo ({len(models)} modelli)",
                               "model": chosen}
-        elif cfg["provider_kind"] == "claude":
+        elif cfg["provider_kind"] in ("anthropic_compat", "claude"):
             missing = _check_env(cfg["env_required"])
             if missing:
                 status = {"state": "missing_env",
@@ -588,7 +588,7 @@ def api_models():
                           "model": "mock"}
             else:
                 status = {"state": "ok",
-                          "reason": "Anthropic API key OK",
+                          "reason": f"{cfg['env_required'][0]} OK",
                           "model": cfg["default_model"]}
         elif cfg["provider_kind"] == "openai_compat":
             missing = _check_env(cfg["env_required"])
