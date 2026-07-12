@@ -54,6 +54,8 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--rounds", type=int, default=3, help="Numero di round (default: 3)")
     parser.add_argument("--council", nargs="+", metavar="AGENT",
                         help="Lista agenti (default: 12 bilanciati)")
+    parser.add_argument("--preset", choices=["monolithic", "triade", "trilogy", "alternating"],
+                        default=None, help="Council preset (default: monolithic)")
     parser.add_argument("--intensity", choices=["fast", "standard", "reasoning", "critical", "ornith"],
                         default="standard", help="Intensita del council (default: standard)")
     parser.add_argument("--model", default=None,

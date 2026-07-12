@@ -15,6 +15,7 @@ Endpoints:
 """
 from __future__ import annotations
 import sys
+import re
 import json
 import asyncio
 import threading
