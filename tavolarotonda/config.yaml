@@ -71,23 +71,23 @@ models:
     icon: "🌊"
     aq_score: 7.5
 
-  glm-4.6:
-    label: "GLM-4.6 (via bigmodel.cn)"
-    description: "GLM-4.6 via ZhipuAI direct API. Richiede GLM_API_KEY."
-    provider_kind: "openai_compat"
+  glm-4.7:
+    label: "GLM-4.7 (via z.ai)"
+    description: "GLM-4.7 via ZhipuAI z.ai Anthropic-compat endpoint. Richiede GLM_API_KEY."
+    provider_kind: "anthropic_compat"
     env_required: ["GLM_API_KEY"]
-    default_model: "glm-4.6"
-    default_base_url: "https://open.bigmodel.cn/api/paas/v4"
+    default_model: "glm-4.7"
+    default_base_url: "https://api.z.ai/api/anthropic"
     icon: "🔮"
     aq_score: 0
 
-  glm-4.7:
-    label: "GLM-4.7 (via bigmodel.cn)"
-    description: "GLM-4.7 via ZhipuAI direct API. Richiede GLM_API_KEY."
-    provider_kind: "openai_compat"
+  glm-5.2:
+    label: "GLM-5.2 (via z.ai)"
+    description: "GLM-5.2 via ZhipuAI z.ai Anthropic-compat endpoint. Richiede GLM_API_KEY."
+    provider_kind: "anthropic_compat"
     env_required: ["GLM_API_KEY"]
-    default_model: "glm-4.7"
-    default_base_url: "https://open.bigmodel.cn/api/paas/v4"
+    default_model: "glm-5.2"
+    default_base_url: "https://api.z.ai/api/anthropic"
     icon: "🔮"
     aq_score: 0
 
@@ -159,6 +159,8 @@ model_for_provider:
   MiniMax-M3: "MiniMax/MiniMax-M3"
   ollama-auto: "auto"
   opus-local: "qwen3.6-opus-abliterated:35b"
+  glm-4.7: "glm-4.7"
+  glm-5.2: "glm-5.2"
 
 # ── Export ────────────────────────────────────────────────────────────────────
 export_formats:
