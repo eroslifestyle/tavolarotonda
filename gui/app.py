@@ -49,6 +49,10 @@ from tavolarotonda.evidence import adversarial_research
 from tavolarotonda.providers import AnthropicCompatProvider, CircuitBreaker, ProviderResult
 from tavolarotonda.config import load as load_config, get_model, get_preset, get_agent_color, get_timeout
 from tavolarotonda.topic_classifier import get_routing_preview
+from tavolarotonda.custom_personas import (
+    CustomPersona, create_persona, get_persona, delete_persona,
+    list_personas, export_personas, import_personas,
+)
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(name)s] %(message)s")
 log = logging.getLogger("tavolarotonda-gui")
@@ -592,6 +596,58 @@ def api_diff():
         "responses": responses,
         "count": len(events),
     })
+
+
+@app.route("/api/personas", methods=["GET"])
+def api_list_personas():
+    """Lista tutte le personas custom."""
+    return jsonify({"personas": list_personas()})
+
+
+@app.route("/api/personas", methods=["POST"])
+def api_create_persona():
+    """Crea una nuova persona custom."""
+    data = request.get_json() or {}
+    try:
+        persona = CustomPersona(
+            key=data["key"],
+            name=data["name"],
+            figure=data.get("figure", data["name"]),
+            domain=data.get("domain", ""),
+            provider_key=data.get("provider_key", "glm-5.2"),
+            polarity=data.get("polarity", "neutral"),
+            system_seed=data.get("system_seed", f"Sei {data['name']}."),
+            role_tag=data.get("role_tag", ""),
+        )
+    except KeyError as e:
+        return jsonify({"error": f"campo mancante: {e}"}), 400
+    create_persona(persona)
+    return jsonify({"status": "created", "key": persona.key})
+
+
+@app.route("/api/personas/<key>", methods=["DELETE"])
+def api_delete_persona(key):
+    """Elimina una persona custom."""
+    ok = delete_persona(key)
+    return jsonify({"status": "deleted" if ok else "not_found", "key": key})
+
+
+@app.route("/api/personas/export", methods=["GET"])
+def api_export_personas():
+    """Esporta tutte le personas come JSON."""
+    return app.response_class(export_personas(), mimetype="application/json")
+
+
+@app.route("/api/personas/import", methods=["POST"])
+def api_import_personas():
+    """Importa personas da JSON."""
+    data = request.get_json() or {}
+    json_str = data.get("json", "{}")
+    if isinstance(json_str, dict):
+        import json as _json
+        json_str = _json.dumps(json_str)
+    count = import_personas(json_str, merge=data.get("merge", True))
+    return jsonify({"status": "imported", "count": count})
 
 
 @app.route("/api/models", methods=["GET"])
