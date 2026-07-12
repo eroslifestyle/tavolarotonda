@@ -702,7 +702,7 @@ def api_history_delete(session_id):
 
 @app.route("/api/export/<session_id>/<fmt>", methods=["GET"])
 def api_export(session_id, fmt):
-    """Esporta una sessione salvata in CSV/Markdown/JSON."""
+    """Esporta una sessione salvata in CSV/Markdown/JSON/PDF."""
     from tavolarotonda.exporters import export
     from tavolarotonda.memory_palace import MemoryPalace
     safe_id = session_id.replace("/", "").replace("..", "")
@@ -710,9 +710,12 @@ def api_export(session_id, fmt):
     if not palace_file.exists():
         return jsonify({"error": "sessione non trovata"}), 404
     palace = MemoryPalace.load(str(palace_file))
-    content, mimetype = export(palace, fmt)
-    ext = {"markdown": "md", "md": "md", "csv": "csv", "json": "json"}.get(fmt, "txt")
-    resp = app.response_class(content, mimetype=mimetype)
+    content, mimetype, is_binary = export(palace, fmt)
+    ext = {"markdown": "md", "md": "md", "csv": "csv", "json": "json", "pdf": "pdf"}.get(fmt, "txt")
+    if is_binary:
+        resp = app.response_class(content, mimetype=mimetype)
+    else:
+        resp = app.response_class(content, mimetype=mimetype)
     resp.headers["Content-Disposition"] = f"attachment; filename=tavolarotonda_{safe_id}.{ext}"
     return resp
 
