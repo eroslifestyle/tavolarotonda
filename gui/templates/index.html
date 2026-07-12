@@ -34,6 +34,7 @@
         <button class="tab active" data-mode="topic">💬 Discussione</button>
         <button class="tab" data-mode="audit">📋 Audit</button>
         <button class="tab" data-mode="qa">❓ Q&A</button>
+        <button class="tab" data-mode="diff">🔀 Diff</button>
       </div>
 
       <h3>🧠 Modello LLM</h3>
@@ -98,6 +99,18 @@ Quali sono i prossimi passi?"></textarea>
       <div class="field">
         <label>Round: <span id="rounds-val">3</span></label>
         <input type="range" id="rounds-slider" min="1" max="5" value="3">
+      </div>
+
+      <!-- Diff mode: 3 colonne -->
+      <div class="field" id="field-diff" style="display:none">
+        <label>🔀 Diff: i 3 modelli a confronto</label>
+        <p class="hint">Stesso topic, 3 risposte in parallelo (Opus · GLM · MiniMax)</p>
+        <div class="diff-container">
+          <div class="diff-col diff-opus" id="diff-opus"><div class="diff-header">🧠 Opus</div><div class="diff-body">—</div></div>
+          <div class="diff-col diff-glm" id="diff-glm"><div class="diff-header">🔮 GLM</div><div class="diff-body">—</div></div>
+          <div class="diff-col diff-minimax" id="diff-minimax"><div class="diff-header">🌊 MiniMax</div><div class="diff-body">—</div></div>
+        </div>
+        <button id="run-diff-btn" class="primary">🔀 Run Diff</button>
       </div>
 
       <div class="field">

@@ -400,6 +400,35 @@ body {
   font-weight: 700;
 }
 
+/* Diff mode — 3 colonne */
+.diff-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 10px 0;
+}
+.diff-col {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.diff-header {
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 0.85em;
+}
+.diff-opus .diff-header { background: #7c3aed22; color: #7c3aed; }
+.diff-glm .diff-header { background: #0ea5e922; color: #0ea5e9; }
+.diff-minimax .diff-header { background: #10b98122; color: #10b981; }
+.diff-body {
+  padding: 12px;
+  font-size: 0.85em;
+  min-height: 120px;
+  max-height: 300px;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
 .routing-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -565,6 +565,35 @@ def api_classify_topic():
     return jsonify(result)
 
 
+@app.route("/api/diff", methods=["POST"])
+def api_diff():
+    """Esegue la stessa domanda su 3 modelli e ritorna le risposte in parallelo."""
+    from tavolarotonda.debate import phase_debate
+    from tavolarotonda.memory_palace import MemoryPalace
+
+    data = request.get_json() or {}
+    topic = data.get("topic", "")
+    rounds = min(int(data.get("rounds", 1)), 3)
+
+    palace = MemoryPalace(topic=topic)
+    events = asyncio.run(phase_debate(palace, topic, rounds=rounds))
+
+    # Struttura le risposte per modello
+    responses = {}
+    for ev in events:
+        agent = ev.agent.replace("debate-", "")
+        if agent not in responses:
+            responses[agent] = []
+        responses[agent].append({"text": ev.text, "round": ev.round})
+
+    return jsonify({
+        "topic": topic,
+        "rounds": rounds,
+        "responses": responses,
+        "count": len(events),
+    })
+
+
 @app.route("/api/models", methods=["GET"])
 def api_models():
     """Lista i modelli LLM disponibili con stato corrente (env / ollama)."""

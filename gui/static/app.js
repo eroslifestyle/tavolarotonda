@@ -32,6 +32,7 @@ function setupTabs() {
       document.getElementById("field-topic").style.display = mode === "topic" ? "" : "none";
       document.getElementById("field-audit").style.display = mode === "audit" ? "" : "none";
       document.getElementById("field-qa").style.display = mode === "qa" ? "" : "none";
+      document.getElementById("field-diff").style.display = mode === "diff" ? "" : "none";
     });
   });
 }
@@ -48,6 +49,7 @@ function setupButtons() {
   document.getElementById("run-btn").addEventListener("click", startRun);
   document.getElementById("stop-btn").addEventListener("click", stopRun);
   document.getElementById("clear-btn").addEventListener("click", clearStream);
+  document.getElementById("run-diff-btn").addEventListener("click", startDiff);
   document.getElementById("download-html").addEventListener("click", () => {
     if (state.htmlUrl) window.open(state.htmlUrl, "_blank");
   });
@@ -315,6 +317,20 @@ async function loadAgents() {
   } catch (e) {
     console.error("loadAgents failed:", e);
   }
+}
+
+// === DIFF ===
+async function startDiff() {
+  const topic = document.getElementById("topic-input").value.trim();
+  if (!topic) { alert("Inserisci un topic"); return; }
+  document.querySelectorAll(".diff-body").forEach(el => el.textContent = "⏳...");
+  try {
+    const r = await fetch("/api/diff", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({topic, rounds:1})});
+    const d = await r.json(), resp = d.responses||{};
+    document.getElementById("diff-opus").querySelector(".diff-body").textContent = resp.Opus?.[0]?.text || "—";
+    document.getElementById("diff-glm").querySelector(".diff-body").textContent = resp.GLM?.[0]?.text || "—";
+    document.getElementById("diff-minimax").querySelector(".diff-body").textContent = resp.MiniMax?.[0]?.text || "—";
+  } catch(e) { document.querySelectorAll(".diff-body").forEach(el => el.textContent = "Err: "+e.message); }
 }
 
 // === RUN ===
