@@ -465,6 +465,8 @@ async def run_full_council(
     return all_events
 
 
+from .debate import phase_debate
+
 __all__ = [
     "PhaseEvent",
     "confer_phase",
@@ -474,5 +476,6 @@ __all__ = [
     "phase_critique",
     "phase_synthesis",
     "phase_verdict",
+    "phase_debate",
     "run_full_council",
 ]
