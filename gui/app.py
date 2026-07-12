@@ -48,6 +48,7 @@ from tavolarotonda import (
 from tavolarotonda.evidence import adversarial_research
 from tavolarotonda.providers import AnthropicCompatProvider, CircuitBreaker, ProviderResult
 from tavolarotonda.config import load as load_config, get_model, get_preset, get_agent_color, get_timeout
+from tavolarotonda.topic_classifier import get_routing_preview
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(name)s] %(message)s")
 log = logging.getLogger("tavolarotonda-gui")
@@ -553,6 +554,15 @@ def api_council_presets():
             info["counts"] = counts
         out.append(info)
     return jsonify({"presets": out, "count": len(out)})
+
+
+@app.route("/api/classify-topic", methods=["POST"])
+def api_classify_topic():
+    """Classifica un topic e consiglia il preset migliore."""
+    data = request.get_json() or {}
+    topic = data.get("topic", "")
+    result = get_routing_preview(topic)
+    return jsonify(result)
 
 
 @app.route("/api/models", methods=["GET"])
