@@ -650,6 +650,56 @@ def api_import_personas():
     return jsonify({"status": "imported", "count": count})
 
 
+@app.route("/api/history", methods=["GET"])
+def api_history():
+    """Lista le sessioni salvate (palace JSON in output/)."""
+    import json as _json
+    out_dir = ROOT / "output"
+    sessions = []
+    if out_dir.exists():
+        for f in sorted(out_dir.glob("palace_*.json"), key=lambda p: p.stat().st_mtime, reverse=True):
+            try:
+                data = _json.loads(f.read_text(encoding="utf-8"))
+                sessions.append({
+                    "session_id": data.get("session_id", f.stem.replace("palace_", "")),
+                    "topic": data.get("topic", "")[:120],
+                    "created_at": data.get("created_at", ""),
+                    "file": f.name,
+                    "size": f.stat().st_size,
+                })
+            except (json.JSONDecodeError, OSError):
+                continue
+    return jsonify({"sessions": sessions, "count": len(sessions)})
+
+
+@app.route("/api/history/<session_id>", methods=["GET"])
+def api_history_detail(session_id):
+    """Ritorna il palace completo di una sessione salvata."""
+    import json as _json
+    safe_id = session_id.replace("/", "").replace("..", "")
+    palace_file = ROOT / "output" / f"palace_{safe_id}.json"
+    if not palace_file.exists():
+        palace_file = ROOT / "output" / f"palace_tr-{safe_id}.json"
+    if not palace_file.exists():
+        return jsonify({"error": "sessione non trovata"}), 404
+    try:
+        data = _json.loads(palace_file.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError) as e:
+        return jsonify({"error": str(e)}), 500
+    return jsonify(data)
+
+
+@app.route("/api/history/<session_id>", methods=["DELETE"])
+def api_history_delete(session_id):
+    """Elimina una sessione salvata."""
+    safe_id = session_id.replace("/", "").replace("..", "")
+    palace_file = ROOT / "output" / f"palace_{safe_id}.json"
+    if palace_file.exists():
+        palace_file.unlink()
+        return jsonify({"status": "deleted", "session_id": session_id})
+    return jsonify({"status": "not_found", "session_id": session_id})
+
+
 @app.route("/api/models", methods=["GET"])
 def api_models():
     """Lista i modelli LLM disponibili con stato corrente (env / ollama)."""
