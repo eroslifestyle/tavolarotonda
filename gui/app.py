@@ -700,6 +700,23 @@ def api_history_delete(session_id):
     return jsonify({"status": "not_found", "session_id": session_id})
 
 
+@app.route("/api/export/<session_id>/<fmt>", methods=["GET"])
+def api_export(session_id, fmt):
+    """Esporta una sessione salvata in CSV/Markdown/JSON."""
+    from tavolarotonda.exporters import export
+    from tavolarotonda.memory_palace import MemoryPalace
+    safe_id = session_id.replace("/", "").replace("..", "")
+    palace_file = ROOT / "output" / f"palace_{safe_id}.json"
+    if not palace_file.exists():
+        return jsonify({"error": "sessione non trovata"}), 404
+    palace = MemoryPalace.load(str(palace_file))
+    content, mimetype = export(palace, fmt)
+    ext = {"markdown": "md", "md": "md", "csv": "csv", "json": "json"}.get(fmt, "txt")
+    resp = app.response_class(content, mimetype=mimetype)
+    resp.headers["Content-Disposition"] = f"attachment; filename=tavolarotonda_{safe_id}.{ext}"
+    return resp
+
+
 @app.route("/api/models", methods=["GET"])
 def api_models():
     """Lista i modelli LLM disponibili con stato corrente (env / ollama)."""
