@@ -2,7 +2,7 @@
 title: tavolarotonda-due
 type: progetto
 created: 2026-07-01
-updated: 2026-07-01
+updated: 2026-09-12
 aliases: [Tavola Rotonda 2, tavola-rotonda-due, council, war-room, tavolarotonda]
 tags: [auto-registered, multi-agent, council, llm, python, open-source]
 sources: 1
@@ -35,6 +35,21 @@ Decisioni multi-prospettiva con modelli LLM eterogenei, persistenti, anti-groupt
 - Moduli: `agents.py` (18 personas) · `phases.py` (pipeline 6 fasi) · `director.py` · `secretary.py` · `providers.py` (Ollama/OpenAI/Claude/Mock) · `evidence.py` · `memory_palace.py` · `prompts.py` · `reports.py` (HTML audit+Q&A)
 - Privacy tier: `local_only` (default Ollama) / `cloud_ok` (Claude+OpenAI) / `free_api_ok` (Groq+Cerebras con PII redaction)
 - Hardening: 10 improvements (prompt injection, timeout, persistence, privacy, rate limit, retry/backoff, project tree depth, json extract, MAX_ROUNDS configurable, temperature configurable)
+
+## Sessione 2026-09-12 — provider CLI OAuth (claude_cli, codex_cli)
+
+**Obiettivo**: far dialogare Claude Code e Codex CLI nello stesso council usando i login OAuth degli abbonamenti (Claude Max, ChatGPT Plus/Pro) invece di API key a consumo. Progetto ripreso dopo pausa da luglio 2026.
+
+**Fatto (verificato)**:
+- `~/.codex/auth.json` già autenticato OAuth; binario `codex` introvabile in PATH — era dentro l'estensione VSCode "ChatGPT" (`~/.vscode/extensions/openai.chatgpt-26.908.40401-linux-x64/bin/linux-x86_64/codex`, codex-cli 0.154.0-alpha.6.2, installata quel giorno). Creato symlink `~/.local/bin/codex` → quel binario, `codex --version` OK.
+- Formati output CLI non-interattive verificati: `claude -p "..." --output-format json` → JSON campo `"result"`; `codex exec "..." -s read-only --skip-git-repo-check -o <file>` → testo puro su file.
+- Implementati (via subagent coder, verificati con git diff + test): `providers.py` (`ProviderKind` esteso con `"claude_cli"`/`"codex_cli"`, metodi `_claude_cli`/`_codex_cli` subprocess asyncio, sottoclassi `ClaudeCliProvider`/`CodexCliProvider`); `config.yaml` (voci `claude-cli-oauth`, `codex-cli-oauth`, `env_required: []`); aggancio in `debate.py` `_make_provider` e `gui/app.py` (`_build_provider` + `/api/models`, altrimenti cadevano su `MockProvider`).
+- Smoke test end-to-end: `complete(..., provider_kind="claude_cli")` → `'PONG'`, idem `codex_cli`. Commit `d227434` "feat: provider CLI OAuth (claude_cli, codex_cli)" (10 file), pushato su `origin/main` (commit `1eeec7e` per checkpoint+TODO).
+- Trovato e corretto un symlink vault rotto: `~/Obsidian/Memoria/progetti/tavolarotonda-due` puntava a una copia stantia in `/mnt/backup/Dropbox/1 Programmazione/Progetti/tavolarotonda-due` (ferma all'11 luglio 2026), invece che al repo reale qui. Ripuntato.
+
+**Decisioni**: symlink invece di npm install (zero setup, riusa OAuth; tradeoff = build alpha pinnata all'estensione VSCode) · permission-mode "plan" / sandbox "read-only" (i provider CLI discutono, non editano mai) · sottoclassi dedicate invece di passare `provider_kind` a mano (pattern esistente `AnthropicCompatProvider`).
+
+**Stato**: HEAD `1eeec7e`, main, pushato. NON ancora fatto: un vero turno di dibattito nel council con i due provider (solo smoke test "PONG") — prossimo step.
 
 ## Architettura / componenti
 
