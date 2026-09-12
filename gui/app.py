@@ -46,7 +46,7 @@ from tavolarotonda import (
     render_qa_template,
 )
 from tavolarotonda.evidence import adversarial_research
-from tavolarotonda.providers import AnthropicCompatProvider, CircuitBreaker, ProviderResult
+from tavolarotonda.providers import AnthropicCompatProvider, ClaudeCliProvider, CircuitBreaker, CodexCliProvider, ProviderResult
 from tavolarotonda.config import load as load_config, get_model, get_preset, get_agent_color, get_timeout
 from tavolarotonda.topic_classifier import get_routing_preview
 from tavolarotonda.custom_personas import (
@@ -302,6 +302,19 @@ def _build_provider(choice: str, privacy_tier: str = "cloud_ok") -> tuple:
         return provider, {
             "state": "ok",
             "reason": f"{cfg['env_required'][0]} OK ({cfg['default_model']})",
+            "model": cfg["default_model"],
+        }
+
+    if kind in ("claude_cli", "codex_cli"):
+        # CLI locali già autenticate via OAuth abbonamento: niente env, niente base_url.
+        provider_cls = ClaudeCliProvider if kind == "claude_cli" else CodexCliProvider
+        provider = provider_cls(
+            privacy_tier=privacy_tier,
+            default_timeout_s=get_timeout(),
+        )
+        return provider, {
+            "state": "ok",
+            "reason": f"CLI locale '{kind}' (OAuth abbonamento, nessuna API key)",
             "model": cfg["default_model"],
         }
 
@@ -805,6 +818,10 @@ def api_models():
                 status = {"state": "ok",
                           "reason": f"endpoint {cfg['default_base_url']}",
                           "model": cfg["default_model"]}
+        elif cfg["provider_kind"] in ("claude_cli", "codex_cli"):
+            status = {"state": "ok",
+                      "reason": "CLI locale OAuth (nessuna API key)",
+                      "model": cfg["default_model"]}
         out.append({
             "key": key,
             "label": cfg["label"],

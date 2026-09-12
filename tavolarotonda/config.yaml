@@ -91,6 +91,26 @@ models:
     icon: "🔮"
     aq_score: 7.5
 
+  claude-cli-oauth:
+    label: "Claude (CLI, login abbonamento)"
+    description: "Claude Code CLI via OAuth (Max/Pro), nessuna API key, consuma dalla quota abbonamento."
+    provider_kind: "claude_cli"
+    env_required: []
+    default_model: "sonnet"
+    default_base_url: ""
+    icon: "🔷"
+    aq_score: 8.0
+
+  codex-cli-oauth:
+    label: "Codex (CLI, login ChatGPT)"
+    description: "Codex CLI OpenAI via OAuth (Plus/Pro), nessuna API key, consuma dalla quota abbonamento."
+    provider_kind: "codex_cli"
+    env_required: []
+    default_model: ""
+    default_base_url: ""
+    icon: "🟢"
+    aq_score: 8.0
+
 # ── Council presets ───────────────────────────────────────────────────────────
 # routing: dict[agent_key → provider_key] — null = monolithic (nessun routing)
 council_presets:
@@ -188,6 +208,8 @@ model_for_provider:
   opus-local: "qwen3.6-opus-abliterated:35b"
   glm-4.7: "glm-4.7"
   glm-5.2: "glm-5.2"
+  claude-cli-oauth: "sonnet"
+  codex-cli-oauth: ""
 
 # ── Export ────────────────────────────────────────────────────────────────────
 export_formats:

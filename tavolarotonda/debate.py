@@ -6,7 +6,7 @@ reagendo alle risposte precedenti.
 from __future__ import annotations
 
 import os
-from tavolarotonda.providers import AnthropicCompatProvider, LLMProvider, MockProvider
+from tavolarotonda.providers import AnthropicCompatProvider, ClaudeCliProvider, CodexCliProvider, LLMProvider, MockProvider
 from tavolarotonda.memory_palace import MemoryPalace
 from tavolarotonda.phases import PhaseEvent
 
@@ -29,6 +29,10 @@ def _make_provider(key: str) -> LLMProvider | MockProvider:
     if kind == "anthropic_compat":
         return AnthropicCompatProvider(base_url=base_url, api_key=api_key,
                                       privacy_tier="cloud_ok", default_timeout_s=120)
+    if kind in ("claude_cli", "codex_cli"):
+        # CLI locali già autenticate via OAuth abbonamento: niente env, niente credenziali.
+        cls = ClaudeCliProvider if kind == "claude_cli" else CodexCliProvider
+        return cls(privacy_tier="cloud_ok", default_timeout_s=120)
     return MockProvider(privacy_tier="cloud_ok")
 
 

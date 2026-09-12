@@ -2,7 +2,7 @@
 title: tavolarotonda-due - Indice
 type: project-index
 project: tavolarotonda-due
-updated: 2026-07-12 06:16
+updated: 2026-07-12 19:18
 tags: [tavolarotonda-due, index, auto-generated]
 ---
 
@@ -43,6 +43,7 @@ tags: [tavolarotonda-due, index, auto-generated]
 - [[CP_20260711_2115]]
 - [[CP_20260711_2248]]
 - [[CP_20260711_2350]]
+- [[CP_20260712_0629]]
 - [[PROJECT-TOD]]
 
 ## .Pytest_Cache (`.pytest_cache/`)
@@ -56,4 +57,4 @@ tags: [tavolarotonda-due, index, auto-generated]
 
 ---
 
-_Auto-generato da `obsidian_auto_update.py` — 28 file indicizzati._
+_Auto-generato da `obsidian_auto_update.py` — 29 file indicizzati._

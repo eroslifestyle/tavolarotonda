@@ -22,13 +22,14 @@ import gzip as _gzip
 import json as _json
 import os
 import re
+import tempfile
 import time
 from dataclasses import dataclass, field
 from typing import Literal
 
 import httpx
 
-ProviderKind = Literal["ollama", "openai_compat", "claude", "mock", "anthropic_compat"]
+ProviderKind = Literal["ollama", "openai_compat", "claude", "mock", "anthropic_compat", "claude_cli", "codex_cli"]
 
 
 @dataclass
@@ -194,6 +195,10 @@ class LLMProvider:
                     text = await self._claude(model_id, prompt, system, temperature, max_tokens, timeout)
                 elif kind == "anthropic_compat":
                     text = await self._anthropic_compat(model_id, prompt, system, temperature, max_tokens, timeout)
+                elif kind == "claude_cli":
+                    text = await self._claude_cli(model_id, prompt, system, temperature, max_tokens, timeout)
+                elif kind == "codex_cli":
+                    text = await self._codex_cli(model_id, prompt, system, temperature, max_tokens, timeout)
                 else:
                     return ProviderResult(text="", model=model, error="unknown_kind")
 
@@ -321,6 +326,61 @@ class LLMProvider:
                     return item["text"]
             return ""
 
+    async def _claude_cli(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
+        """Chiama Claude Code CLI (-p), autenticato via OAuth abbonamento (non API key).
+
+        temperature/max_tokens non esposti dalla CLI, ignorati.
+        """
+        cmd = ["claude", "-p", prompt, "--output-format", "json", "--permission-mode", "plan"]
+        if system:
+            cmd += ["--append-system-prompt", system]
+        if model:
+            cmd += ["--model", model]
+        proc = await asyncio.create_subprocess_exec(
+            *cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE,
+        )
+        try:
+            stdout, stderr = await asyncio.wait_for(proc.communicate(), timeout=timeout)
+        except asyncio.TimeoutError:
+            proc.kill()
+            await proc.communicate()
+            raise TimeoutError(f"claude CLI timeout dopo {timeout}s")
+        if proc.returncode != 0:
+            raise RuntimeError(f"claude CLI errore: {stderr.decode(errors='replace')[:500]}")
+        data = _json.loads(stdout)
+        if data.get("is_error"):
+            raise RuntimeError(f"claude CLI errore: {str(data.get('result', ''))[:500]}")
+        return data.get("result", "")
+
+    async def _codex_cli(self, model: str, prompt: str, system: str, temperature: float, max_tokens: int, timeout: float) -> str:
+        """Chiama Codex CLI (OpenAI), autenticato via OAuth ChatGPT (non API key).
+
+        temperature/max_tokens non esposti dalla CLI, ignorati.
+        """
+        full_prompt = f"{system}\n\n{prompt}" if system else prompt
+        with tempfile.NamedTemporaryFile(mode="r", suffix=".txt", delete=False) as tmp:
+            out_path = tmp.name
+        cmd = ["codex", "exec", full_prompt, "-s", "read-only", "--skip-git-repo-check", "-o", out_path]
+        if model:
+            cmd += ["-m", model]
+        proc = await asyncio.create_subprocess_exec(
+            *cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE,
+        )
+        try:
+            _, stderr = await asyncio.wait_for(proc.communicate(), timeout=timeout)
+        except asyncio.TimeoutError:
+            proc.kill()
+            await proc.communicate()
+            raise TimeoutError(f"codex CLI timeout dopo {timeout}s")
+        if proc.returncode != 0:
+            raise RuntimeError(f"codex CLI errore: {stderr.decode(errors='replace')[:500]}")
+        try:
+            with open(out_path, encoding="utf-8") as f:
+                text = f.read()
+        finally:
+            os.unlink(out_path)
+        return text.strip()
+
 
 # Mock provider per test/demos offline
 class MockProvider(LLMProvider):
@@ -376,6 +436,31 @@ class AnthropicCompatProvider(LLMProvider):
         # Forza provider_kind così LLMProvider.complete() usa _anthropic_compat
         return await super().complete(prompt, model=model, system=system, temperature=temperature, max_tokens=max_tokens, timeout_s=timeout_s, provider_kind="anthropic_compat", model_tier=model_tier)  # type: ignore[arg-type]
 
+class ClaudeCliProvider(LLMProvider):
+    """Provider che usa Claude Code CLI locale (OAuth abbonamento, nessuna API key)."""
+
+    def __init__(self, privacy_tier: str = "cloud_ok", default_timeout_s: float = 120.0, **kwargs):
+        super().__init__(privacy_tier=privacy_tier, default_timeout_s=default_timeout_s, **kwargs)
+
+    def kind_for(self, model: str) -> ProviderKind:
+        return "claude_cli"
+
+    async def complete(self, prompt: str, *, model: str, system: str = "", temperature: float = 0.7, max_tokens: int = 1024, timeout_s: float | None = None, provider_kind: ProviderKind | None = None, model_tier: str | None = None) -> ProviderResult:
+        return await super().complete(prompt, model=model, system=system, temperature=temperature, max_tokens=max_tokens, timeout_s=timeout_s, provider_kind="claude_cli", model_tier=model_tier)  # type: ignore[arg-type]
+
+
+class CodexCliProvider(LLMProvider):
+    """Provider che usa Codex CLI locale (OAuth ChatGPT, nessuna API key)."""
+
+    def __init__(self, privacy_tier: str = "cloud_ok", default_timeout_s: float = 120.0, **kwargs):
+        super().__init__(privacy_tier=privacy_tier, default_timeout_s=default_timeout_s, **kwargs)
+
+    def kind_for(self, model: str) -> ProviderKind:
+        return "codex_cli"
+
+    async def complete(self, prompt: str, *, model: str, system: str = "", temperature: float = 0.7, max_tokens: int = 1024, timeout_s: float | None = None, provider_kind: ProviderKind | None = None, model_tier: str | None = None) -> ProviderResult:
+        return await super().complete(prompt, model=model, system=system, temperature=temperature, max_tokens=max_tokens, timeout_s=timeout_s, provider_kind="codex_cli", model_tier=model_tier)  # type: ignore[arg-type]
+
 __all__ = [
     "LLMProvider",
     "MockProvider",
@@ -384,4 +469,6 @@ __all__ = [
     "ProviderKind",
     "CircuitBreaker",
     "AnthropicCompatProvider",
+    "ClaudeCliProvider",
+    "CodexCliProvider",
 ]
